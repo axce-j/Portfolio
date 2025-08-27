@@ -156,8 +156,9 @@
 //     </div>
 //   );
 // }
+import type { ReactNode } from "react"
 
-import { ReactNode, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   Home,

@@ -1,9 +1,14 @@
+import { Outlet } from "react-router-dom";
 
-
-const ProjectsPage = () => {
-    return (
-      <div>projects</div>
-    )
-  }
+function ProjectsPage() {
+  return (
+    <div className="text-white">
   
-  export default ProjectsPage
+{/* <ProjectIndex/> */}
+
+      <Outlet />
+    </div>
+  );
+}
+
+export default ProjectsPage;

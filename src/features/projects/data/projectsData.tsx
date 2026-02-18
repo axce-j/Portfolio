@@ -1,3 +1,39 @@
+/**
+ * ═══════════════════════════════════════════════════════════════
+ * PROJECT DATA STRUCTURE
+ * ═══════════════════════════════════════════════════════════════
+ *
+ * This file contains all project data for the portfolio.
+ *
+ * ORGANIZATION:
+ * - Three main categories: Design, Frontend, Backend
+ * - Each category has its own array of projects
+ * - Projects are ordered by priority/importance (most important first)
+ * - All arrays are exported as `projectSections` for easy consumption
+ *
+ * ID STRUCTURE:
+ * - Format: `{category}-{number}`
+ * - Examples: design-01, frontend-01, backend-01
+ * - Numbers are zero-padded (01, 02, 03...)
+ * - IDs are used for routing: /projects/{id}
+ *
+ * LEGACY TYPE FIELD:
+ * - The `type` field (D1, F.E.P1, B.E.P1) is kept for backward compatibility
+ * - It's used by ProjectCard's handleNavigation logic
+ * - Will eventually be replaced by the new `id` field
+ *
+ * DATA COMPLETENESS:
+ * - All fields are filled for future individual project pages
+ * - Current list view only uses: id, type, title, subtitle, gradient, cover
+ * - Detail pages will use: description, longDescription, techStack, urls, etc.
+ *
+ * ADDING NEW PROJECTS:
+ * 1. Add entry to the appropriate category array (designProjects, frontendProjects, backendProjects)
+ * 2. Assign next sequential ID (e.g., design-06, frontend-05)
+ * 3. Fill all required fields (see ProjectEntry interface)
+ * 4. Export will happen automatically via projectSections
+ */
+
 // ─────────────────────────────────────────────
 // Types
 // ─────────────────────────────────────────────
@@ -7,14 +43,14 @@ export type ProjectCategory = "design" | "frontend" | "backend";
 
 export interface ProjectEntry {
   // ── Identity ──
-  id: string;                  // unique slug, used for routing: /projects/:id
-  type: string;                // legacy type key (D1, F.E.P1, etc.) — kept for ProjectCard nav
+  id: string;                  // format: {category}-{number} e.g. "design-01"
+  type: string;                // legacy: D1, F.E.P1, B.E.P1 (kept for ProjectCard nav)
   category: ProjectCategory;
 
   // ── Card display (used now) ──
   title: string;
   subtitle: string;
-  gradient: string;
+  gradient: string;            // "teal" | "blue" | "yellow" | "mixed"
   cover?: string;              // thumbnail/cover image path
 
   // ── Detail page content (used later) ──
@@ -38,12 +74,13 @@ export interface ProjectSection {
 }
 
 // ─────────────────────────────────────────────
-// Design Projects
+// DESIGN PROJECTS
+// Ordered by priority/importance
 // ─────────────────────────────────────────────
 
 const designProjects: ProjectEntry[] = [
   {
-    id: "logo-design",
+    id: "design-01",
     type: "D1",
     category: "design",
     title: "Logo Design",
@@ -63,7 +100,7 @@ const designProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "ui-mockups",
+    id: "design-02",
     type: "D2",
     category: "design",
     title: "UI Mockups",
@@ -82,7 +119,7 @@ const designProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "poster-design",
+    id: "design-03",
     type: "D3",
     category: "design",
     title: "Poster Design",
@@ -101,7 +138,7 @@ const designProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "photography",
+    id: "design-04",
     type: "D4",
     category: "design",
     title: "Photography",
@@ -119,7 +156,7 @@ const designProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "digital-illustration",
+    id: "design-05",
     type: "D5",
     category: "design",
     title: "Digital Illustration",
@@ -139,12 +176,13 @@ const designProjects: ProjectEntry[] = [
 ];
 
 // ─────────────────────────────────────────────
-// Back-End Projects
+// BACKEND PROJECTS
+// Ordered by priority/importance
 // ─────────────────────────────────────────────
 
 const backendProjects: ProjectEntry[] = [
   {
-    id: "api-development",
+    id: "backend-01",
     type: "B.E.P1",
     category: "backend",
     title: "API Development",
@@ -164,7 +202,7 @@ const backendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "database-design",
+    id: "backend-02",
     type: "B.E.P2",
     category: "backend",
     title: "Database Design",
@@ -183,7 +221,7 @@ const backendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "ecommerce-platform",
+    id: "backend-03",
     type: "B.E.P3",
     category: "backend",
     title: "E-commerce Platform",
@@ -204,7 +242,7 @@ const backendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "auth-systems",
+    id: "backend-04",
     type: "B.E.P4",
     category: "backend",
     title: "Authentication Systems",
@@ -225,12 +263,13 @@ const backendProjects: ProjectEntry[] = [
 ];
 
 // ─────────────────────────────────────────────
-// Front-End Projects
+// FRONTEND PROJECTS
+// Ordered by priority/importance
 // ─────────────────────────────────────────────
 
 const frontendProjects: ProjectEntry[] = [
   {
-    id: "portfolio-website",
+    id: "frontend-01",
     type: "F.E.P1",
     category: "frontend",
     title: "Portfolio Website",
@@ -251,7 +290,7 @@ const frontendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "dashboard-ui",
+    id: "frontend-02",
     type: "F.E.P2",
     category: "frontend",
     title: "Dashboard UI",
@@ -270,7 +309,7 @@ const frontendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "landing-pages",
+    id: "frontend-03",
     type: "F.E.P3",
     category: "frontend",
     title: "Landing Pages",
@@ -290,7 +329,7 @@ const frontendProjects: ProjectEntry[] = [
     ],
   },
   {
-    id: "mobile-ui-design",
+    id: "frontend-04",
     type: "F.E.P4",
     category: "frontend",
     title: "Mobile UI Design",
@@ -312,41 +351,47 @@ const frontendProjects: ProjectEntry[] = [
 ];
 
 // ─────────────────────────────────────────────
-// Sections (used by ProjectIndex + scroll component)
+// EXPORTED SECTIONS
+// Used by ProjectIndex and scroll components
 // ─────────────────────────────────────────────
 
 export const projectSections: ProjectSection[] = [
   {
     title: "Design Projects",
     category: "design",
-    viewMorePath: "/projects/designprojects",
+    viewMorePath: "/projects/design",
     projects: designProjects,
   },
   {
     title: "Back-End Projects",
     category: "backend",
-    viewMorePath: "/projects/backendprojects",
+    viewMorePath: "/projects/backend",
     projects: backendProjects,
   },
   {
     title: "Front-End Projects",
     category: "frontend",
-    viewMorePath: "/projects/frontendprojects",
+    viewMorePath: "/projects/frontend",
     projects: frontendProjects,
   },
 ];
 
 // ─────────────────────────────────────────────
-// Helpers — for future individual project pages
+// HELPER FUNCTIONS
+// For future individual project pages
 // ─────────────────────────────────────────────
 
 /** Flat list of all projects across every section */
 export const allProjects: ProjectEntry[] = projectSections.flatMap((s) => s.projects);
 
-/** Look up a single project by its slug id */
+/** Look up a single project by its ID (e.g., "design-01") */
 export const getProjectById = (id: string): ProjectEntry | undefined =>
   allProjects.find((p) => p.id === id);
 
-/** Look up a single project by its legacy type key */
+/** Look up a single project by its legacy type key (e.g., "D1", "F.E.P1") */
 export const getProjectByType = (type: string): ProjectEntry | undefined =>
   allProjects.find((p) => p.type === type);
+
+/** Get all projects in a specific category */
+export const getProjectsByCategory = (category: ProjectCategory): ProjectEntry[] =>
+  allProjects.filter((p) => p.category === category);

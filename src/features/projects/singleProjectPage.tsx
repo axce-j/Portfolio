@@ -206,7 +206,7 @@ import { cn } from "@/lib/utils";
  // Main HomePage Component
  export default function SingleProjectPage({ data = homeData }: { data?: HomePageData }) {
    return (
-     <div className="min-h-screen bg-gray-900 text-white">
+     <div className="min-h-screen  text-white">
        <div className="horizontal-scroll-container overflow-x-auto">
          <div className="min-w-full px-4 lg:px-8">
            {/* Intro Section */}

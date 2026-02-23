@@ -65,7 +65,7 @@ const CareerDetailCard: React.FC<CareerDetailCardProps> = ({ career }) => {
         )}
 
         {/* Gallery Swiper (Work only) */}
-        {!isEducation && swiperSlides && swiperSlides.length > 0 && (
+        { swiperSlides && swiperSlides.length > 0 && (
           <div className="mb-6 rounded-xl overflow-hidden border border-white/[0.08]">
             <FeaturedSwiper slides={swiperSlides} autoplayDelay={4000} />
           </div>

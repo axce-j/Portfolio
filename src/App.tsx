@@ -8,8 +8,8 @@ import ProjectIndex from "./features/projects";
 import SingleProjectPage from "./features/projects/singleProjectPage";
 import Career from "./pages/career";
 import Expertise from "./pages/expertise";
-import Favorites from "./pages/favorites";
-import Settings from "./pages/settings";
+ import Settings from "./pages/settings";
+import Chronicle from "./pages/chronicle";
 
 function App() {
   return (
@@ -28,7 +28,7 @@ function App() {
         {/* Resume */}
         <Route path="/expertise" element={<Expertise />} />
         <Route path="/Career" element={<Career />} />
-        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/chronicle" element={<Chronicle />} />
 
         {/* Contacts */}
         <Route path="/contacts" element={<ContactsPage />} />

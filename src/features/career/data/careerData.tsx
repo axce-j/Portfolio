@@ -86,6 +86,11 @@ export const careers: Career[] = [
       "Built capstone project: real-time collaborative code editor",
       "Received MIT Undergraduate Research Grant ($5,000)",
     ],
+    gallery: [
+      "/images/careers/meta-office.jpg",
+      "/images/careers/meta-team.jpg",
+      "/images/careers/meta-hackathon.jpg",
+    ],
     personalTake: "This degree wasn't just about learning to code—it fundamentally shaped how I approach problems. MIT taught me to break down complex challenges into manageable pieces and to never stop questioning assumptions.",
   },
 

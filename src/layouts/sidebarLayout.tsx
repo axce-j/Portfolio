@@ -13,6 +13,7 @@ import {
   Files,
   PersonStanding,
   User2,
+  Scroll,
 } from "lucide-react";
 import { Button } from "../components/ui/button";
 import { cn } from "../lib/utils";
@@ -29,7 +30,7 @@ const contactItems = [{ icon: Mail, path: "/contacts", label: "Contact" },
   { icon: Settings, path: "/settings", label: "settings" },
 
 ];
-const specialItems = [{ icon: Star, path: "/favorites", label: "Favorites" }];
+const specialItems = [{ icon: Scroll, path: "/chronicle", label: "Chronicle" }];
 const socialItems = [
   {
     icon: Linkedin,

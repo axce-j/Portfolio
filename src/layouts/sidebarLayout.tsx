@@ -7,11 +7,10 @@ import {
   Settings,
   Linkedin,
   Github,
-  Star,
+ 
   Folder,
   Sparkles,
-  Files,
-  PersonStanding,
+ 
   User2,
   Scroll,
 } from "lucide-react";

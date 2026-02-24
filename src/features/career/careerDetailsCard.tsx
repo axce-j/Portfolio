@@ -14,9 +14,11 @@ const CareerDetailCard: React.FC<CareerDetailCardProps> = ({ career }) => {
   const Icon = isEducation ? GraduationCap : career.type === "freelance" ? Sparkles : Briefcase;
 
   // Convert gallery images to swiper format
-  const swiperSlides: SlideItem[] | undefined = career.gallery?.map((img, i) => ({
+     const swiperSlides: SlideItem[] | undefined = career.gallery?.map((img, i) => ({
+
     id: i + 1,
-    src: testImage1, // Replace with actual img when available
+    
+    src: testImage1||img, 
     alt: `${career.organization} - Image ${i + 1}`,
     title: "",
   }));

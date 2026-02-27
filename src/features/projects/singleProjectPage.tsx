@@ -1,6 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { ArrowLeft, Github, Globe, Figma, ExternalLink } from "lucide-react";
-import { cn } from "@/lib/utils";
 import {
   getSingleProjectById,
   type SingleProject,

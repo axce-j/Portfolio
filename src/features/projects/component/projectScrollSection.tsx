@@ -23,7 +23,6 @@ export default function ProjectsScrollSection({
   sections,
 }: ProjectsScrollSectionProps) {
   const scrollRefs = useRef<(HTMLDivElement | null)[]>([]);
-  // true = currently at end, false = currently at start
   const [atEnd, setAtEnd] = useState<boolean[]>(sections.map(() => false));
 
   const toggleScroll = (index: number) => {
@@ -48,9 +47,9 @@ export default function ProjectsScrollSection({
       {sections.map((section, sectionIndex) => (
         <div key={sectionIndex} className="relative">
 
-          {/* Section header */}
+          {/* Section header — pl-4 on mobile, pl-40 on desktop */}
           {section.title && (
-            <div className="flex justify-between items-center pl-40 pr-4 pb-8">
+            <div className="flex justify-between items-center pl-4 md:pl-40 pr-4 pb-8">
               <h3 className="font-bold text-2xl">{section.title}</h3>
 
               <button
@@ -81,13 +80,13 @@ export default function ProjectsScrollSection({
             </div>
           )}
 
-          {/* Horizontal scroll row */}
+          {/* Horizontal scroll row — pl-4 on mobile, pl-40 on desktop */}
           <div
             ref={(el) => { scrollRefs.current[sectionIndex] = el; }}
-            className="flex gap-8 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar"
+            className="flex gap-8 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar horizontal-scroll-container"
             style={scrollbarHideStyle}
           >
-            <div className="flex gap-8 pl-40">
+            <div className="flex gap-4 md:gap-8 pl-4 md:pl-40">
               {section.projects.map((project, projectIndex) => (
                 <ProjectCard
                   key={projectIndex}

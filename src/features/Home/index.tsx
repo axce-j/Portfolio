@@ -38,8 +38,12 @@ const HomeIndex = () => {
     <div className="flex flex-col gap-[6.5rem] pb-16">
 
       {/* Header */}
-      <header className="flex justify-between items-center p-4 gap-8 pl-40 pr-4">
-        <div className="w-[80%] flex flex-col gap-12">
+      {/* mobile: column, full-width, left-padded normally */}
+      {/* desktop: original side-by-side row with pl-40 */}
+      <header className="flex flex-col md:flex-row justify-between items-center p-4 gap-8 pl-4 md:pl-40 pr-4">
+
+        {/* Text block: full width on mobile, 80% on desktop */}
+        <div className="w-full md:w-[80%] flex flex-col gap-12">
           <h1 className="text-8xl font-bold">J.O.E</h1>
           <p className="text-xl text-white/60">
             Welcome to the extraordinary world of {name}, a versatile and
@@ -50,11 +54,14 @@ const HomeIndex = () => {
             aesthetically pleasing products.
           </p>
         </div>
-        <div className="w-[50%]">
+
+        {/* Swiper block: full width on mobile, 50% on desktop */}
+        <div className="w-full md:w-[50%]">
           <div className="w-full h-100 rounded-2xl flex items-center justify-center backdrop-blur-sm">
             <FeaturedSwiper slides={slides} autoplayDelay={5000} />
           </div>
         </div>
+
       </header>
 
       {/* Featured Projects */}

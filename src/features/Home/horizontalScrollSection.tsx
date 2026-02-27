@@ -16,16 +16,16 @@ import { ProjectCard, SkillsCVCard, WorkExperienceCard } from "@/components/ui/c
 function ViewAllCard({ section }: { section: FeaturedSection }) {
   return (
     <Link to={section.viewMorePath} className="flex-shrink-0">
-      <div className="w-[32rem] h-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl flex flex-col items-center justify-center gap-4 hover:from-white/10 hover:to-white/15 transition-all duration-300 group cursor-pointer">
-        <div className="text-4xl mb-2 group-hover:scale-110 transition-transform duration-300">
+      <div className="w-[16rem] h-40 md:w-[32rem] md:h-80 bg-gradient-to-br from-white/5 to-white/10 backdrop-blur-sm border border-white/10 rounded-2xl flex flex-col items-center justify-center gap-2 md:gap-4 hover:from-white/10 hover:to-white/15 transition-all duration-300 group cursor-pointer">
+        <div className="text-2xl md:text-4xl mb-1 md:mb-2 group-hover:scale-110 transition-transform duration-300">
           👀
         </div>
-        <h4 className="text-xl font-semibold text-white">View All</h4>
-        <p className="text-white/60 text-center px-6 group-hover:text-white/80 transition-colors">
+        <h4 className="text-base md:text-xl font-semibold text-white">View All</h4>
+        <p className="text-white/60 text-xs md:text-base text-center px-4 md:px-6 group-hover:text-white/80 transition-colors">
           Explore all {section.title.toLowerCase()}
         </p>
         <svg
-          className="w-6 h-6 text-white/40 group-hover:text-white/60 group-hover:translate-y-1 transition-all duration-300"
+          className="w-4 h-4 md:w-6 md:h-6 text-white/40 group-hover:text-white/60 group-hover:translate-y-1 transition-all duration-300"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"
@@ -83,8 +83,8 @@ export default function HorizontalScrollSection({
       {sections.map((section, sectionIndex) => (
         <div key={sectionIndex} className="relative">
 
-          {/* Section header */}
-          <div className="flex justify-between items-center pl-40 pr-4 pb-8">
+          {/* Section header — pl-4 on mobile, pl-40 on desktop */}
+          <div className="flex justify-between items-center pl-4 md:pl-40 pr-4 pb-8">
             <h3 className="font-bold text-2xl">{section.title}</h3>
 
             <button
@@ -92,7 +92,7 @@ export default function HorizontalScrollSection({
               className="group flex items-center gap-2 text-sm text-white/60 hover:text-white/80 transition-colors duration-300"
             >
               <span>
-                {atEnd[sectionIndex] ? "Back to start" : "See all"}
+                {atEnd[sectionIndex] ? "Back to start" : "See end"}
               </span>
               <svg
                 className={`w-4 h-4 transition-transform duration-300 ${
@@ -114,13 +114,13 @@ export default function HorizontalScrollSection({
             </button>
           </div>
 
-          {/* Scroll row */}
+          {/* Scroll row — pl-4 on mobile, pl-40 on desktop */}
           <div
             ref={(el) => { scrollRefs.current[sectionIndex] = el; }}
-            className="flex gap-8 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar"
+            className="flex gap-8 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar horizontal-scroll-container"
             style={scrollbarHideStyle}
           >
-            <div className="flex gap-8 pl-40">
+            <div className="flex gap-4 md:gap-8 pl-4 md:pl-40">
 
               {/* Work Experience cards */}
               {section.type === "work" &&

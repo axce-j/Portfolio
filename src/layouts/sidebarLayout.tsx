@@ -27,7 +27,6 @@ const navigationItems = [
 ];
 const contactItems = [{ icon: Mail, path: "/contacts", label: "Contact" },
   { icon: Settings, path: "/settings", label: "settings" },
-
 ];
 const specialItems = [{ icon: Scroll, path: "/chronicle", label: "Chronicle" }];
 const socialItems = [
@@ -38,6 +37,10 @@ const socialItems = [
   },
   { icon: Github, href: "https://github.com/axce-j", label: "GitHub" },
 ];
+
+// Mobile bottom bar shows ONLY the first 4 navigation items
+const bottomNavItems = navigationItems;
+
 export default function SidebarLayout({ children }: SidebarLayoutProps) {
   const location = useLocation();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -49,26 +52,21 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       setIsScrolled(scrolled);
     };
 
-    // Function to handle horizontal scroll detection
     const handleHorizontalScroll = () => {
       const scrollContainers = document.querySelectorAll(
         ".horizontal-scroll-container"
       );
       let anyScrolled = false;
-
       scrollContainers.forEach((container) => {
         if (container.scrollLeft > 0) {
           anyScrolled = true;
         }
       });
-
       setIsHorizontalScrolled(anyScrolled);
     };
 
-    // Add scroll listeners
     window.addEventListener("scroll", handleScroll);
 
-    // Add horizontal scroll listeners to all horizontal scroll containers
     const scrollContainers = document.querySelectorAll(
       ".horizontal-scroll-container"
     );
@@ -76,7 +74,6 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
       container.addEventListener("scroll", handleHorizontalScroll);
     });
 
-    // Cleanup
     return () => {
       window.removeEventListener("scroll", handleScroll);
       scrollContainers.forEach((container) => {
@@ -85,43 +82,14 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
     };
   }, []);
 
-  // const projectSections = [
-  //   {
-  //     title: "Design Projects",
-  //     projects: [
-  //       { type:"D1", title: "Logo Design", subtitle: "Creative logos and branding", gradient: "blue" },
-  //       { type:"D2", title: "UI Mockups", subtitle: "High-fidelity interface designs", gradient: "teal" },
-  //       { type:"D3", title: "Poster Design", subtitle: "Event and promotional posters", gradient: "yellow" },
-  //       { type:"D4", title: "Photography", subtitle: "Landscape & portrait photography", gradient: "mixed" },
-  //       { type:"D5", title: "Digital Illustration", subtitle: "Custom digital artworks", gradient: "blue" }
-  //     ]
-  //   },
-  //   {
-  //     title: "Back-End Projects",
-  //     projects: [
-  //       { type:"B.E.P1", title: "API Development", subtitle: "RESTful and GraphQL APIs", gradient: "teal" },
-  //       { type:"B.E.P2", title: "Database Design", subtitle: "Schema and optimization work", gradient: "yellow" },
-  //       { type:"B.E.P3", title: "E-commerce Platform", subtitle: "Back-end for online stores", gradient: "blue" },
-  //       { type:"B.E.P4", title: "Authentication Systems", subtitle: "Secure login & user management", gradient: "mixed" }
-  //     ]
-  //   },
-  //   {
-  //     title: "Front-End Projects",
-  //     projects: [
-  //       { type:"F.E.P1", title: "Portfolio Website", subtitle: "Personal showcase site", gradient: "teal" },
-  //       { type:"F.E.P2", title: "Dashboard UI", subtitle: "Interactive data dashboards", gradient: "blue" },
-  //       { type:"F.E.P3", title: "Landing Pages", subtitle: "Marketing & product pages", gradient: "yellow" },
-  //       { type:"F.E.P4", title: "Mobile UI Design", subtitle: "Cross-platform app interfaces", gradient: "mixed" }
-  //     ]
-  //   }
-  // ];
   return (
-    <div className="min-h-screen bg-primary">
-      {/* Left Sidebar - Fixed with proper z-index management */}
+    <div className="min-h-[100dvh] bg-primary">
+
+      {/* ── Left Sidebar — desktop/tablet only (md+) ── */}
       <aside
         className={cn(
-          "fixed w-36 h-full pt-[3.2rem] flex flex-col items-center py-4 space-y-4 transition-all duration-300",
-          // Always keep sidebar above content, but allow cards to show behind it
+          "hidden md:flex",
+          "fixed w-36 h-full pt-[3.2rem] flex-col items-center py-4 space-y-4 transition-all duration-300",
           "z-40"
         )}
       >
@@ -135,7 +103,6 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
               : "shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.3)] bg-[linear-gradient(to-b,white,rgba(0,0,0,0.1))] border-gray-700/30"
           )}
         >
-          {/* Navigation Items */}
           <div className="flex flex-col space-y-2">
             {navigationItems.map((item) => {
               const Icon = item.icon;
@@ -196,27 +163,15 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
             })}
           </div>
           <div className="flex-1" />
-          {/* <div className="relative group">
-            <Button
-              variant="ghost"
-              size="icon"
-              className="w-8 h-8 rounded-lg text-muted-foreground hover:text-foreground hover:bg-accent"
-            >
-              <Settings className="w-4 h-4" />
-              <span className="sr-only">Settings</span>
-            </Button>
-            <div className="absolute left-full ml-2 px-2 py-1 bg-popover text-popover-foreground text-xs rounded-md shadow-md opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50">
-              Settings
-            </div>
-          </div> */}
         </div>
       </aside>
 
-      {/* Fixed Top Welcome Bar with fade animation */}
-      <nav className="fixed top-0 left-0 w-full flex justify-center  py-6 transition-all duration-300 z-30">
+      {/* ── Fixed Top Welcome Bar ── */}
+      <nav className="fixed top-0 left-0 w-full flex justify-center py-6 transition-all duration-300 z-30">
         <div
           className={cn(
             "flex items-center justify-center px-6 py-3 rounded-[70px] transition-all duration-300",
+            "mx-4 md:mx-0",
             isHorizontalScrolled
               ? "shadow-[inset_0_1px_2px_rgba(255,255,255,0.02),inset_0_-1px_2px_rgba(0,0,0,0.4),0_4px_20px_rgba(0,0,0,0.6)] bg-black/20 backdrop-blur-3xl border border-gray-600/10"
               : isScrolled
@@ -244,8 +199,8 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         </div>
       </nav>
 
-      {/* New: Right horizontal fixed duplicate of the aside, aligned near the navbar */}
-      <div className="fixed right-8 top-6 z-40 pointer-events-auto">
+      {/* ── Right floating bar (Chronicle + Socials) — desktop/tablet only (md+) ── */}
+      <div className="hidden md:block fixed right-8 top-6 z-40 pointer-events-auto">
         <div
           className={cn(
             "flex items-center gap-2 px-3 py-1.5 rounded-[70px] transition-all duration-300",
@@ -256,7 +211,6 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
               : "shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.3)] bg-[linear-gradient(to-b,white,rgba(0,0,0,0.1))] border border-gray-700/30"
           )}
         >
-          {/* horizontal nav items */}
           <div className="flex items-center gap-2">
             {specialItems.map((item) => {
               const Icon = item.icon;
@@ -314,10 +268,61 @@ export default function SidebarLayout({ children }: SidebarLayoutProps) {
         </div>
       </div>
 
-      {/* Main Content - Allow content to flow under both sidebar and navbar */}
-      <main className="relative pt-24">
+      {/* ── Main Content ── */}
+      <main className="relative pt-24 pb-24 md:pb-0">
         <div className="">{children}</div>
       </main>
+
+      {/* ── Mobile Bottom Navigation Bar — mobile only ── */}
+      <nav
+        className={cn(
+          "md:hidden",
+          "fixed bottom-0 left-0 w-full z-40",
+          "pb-[env(safe-area-inset-bottom)]"
+        )}
+      >
+        {/* Solid black outer wrapper — matches your site theme, no transparency */}
+        <div className="w-full h-[70px] flex justify-center items-center bg-black">
+          <div
+            className={cn(
+              "mx-4 w-[90vw] px-2 py-2 rounded-[70px] transition-all duration-300",
+              isHorizontalScrolled
+                ? "shadow-[inset_0_1px_2px_rgba(255,255,255,0.02),inset_0_-1px_2px_rgba(0,0,0,0.4),0_4px_20px_rgba(0,0,0,0.6)] bg-black/20 backdrop-blur-3xl border border-gray-600/10"
+                : isScrolled
+                ? "shadow-[inset_0_1px_2px_rgba(255,255,255,0.05),inset_0_-1px_2px_rgba(0,0,0,0.3),0_4px_20px_rgba(0,0,0,0.4)] bg-gray-800/20 backdrop-blur-xl border border-gray-600/20"
+                : "shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.2),0_2px_4px_rgba(0,0,0,0.3)] bg-[linear-gradient(to-b,white,rgba(0,0,0,0.1))] border border-gray-700/30"
+            )}
+          >
+            {/* Only the first 4 nav items (navigationItems) */}
+            <div className="flex items-center justify-around w-90vw">
+              {bottomNavItems.map((item) => {
+                const Icon = item.icon;
+                const isActive = location.pathname === item.path;
+                return (
+                  <Button
+                    key={item.path}
+                    asChild
+                    variant={isActive ? "default" : "ghost"}
+                    size="icon"
+                    className={cn(
+                      "w-9 h-9 rounded-xl transition-colors",
+                      isActive
+                        ? "bg-primary text-primary-foreground"
+                        : "text-muted-foreground hover:text-foreground hover:bg-accent"
+                    )}
+                  >
+                    <Link to={item.path}>
+                      <Icon className="w-4 h-4" />
+                      <span className="sr-only">{item.label}</span>
+                    </Link>
+                  </Button>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+      </nav>
+
     </div>
   );
 }

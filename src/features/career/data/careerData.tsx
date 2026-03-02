@@ -64,17 +64,17 @@ export interface Career {
 export const careers: Career[] = [
   // 1. Undergraduate Education
   {
-    id: "undergrad-mit",
+    id: "undergrad-Babcock",
     type: "education",
     title: "Bachelor of Science",
-    organization: "Massachusetts Institute of Technology",
+    organization: "Babcock Universtity",
     degree: "Bachelor of Science",
-    major: "Computer Science",
-    startDate: "Sep 2018",
-    endDate: "May 2022",
-    duration: "4 years",
-    location: "Cambridge, MA",
-    cgpa: "3.8/4.0",
+    major: "Software Engineering",
+    startDate: "Sep 2022",
+    endDate: "May 2025",
+    duration: "3 years",
+    location: "Ogun State, NGR",
+    cgpa: "4.32/5.0",
     icon: "🎓",
     image: "/images/careers/mit-logo.png", // Replace with your actual path
     description:
@@ -82,29 +82,29 @@ export const careers: Career[] = [
     highlights: [
       "Dean's List all 8 semesters",
       "Published 2 research papers on distributed systems",
-      "President of MIT Computer Science Club (2021-2022)",
+      "President of   Computer Science Club (2021-2022)",
       "Built capstone project: real-time collaborative code editor",
-      "Received MIT Undergraduate Research Grant ($5,000)",
+      "Received   Undergraduate Research Grant ($5,000)",
     ],
     gallery: [
       "/images/careers/meta-office.jpg",
       "/images/careers/meta-team.jpg",
       "/images/careers/meta-hackathon.jpg",
     ],
-    personalTake: "This degree wasn't just about learning to code—it fundamentally shaped how I approach problems. MIT taught me to break down complex challenges into manageable pieces and to never stop questioning assumptions.",
+    personalTake: "This degree wasn't just about learning to code—it fundamentally shaped how I approach problems. Babcock taught me to break down complex challenges into manageable pieces and to never stop questioning assumptions.",
   },
 
   // 2. Summer Internship
   {
-    id: "intern-meta",
+    id: "intern-sevens",
     type: "work",
     title: "Software Engineering Intern",
-    organization: "Meta (Facebook)",
-    role: "SWE Intern - Frontend",
-    startDate: "Jun 2021",
-    endDate: "Aug 2021",
-    duration: "3 months",
-    location: "Menlo Park, CA",
+    organization: "Sevens Common Factor",
+    role: "Jnr Full-Stack Developer",
+    startDate: "Jan 2024",
+    endDate: "June 2026",
+    duration: "6 months",
+    location: "Douala, CMR",
     icon: "💼",
     // image: "/images/careers/meta-logo.png",
     description:
@@ -125,20 +125,20 @@ export const careers: Career[] = [
       "/images/careers/meta-team.jpg",
       "/images/careers/meta-hackathon.jpg",
     ],
-    personalTake: "My first experience working at scale taught me that great code isn't just about functionality—it's about performance, maintainability, and user impact. Seeing my work reach millions was both humbling and motivating.",
+    personalTake: "My first experience working at common factor taught me that great code isn't just about functionality—it's about performance, maintainability, and user impact. Seeing my work reach millions was both humbling and motivating.",
   },
 
   // 3. First Full-Time Role
   {
-    id: "fulltime-startup",
+    id: "fulltime-AJC",
     type: "work",
-    title: "Frontend Developer",
-    organization: "TechFlow (YC S22)",
-    role: "Frontend Developer",
-    startDate: "Jun 2022",
-    endDate: "Dec 2022",
-    duration: "7 months",
-    location: "San Francisco, CA",
+    title: "Software Engineer",
+    organization: "AJC LIMITED",
+    role: "Software  Developer",
+    startDate: "Aug 2025",
+    endDate: "9 months +",
+    duration: "continued",
+    location: "Doula, CMR",
     icon: "🚀",
     image: "/images/careers/techflow-logo.png",
     description:
@@ -164,15 +164,15 @@ export const careers: Career[] = [
 
   // 4. Current Role
   {
-    id: "senior-google",
+    id: "remote-TYC",
     type: "work",
     title: "Senior Frontend Developer",
-    organization: "Google",
+    organization: "Tychoons Technologis Limited",
     role: "Senior Frontend Developer",
-    startDate: "Jan 2023",
+    startDate: "Sep 2025",
     endDate: "Present",
-    duration: "2 years 2 months",
-    location: "Mountain View, CA",
+    duration: "8 months +",
+    location: "Lagos, NGR",
     icon: "⚡",
     // image: "/images/careers/google-logo.png",
     description:
@@ -208,15 +208,15 @@ export const careers: Career[] = [
 
   // 5. Ongoing Freelance
   {
-    id: "freelance-current",
-    type: "freelance",
-    title: "Independent Contractor",
-    organization: "Self-Employed",
-    role: "Full-Stack Developer & Designer",
-    startDate: "Mar 2023",
+    id: "startup-CRL",
+    type: "work",
+    title: "Co-Founder StartUp",
+    organization: "HACO Technologies",
+    role: "Co-Founder,Lead-Backend Engineer",
+    startDate: "Nov 2025",
     endDate: "Present",
-    duration: "1 year 11 months",
-    location: "Remote",
+    duration: "5 months +",
+    location: "Lagos,NGR",
     icon: "💡",
     image: "/images/careers/freelance-avatar.png",
     description:

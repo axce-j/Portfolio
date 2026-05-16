@@ -1,11 +1,10 @@
-import { useRef, useState } from "react";
-import { ProjectSection } from "../data/projectsData";
+import { useRef, useState, useMemo } from "react";
 import ProjectCard from "@/components/ui/cards";
+import { ProjectSection } from "../data/projectData";
 
 // ─────────────────────────────────────────────
 // Scrollbar style
 // ─────────────────────────────────────────────
-
 const scrollbarHideStyle = {
   scrollbarWidth: "none" as const,
   msOverflowStyle: "none" as const,
@@ -42,12 +41,34 @@ export default function ProjectsScrollSection({
     });
   };
 
+  // ─────────────────────────────────────────────
+  // Smart Gradient Assignment (Per Section)
+  // ─────────────────────────────────────────────
+  const sectionsWithGradients = useMemo(() => {
+    const themes = ["teal", "blue", "yellow", "mixed"] as const;
+
+    return sections.map((section) => {
+      // Shuffle themes for variety
+      const shuffled = [...themes].sort(() => Math.random() - 0.5);
+
+      const projectsWithGradient = section.projects.map((project, idx) => ({
+        ...project,
+        gradient: shuffled[idx % shuffled.length],
+      }));
+
+      return {
+        ...section,
+        projects: projectsWithGradient,
+      };
+    });
+  }, [sections]);
+
   return (
     <>
-      {sections.map((section, sectionIndex) => (
+      {sectionsWithGradients.map((section, sectionIndex) => (
         <div key={sectionIndex} className="relative">
 
-          {/* Section header — pl-4 on mobile, pl-40 on desktop */}
+          {/* Section header */}
           {section.title && (
             <div className="flex justify-between items-center pl-4 md:pl-40 pr-4 pb-8">
               <h3 className="font-bold text-2xl">{section.title}</h3>
@@ -80,7 +101,7 @@ export default function ProjectsScrollSection({
             </div>
           )}
 
-          {/* Horizontal scroll row — pl-4 on mobile, pl-40 on desktop */}
+          {/* Horizontal scroll row */}
           <div
             ref={(el) => { scrollRefs.current[sectionIndex] = el; }}
             className="flex gap-8 overflow-x-auto overflow-y-hidden pb-4 hide-scrollbar horizontal-scroll-container"
@@ -90,18 +111,16 @@ export default function ProjectsScrollSection({
               {section.projects.map((project, projectIndex) => (
                 <ProjectCard
                   key={projectIndex}
-                  type={project.type}
                   id={project.id}
                   title={project.title}
                   subtitle={project.subtitle}
-                  gradient={project.gradient}
                   cover={project.cover}
+                  gradient={project.gradient}     // ← Smart gradient passed here
                 />
               ))}
               <div className="flex-shrink-0 w-4" />
             </div>
           </div>
-
         </div>
       ))}
     </>

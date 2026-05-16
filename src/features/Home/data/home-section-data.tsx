@@ -93,44 +93,60 @@ export interface ProjectEntry {
   // ─────────────────────────────────────────────
   // Work Experience
   // ─────────────────────────────────────────────
-  
   export const experienceFeaturedSections: FeaturedSection[] = [
-    {
-      title: "Work Experience",
-      type: "work",
-      viewMorePath: "/career",
-      items: [
-        {
-          role: "Senior UI Designer",
-          company: "Acme Studio",
-          period: "Jan 2023 — Present",
-          duration: "2 yrs",
-          tags: ["Figma", "Design Systems", "UX"],
-          accentColor: "#2dd4bf",
-          path: "/career#acme-studio",
-        },
-        {
-          role: "Front-End Developer",
-          company: "Pixel Labs",
-          period: "Jul 2021 — Dec 2022",
-          duration: "1.5 yrs",
-          tags: ["React", "Next.js", "TypeScript"],
-          accentColor: "#fb923c",
-          path: "/career#pixel-labs",
-        },
-        {
-          role: "Product Designer",
-          company: "Bright Ventures",
-          period: "Jun 2020 — Jun 2021",
-          duration: "1 yr",
-          tags: ["Prototyping", "User Research"],
-          accentColor: "#818cf8",
-          path: "/career#bright-ventures",
-        },
-      ] as WorkEntry[],
-    },
+	{
+	  title: "Work Experience",
+	  type: "work",
+	  viewMorePath: "/career",
+	  items: [
+		{
+		  role: "Lead Front End Developer",
+		  company: "Tycoons Technology Ltd",
+		  period: "Sep 2025 — Present",
+		  duration: "9 months",
+		  tags: ["React", "TypeScript", "AI Product"],
+		  accentColor: "#2dd4bf",
+		  path: "/career#remote-TYC",
+		},
+		{
+		  role: "Senior Software Engineer",
+		  company: "Auto Judeo Company",
+		  period: "Aug 2025 — Present",
+		  duration: "10 months",
+		  tags: ["Full-Stack", "Systems", "Hybrid"],
+		  accentColor: "#fb923c",
+		  path: "/career#fulltime-AJC",
+		},
+		{
+		  role: "Full Stack Engineer",
+		  company: "SevenCommonFactor",
+		  period: "Jan 2024 — Jun 2024",
+		  duration: "6 months",
+		  tags: ["React", "NestJS", "Internship"],
+		  accentColor: "#818cf8",
+		  path: "/career#intern-sevens",
+		},
+		{
+		  role: "Co-Founder & Lead Engineer",
+		  company: "CareerlyAI",
+		  period: "2025 — Present",
+		  duration: "Active",
+		  tags: ["EdTech", "Applied AI", "Startup"],
+		  accentColor: "#34d399",
+		  path: "/career#startup-CRL",
+		},
+		{
+		  role: "B.Sc Software Engineering",
+		  company: "Babcock University",
+		  period: "Sep 2022 — Jul 2025",
+		  duration: "3 yrs",
+		  tags: ["CGPA 4.32", "2nd Class Upper"],
+		  accentColor: "#f472b6",
+		  path: "/career#undergrad-Babcock",
+		},
+	  ] as WorkEntry[],
+	},
   ];
-  
   // ─────────────────────────────────────────────
   // Skills & CV
   // ─────────────────────────────────────────────

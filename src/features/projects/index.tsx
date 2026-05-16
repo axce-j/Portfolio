@@ -1,9 +1,9 @@
 import FeaturedSwiper, { SlideItem } from "@/components/ui/featured-swipper";
-import { projectSections } from "./data/projectsData";
-import ProfilePic1 from "@/assets/profilePic1.jpeg";
+ import ProfilePic1 from "@/assets/profilePic1.jpeg";
 import ProfilePic2 from "@/assets/profilePic2.jpeg";
 import ProfilePic3 from "@/assets/profilePic3.jpeg";
 import ProjectsScrollSection from "./component/projectScrollSection";
+import { projectSections } from "./data/projectData";
 
 // ─────────────────────────────────────────────
 // Static data (not section data — stays here)

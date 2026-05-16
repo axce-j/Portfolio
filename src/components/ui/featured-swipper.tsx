@@ -19,23 +19,29 @@ interface FeaturedSwiperProps {
   loop?: boolean;
   className?: string;
 }
-
-export default function FeaturedSwiper({
-  slides,
-  autoplayDelay = 4000,
-  loop,
-  className = "",
-}: FeaturedSwiperProps) {
-  const shouldLoop = loop ?? slides.length > 1;
-
-  return (
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      autoplay={{ delay: autoplayDelay, disableOnInteraction: false }}
-      pagination={{ clickable: true }}
-      loop={shouldLoop}
-      className={`w-full rounded-xl overflow-hidden ${className}`}
-    >
+export default function FeaturedSwiper({ slides, autoplayDelay = 4000, loop, className = "" }: FeaturedSwiperProps) {
+	const shouldLoop = loop ?? slides.length > 1;
+  
+	return (
+	  <div className={`relative w-full ${className}`}>
+		<style>{`
+		  .featured-swiper .swiper-pagination-bullet {
+			background-color: #ffffff;
+			opacity: 0.5;
+		  }
+		  .featured-swiper .swiper-pagination-bullet-active {
+			background-color: #000000; /* your active color */
+			opacity: 1;
+		  }
+		`}</style>
+  
+		<Swiper
+		  modules={[Autoplay, Pagination]}
+		  autoplay={{ delay: autoplayDelay, disableOnInteraction: false }}
+		  pagination={{ clickable: true }}
+		  loop={shouldLoop}
+		  className="featured-swiper w-full rounded-xl overflow-hidden"
+		>
       {slides.map((slide) => (
         <SwiperSlide key={slide.id}>
           <div className="relative w-full aspect-video">
@@ -60,5 +66,6 @@ export default function FeaturedSwiper({
         </SwiperSlide>
       ))}
     </Swiper>
+	</div>
   );
 }

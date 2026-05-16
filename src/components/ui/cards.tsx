@@ -5,11 +5,13 @@ import { Briefcase } from "lucide-react";
 import { ExpertiseEntry } from "@/features/Home/data/home-section-data";
 
 
+
+
 interface ProjectCardProps {
   title: string;
   subtitle: string;
   cover?: string;
-  gradient?: string;
+  gradient?: string;   // optional - can still override if needed
   type?: string;
   id?: string;
 }
@@ -19,7 +21,7 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
   subtitle,
   cover,
   id,
-  gradient = "from-slate-800 via-slate-700 to-slate-600",
+  gradient, // if passed, use it; otherwise random
 }) => {
   const gradientVariants = {
     teal: "from-black via-teal-950/95 to-slate-950",
@@ -34,26 +36,30 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     yellow: "from-yellow-800/40 via-yellow-700/30 to-slate-800/20", 
     mixed: "from-blue-800/30 via-teal-700/25 to-yellow-800/15"
   };
+
   const navigate = useNavigate();
 
-  const handleNavigation = (id:string|undefined) => {
-    navigate(`/projects/single-project/${id}`);
+  // Random gradient selection
+  const gradientKeys = ["teal", "blue", "yellow", "mixed"] as const;
+  const randomKey = gradientKeys[Math.floor(Math.random() * gradientKeys.length)];
+  const selectedGradient = gradient || randomKey;
+
+  const handleNavigation = (id: string | undefined) => {
+    if (id) navigate(`/projects/single-project/${id}`);
   };
 
-  const bgGradient = gradient.includes('teal') ? gradientVariants.teal :
-                   gradient.includes('blue') ? gradientVariants.blue :
-                   gradient.includes('yellow') ? gradientVariants.yellow :
-                   gradientVariants.mixed;
-
-  const hoverGradient = gradient.includes('teal') ? hoverGradients.teal :
-                       gradient.includes('blue') ? hoverGradients.blue :
-                       gradient.includes('yellow') ? hoverGradients.yellow :
-                       hoverGradients.mixed;
+  const bgGradient = gradientVariants[selectedGradient as keyof typeof gradientVariants];
+  const hoverGradient = hoverGradients[selectedGradient as keyof typeof hoverGradients];
 
   return (
-    <div onClick={()=>handleNavigation(id)} 
-     className="group flex-shrink-0 w-[16rem] h-40 md:w-[32rem] md:h-80 rounded-2xl overflow-hidden shadow-[inset_0_1px_2px_rgba(255,255,255,0.05),inset_0_-1px_2px_rgba(0,0,0,0.4),0_4px_12px_rgba(0,0,0,0.4)] border border-gray-600/30 transition-all duration-300 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.5),0_6px_20px_rgba(0,0,0,0.5)] bg-slate-900 cursor-pointer">      
-      
+    <div 
+      onClick={() => handleNavigation(id)} 
+      className="group flex-shrink-0 w-[16rem] h-40 md:w-[32rem] md:h-80 rounded-2xl overflow-hidden 
+                 shadow-[inset_0_1px_2px_rgba(255,255,255,0.05),inset_0_-1px_2px_rgba(0,0,0,0.4),0_4px_12px_rgba(0,0,0,0.4)] 
+                 border border-gray-600/30 transition-all duration-300 
+                 hover:shadow-[inset_0_1px_2px_rgba(255,255,255,0.1),inset_0_-1px_2px_rgba(0,0,0,0.5),0_6px_20px_rgba(0,0,0,0.5)] 
+                 bg-slate-900 cursor-pointer"
+    >      
       <div className={`h-full w-full flex flex-col justify-between relative`}>
         
         <div className={`flex-1 p-2 md:p-4 bg-gradient-to-br ${bgGradient} relative`}>
@@ -101,7 +107,6 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
     </div>
   );
 };
-
  
 
 interface WorkExperienceCardProps {

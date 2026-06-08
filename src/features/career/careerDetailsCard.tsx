@@ -1,11 +1,10 @@
 import React from "react";
-import { Career } from "./data/careerData";
+import { CareerEntry } from "./data/careerData";
 import { GraduationCap, Briefcase, Sparkles, MapPin } from "lucide-react";
 import FeaturedSwiper, { SlideItem } from "@/components/ui/featured-swipper";
-import testImage1 from "@/assets/profilePic3.jpeg";
 
 interface CareerDetailCardProps {
-  career: Career;
+  career: CareerEntry;
 }
 
 const CareerDetailCard: React.FC<CareerDetailCardProps> = ({ career }) => {
@@ -14,7 +13,7 @@ const CareerDetailCard: React.FC<CareerDetailCardProps> = ({ career }) => {
 
   const swiperSlides: SlideItem[] | undefined = career.gallery?.map((img, i) => ({
     id: i + 1,
-    src: testImage1 || img,
+    src: img,
     alt: `${career.organization} - Image ${i + 1}`,
     title: "",
   }));

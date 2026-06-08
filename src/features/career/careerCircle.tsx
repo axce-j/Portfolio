@@ -1,12 +1,10 @@
 import React from "react";
-import { Career } from "./data/careerData";
-
-import testImage1 from "@/assets/profilePic1.jpeg";  
-import testImage from "@/assets/profilePic3.jpeg";  
+  
+import { CareerEntry } from "./data/careerData";
 
 
 interface CareerCircleProps {
-  career: Career;
+  career: CareerEntry;
   isActive: boolean;
   onClick: () => void;
   index: number;
@@ -47,18 +45,13 @@ const CareerCircle: React.FC<CareerCircleProps> = ({
       }}
     >
       {/* Image */}
-      {career.image ? (
-        <img 
-          src={testImage1} 
-          alt={career.organization}
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <img 
-        src={testImage} 
-        alt={career.organization}
-        className="w-full h-full object-cover"
-      />      )}
+	  {career.image ? (
+  <img src={career.image} alt={career.organization} className="w-full h-full object-cover" />
+) : (
+  <div className="w-full h-full flex items-center justify-center text-lg font-bold text-[#2dd4bf]">
+    {career.organization.slice(0, 2).toUpperCase()}
+  </div>
+)}
 
       {/* Active indicator dot */}
       {isActive && (

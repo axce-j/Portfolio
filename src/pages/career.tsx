@@ -1,31 +1,61 @@
 import CareerCircle from "@/features/career/careerCircle";
 import CareerDetailCard from "@/features/career/careerDetailsCard";
 import { careers } from "@/features/career/data/careerData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronUp, ChevronDown } from "lucide-react";
 
 const Career = () => {
-  const [activeCareerIndex, setActiveCareerIndex] = useState(0);
-  const [scrollOffset, setScrollOffset] = useState(0);
-  const activeCareer = careers[activeCareerIndex];
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  // Derive initial index from URL hash (e.g. #work-01-servens)
+  const getIndexFromHash = (hash: string) => {
+    const id = hash.replace("#", "");
+    const index = careers.findIndex((c) => c.id === id);
+    return index >= 0 ? index : 0;
+  };
+
+  const [activeCareerIndex, setActiveCareerIndex] = useState(() =>
+    getIndexFromHash(location.hash)
+  );
+  const [scrollOffset, setScrollOffset] = useState(0);
+
+  // When the URL hash changes externally (e.g. navigating from home),
+  // update the active index to match
+  useEffect(() => {
+    const index = getIndexFromHash(location.hash);
+    setActiveCareerIndex(index);
+    // Keep the circle visible by adjusting scroll offset
+    const maxVisible = 3;
+    if (index < scrollOffset || index >= scrollOffset + maxVisible) {
+      setScrollOffset(Math.max(0, index - 1));
+    }
+  }, [location.hash]);
+
+  // When the user clicks a circle, update both state AND the URL hash
+  const handleCareerSelect = (index: number) => {
+    setActiveCareerIndex(index);
+    navigate(`/career#${careers[index].id}`, { replace: true });
+  };
+
+  const activeCareer = careers[activeCareerIndex];
   const maxVisible = 3;
   const canScrollUp = scrollOffset > 0;
   const canScrollDown = scrollOffset + maxVisible < careers.length;
 
   const handleScrollUp = () => {
-    if (canScrollUp) setScrollOffset(prev => prev - 1);
+    if (canScrollUp) setScrollOffset((prev) => prev - 1);
   };
 
   const handleScrollDown = () => {
-    if (canScrollDown) setScrollOffset(prev => prev + 1);
+    if (canScrollDown) setScrollOffset((prev) => prev + 1);
   };
 
   const visibleCareers = careers.slice(scrollOffset, scrollOffset + maxVisible);
 
   return (
     <div className="min-h-screen pb-32">
-
       {/* ── Header ── */}
       <section className="px-4 md:px-40 pt-16 pb-12">
         <div className="flex items-center gap-3 mb-4">
@@ -38,23 +68,22 @@ const Career = () => {
         </p>
       </section>
 
-      {/* ── Mobile-only: horizontal pill selector ── */}
-      {/* Replaces the arc entirely on small screens */}
+      {/* ── Mobile: horizontal pill selector ── */}
       <div className="md:hidden px-4 pb-6">
-        <div className="flex gap-2 overflow-x-auto pb-2"
+        <div
+          className="flex gap-2 overflow-x-auto pb-2"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {careers.map((career, index) => (
             <button
               key={career.id}
-              onClick={() => setActiveCareerIndex(index)}
+              onClick={() => handleCareerSelect(index)}
               className={`flex-shrink-0 flex items-center gap-2 px-3 py-2 rounded-full border transition-all duration-200 ${
                 index === activeCareerIndex
                   ? "border-[#2dd4bf] bg-[#2dd4bf]/10 text-white"
                   : "border-white/10 bg-white/5 text-white/50 hover:text-white/80 hover:border-white/20"
               }`}
             >
-              {/* Avatar circle */}
               {career.image ? (
                 <img
                   src={career.image}
@@ -69,8 +98,9 @@ const Career = () => {
                   {career.organization.slice(0, 2).toUpperCase()}
                 </div>
               )}
-              <span className="text-xs font-medium whitespace-nowrap">{career.organization}</span>
-              {/* Active dot */}
+              <span className="text-xs font-medium whitespace-nowrap">
+                {career.organization}
+              </span>
               {index === activeCareerIndex && (
                 <div className="w-1.5 h-1.5 rounded-full bg-[#2dd4bf] flex-shrink-0" />
               )}
@@ -84,10 +114,8 @@ const Career = () => {
         <CareerDetailCard career={activeCareer} />
       </section>
 
-      {/* ── Desktop-only: fixed arc timeline ── */}
+      {/* ── Desktop: fixed arc timeline ── */}
       <div className="hidden md:block fixed left-10 bottom-20 z-50">
-
-        {/* Scroll Up */}
         {canScrollUp && (
           <button
             onClick={handleScrollUp}
@@ -97,7 +125,6 @@ const Career = () => {
           </button>
         )}
 
-        {/* Arc Container */}
         <div className="relative w-28 h-[280px] flex items-center justify-center">
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
@@ -119,7 +146,7 @@ const Career = () => {
                 key={career.id}
                 career={career}
                 isActive={actualIndex === activeCareerIndex}
-                onClick={() => setActiveCareerIndex(actualIndex)}
+                onClick={() => handleCareerSelect(actualIndex)}
                 index={visualIndex}
                 totalVisible={maxVisible}
               />
@@ -127,7 +154,6 @@ const Career = () => {
           })}
         </div>
 
-        {/* Scroll Down */}
         {canScrollDown && (
           <button
             onClick={handleScrollDown}
@@ -137,15 +163,14 @@ const Career = () => {
           </button>
         )}
 
-        {/* Progress dots */}
         <div className="absolute -right-6 top-1/2 -translate-y-1/2 flex flex-col items-center gap-1.5">
           {careers.map((_, index) => (
             <div
               key={index}
-              className={`w-1 h-1 rounded-full transition-all duration-300 ${
+              className={`rounded-full transition-all duration-300 ${
                 index === activeCareerIndex
                   ? "bg-[#2dd4bf] w-1.5 h-1.5"
-                  : "bg-white/20"
+                  : "w-1 h-1 bg-white/20"
               }`}
             />
           ))}

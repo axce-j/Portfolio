@@ -2,6 +2,7 @@ import React from "react";
 import { CareerEntry } from "./data/careerData";
 import { GraduationCap, Briefcase, Sparkles, MapPin } from "lucide-react";
 import FeaturedSwiper, { SlideItem } from "@/components/ui/featured-swipper";
+import BlurredImageFrame from "@/components/blurredImageFrame";
 
 interface CareerDetailCardProps {
   career: CareerEntry;
@@ -62,11 +63,17 @@ const CareerDetailCard: React.FC<CareerDetailCardProps> = ({ career }) => {
         )}
 
         {/* Gallery */}
-        {swiperSlides && swiperSlides.length > 0 && (
-          <div className="mb-6 rounded-xl overflow-hidden border border-white/[0.08]">
-            <FeaturedSwiper slides={swiperSlides} autoplayDelay={4000} />
-          </div>
-        )}
+		{career.gallery && career.gallery.length > 0 && (
+  <div className="mb-6 rounded-xl overflow-hidden border border-white/[0.08]">
+    {career.gallery.length === 1 ? (
+      <div className="w-full h-64 md:h-80">
+        <BlurredImageFrame src={career.gallery[0]} alt={career.organization} className="rounded-xl" />
+      </div>
+    ) : (
+      <FeaturedSwiper slides={swiperSlides!} autoplayDelay={4000} />
+    )}
+  </div>
+)}
 
         {/* Description */}
         <p className="text-white/60 text-sm md:text-base leading-relaxed mb-6">

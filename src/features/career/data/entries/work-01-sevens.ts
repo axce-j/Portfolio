@@ -1,4 +1,5 @@
 import type { CareerEntry } from "../careerData";
+import sevensLogo from "@/assets/career/work-01/sevens-logo.png";
 
 const entry: CareerEntry = {
   id: "work-01-sevens",
@@ -14,6 +15,7 @@ const entry: CareerEntry = {
   location: "Douala, Cameroon · On-site",
 
   icon: "💼",
+  image: `${sevensLogo}`,
 
   description:
     "Worked across frontend and backend development in a structured internship focused on real-world engineering practices. Built production features, participated in debugging sessions, and developed a strong foundation in how full-stack systems are designed and integrated.",

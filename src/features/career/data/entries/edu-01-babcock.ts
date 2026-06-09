@@ -2,10 +2,10 @@ import type { CareerEntry } from "../careerData";
 import babcockLogo from "@/assets/career/edu-01/babcock-logo.png";
 import img1 from "@/assets/career/edu-01/img1.png";
 import img2 from "@/assets/career/edu-01/img2.webp";
-import img3 from "@/assets/career/edu-01/img3.jpeg";
+// import img3 from "@/assets/career/edu-01/img3.jpeg";
 import img4 from "@/assets/career/edu-01/img4.jpeg";
-import img5 from "@/assets/career/edu-01/img5.jpeg";
-import img6 from "@/assets/career/edu-01/img6.jpeg";
+// import img5 from "@/assets/career/edu-01/img5.jpeg";
+// import img6 from "@/assets/career/edu-01/img6.jpeg";
 
 
 
@@ -37,7 +37,7 @@ const entry: CareerEntry = {
 		"Coursework spanned AI, Database Admin, Reverse Engineering, and Open Source Systems",
 	],
 
-	gallery: [img1,img2,img3,img4,img5,img6],
+	gallery: [img1,img2,img4],
 
 	personalTake:
 		"Babcock gave me more than a degree — it gave me discipline and breadth. From discrete maths to malware analysis, every module pushed me to think like an engineer, not just a coder. My final year especially sharpened my understanding of how software systems live in the real world.",

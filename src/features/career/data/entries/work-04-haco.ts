@@ -1,4 +1,6 @@
 import type { CareerEntry } from "../careerData";
+import hacoLogo from "@/assets/career/work-04/haco-logo.png";
+
 
 const entry: CareerEntry = {
   id: "work-04-haco",
@@ -14,6 +16,7 @@ const entry: CareerEntry = {
   location: "Hybrid",
 
   icon: "🚀",
+  image:`${hacoLogo}`,
 
   description:
     "Co-founded Haco Technologies, a startup focused on building AI-powered education and career guidance products for young people. Contributed across product engineering, backend systems, user experience, and platform architecture, with primary ownership of the Careerly for Kids platform.",

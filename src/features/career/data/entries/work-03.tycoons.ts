@@ -1,4 +1,5 @@
 import type { CareerEntry } from "../careerData";
+import tycoonLogo from "@/assets/career/work-03/tycoons-logo.png";
 
 const entry: CareerEntry = {
   id: "work-03-tycoons",
@@ -14,6 +15,7 @@ const entry: CareerEntry = {
   location: "Lagos, Nigeria · Remote",
 
   icon: "⚡",
+  image:`${tycoonLogo}`,
 
   description:
     "Working as a contract Lead Frontend Developer on Tradion, an AI-powered trading assistant. Contributing to the ongoing development of a production-focused MVP, translating complex UX requirements into clean, performant interfaces.",

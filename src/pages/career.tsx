@@ -55,7 +55,7 @@ const Career = () => {
   const visibleCareers = careers.slice(scrollOffset, scrollOffset + maxVisible);
 
   return (
-    <div className="min-h-screen pb-32">
+    <div className="min-h-screen sm:pb-32">
       {/* ── Header ── */}
       <section className="px-4 md:px-40 pt-16 pb-12">
         <div className="flex items-center gap-3 mb-4">

@@ -5,16 +5,20 @@ import {
 	experienceFeaturedSections,
 	expertiseFeaturedSections,
 } from "./data/home-section-data";
-import ProfilePic1 from "@/assets/profilePic1.jpeg";
-import ProfilePic2 from "@/assets/profilePic2.jpeg";
-import ProfilePic3 from "@/assets/profilePic3.jpeg";
+import img1 from "@/assets/home/img1.jpeg";
+// import img2 from "@/assets/home/img2.jpeg";
+import img3 from "@/assets/home/img3.jpeg";
+// import img4 from "@/assets/home/img4.jpeg";
+import img5 from "@/assets/home/img5.jpeg";
 
 const name = "Ezeani Obinna Jachike";
 
 const slides: SlideItem[] = [
-	{ id: 1, src: ProfilePic1, alt: "Hero", title: " " },
-	{ id: 2, src: ProfilePic2, alt: "Profile 2", title: "", subtitle: "" },
-	{ id: 3, src: ProfilePic3, alt: "Profile 3", title: "", subtitle: "" },
+	{ id: 1, src: img1, alt: "Hero", title: " " },
+	// { id: 2, src: img2, alt: "Hero", title: " " },
+	{ id: 3, src: img3, alt: "Hero", title: " " },
+	// { id: 4, src: img4, alt: "Hero", title: " " },
+	{ id: 5, src: img5, alt: "Hero", title: " " },
 ];
 
 // ─────────────────────────────────────────────

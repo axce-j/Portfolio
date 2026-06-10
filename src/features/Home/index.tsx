@@ -7,18 +7,22 @@ import {
 } from "./data/home-section-data";
 import img1 from "@/assets/home/img1.jpeg";
 // import img2 from "@/assets/home/img2.jpeg";
-import img3 from "@/assets/home/img3.jpeg";
+// import img3 from "@/assets/home/img3.jpeg";
 // import img4 from "@/assets/home/img4.jpeg";
 import img5 from "@/assets/home/img5.jpeg";
+import img6 from "@/assets/home/img6.jpeg";
+
 
 const name = "Ezeani Obinna Jachike";
 
 const slides: SlideItem[] = [
 	{ id: 1, src: img1, alt: "Hero", title: " " },
 	// { id: 2, src: img2, alt: "Hero", title: " " },
-	{ id: 3, src: img3, alt: "Hero", title: " " },
+	// { id: 3, src: img3, alt: "Hero", title: " " },
 	// { id: 4, src: img4, alt: "Hero", title: " " },
 	{ id: 5, src: img5, alt: "Hero", title: " " },
+	{ id: 6, src: img6, alt: "Hero", title: " " },
+
 ];
 
 // ─────────────────────────────────────────────

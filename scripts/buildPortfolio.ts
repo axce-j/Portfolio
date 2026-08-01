@@ -7,6 +7,7 @@
 // it only ever imports this file.
 // ═══════════════════════════════════════════════════════════════
 
+import "dotenv/config"; // loads .env locally; no-op on Vercel, where env vars are already set
 import { neon } from "@neondatabase/serverless";
 import { writeFileSync, mkdirSync } from "fs";
 
@@ -23,6 +24,7 @@ async function main() {
       g.stars          as gh_stars,
       g.forks          as gh_forks,
       g.latest_release as gh_latest_release,
+      g.description    as gh_description,
       g.fetched_at     as gh_fetched_at
     from projects p
     left join github_cache g on g.repo = p.repo
@@ -57,8 +59,11 @@ async function main() {
 
     intro: {
       title: p.title,
-      tagline: p.tagline,
-      description: p.description, // projects only — never GitHub, no merge-winner logic
+      tagline: p.tagline, // no GitHub equivalent — always hand-written, no fallback
+      // Explicit precedence, not a "winner-picking" merge: your copy
+      // wins if you've written it, GitHub's repo description is the
+      // fallback if you haven't gotten to it yet.
+      description: p.description ?? p.gh_description,
       tags: p.tags,
     },
 

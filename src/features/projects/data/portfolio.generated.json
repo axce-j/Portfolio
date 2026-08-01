@@ -1,1 +1,359 @@
-[]
+[
+  {
+    "id": "anime-streaming-clone",
+    "category": "frontend",
+    "repo": "axce-j/anime-streaming-clone",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "anime-streaming-clone",
+      "tagline": null,
+      "description": "Feature-rich anime streaming platform clone built with React and the Jikan API, showcasing advanced frontend architecture, routing, search, filtering, pagination, and responsive user experiences.",
+      "tags": [
+        "axios",
+        "chakra-ui",
+        "custom-hooks",
+        "framer-motion",
+        "frontend",
+        "javascript",
+        "jikan-api",
+        "pagination",
+        "react",
+        "react-query",
+        "react-router",
+        "responsive-design",
+        "rest-api",
+        "search-params",
+        "streaming-platform",
+        "swiper",
+        "vite"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/anime-streaming-clone",
+      "live": "https://axce-j.github.io/anime-streaming-clone/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "javascript",
+      "react",
+      "rest-api",
+      "vite"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "fitness-registration-website",
+    "category": "frontend",
+    "repo": "axce-j/fitness-registration-website",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "fitness-registration-website",
+      "tagline": null,
+      "description": "Interactive fitness registration website featuring workout program exploration, registration forms, and a guided user journey built to practice advanced CSS techniques, responsive design, and frontend form workflows.",
+      "tags": [
+        "css",
+        "fitness",
+        "forms",
+        "frontend",
+        "html",
+        "javascript",
+        "landing-page",
+        "multi-page-website",
+        "registration",
+        "responsive-design"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/fitness-registration-website",
+      "live": "https://axce-j.github.io/fitness-registration-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "css",
+      "javascript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "web-forum",
+    "category": "full-stack",
+    "repo": "axce-j/web-forum",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "web-forum",
+      "tagline": null,
+      "description": "Community forum application built with Next.js, TypeScript, Firebase, and PostgreSQL, featuring authentication, posts, nested comments, voting, and full CRUD functionality.",
+      "tags": [
+        "app-router",
+        "authentication",
+        "community-platform",
+        "crud",
+        "firebase",
+        "firestore",
+        "forum-software",
+        "full-stack",
+        "nextjs",
+        "postgresql",
+        "react-query",
+        "server-side-rendering",
+        "tailwindcss",
+        "typescript",
+        "vercel"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/web-forum",
+      "live": "https://webforum-77k2.vercel.app",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "nextjs",
+      "postgresql",
+      "tailwindcss",
+      "typescript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "flowboard",
+    "category": "frontend",
+    "repo": "axce-j/Flowboard",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "Flowboard",
+      "tagline": null,
+      "description": "Lightweight internal task tracking application built to manage marketing content workflows through a simple centralized dashboard featuring task creation, status tracking, and internal team assignment.",
+      "tags": [
+        "content-planning",
+        "internal-tool",
+        "monolithic",
+        "nextjs",
+        "productivity",
+        "responsive-design",
+        "tailwindcss",
+        "task-management",
+        "typescript"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/Flowboard",
+      "live": "https://team-task-calendar.onrender.com/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "nextjs",
+      "tailwindcss",
+      "typescript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "robot-profile-viewer",
+    "category": "frontend",
+    "repo": "axce-j/robot-profile-viewer",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "robot-profile-viewer",
+      "tagline": null,
+      "description": "Responsive single-page application that consumes a public API to display robot profiles, built to explore Vite, asynchronous JavaScript, API integration, and automated GitHub Pages deployment workflows.",
+      "tags": [
+        "api",
+        "fetch-api",
+        "frontend",
+        "github-actions",
+        "github-pages",
+        "javascript",
+        "responsive-design",
+        "single-page-applications",
+        "vite",
+        "yml-configuration"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/robot-profile-viewer",
+      "live": "https://axce-j.github.io/-Robo-profile-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "javascript",
+      "vite"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "simple-newsletter-website",
+    "category": "frontend",
+    "repo": "axce-j/simple-newsletter-website",
+    "heroImage": "/doubt.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "simple-newsletter-website",
+      "tagline": null,
+      "description": "Responsive newsletter landing page built during my early frontend development journey. This project showcases foundational HTML, CSS, and JavaScript skills while demonstrating my progression toward building modern full-stack applications.",
+      "tags": [
+        "beginner-project",
+        "css",
+        "frontend-development",
+        "html",
+        "javascript",
+        "landing-page",
+        "newsletter",
+        "responsive-design",
+        "web-development"
+      ]
+    },
+    "features": [],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": null,
+      "image": null,
+      "imageAlt": null
+    },
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": null
+    },
+    "links": {
+      "github": "https://github.com/axce-j/simple-newsletter-website",
+      "live": "https://axce-j.github.io/simple-newsletter-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "css",
+      "javascript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  }
+]

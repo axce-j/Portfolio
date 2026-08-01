@@ -3,7 +3,7 @@
     "id": "anime-streaming-clone",
     "category": "frontend",
     "repo": "axce-j/anime-streaming-clone",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "anime-streaming-clone",
@@ -69,7 +69,7 @@
     "id": "fitness-registration-website",
     "category": "frontend",
     "repo": "axce-j/fitness-registration-website",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "fitness-registration-website",
@@ -126,7 +126,7 @@
     "id": "web-forum",
     "category": "full-stack",
     "repo": "axce-j/web-forum",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "web-forum",
@@ -190,7 +190,7 @@
     "id": "flowboard",
     "category": "frontend",
     "repo": "axce-j/Flowboard",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "Flowboard",
@@ -247,7 +247,7 @@
     "id": "robot-profile-viewer",
     "category": "frontend",
     "repo": "axce-j/robot-profile-viewer",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "robot-profile-viewer",
@@ -304,7 +304,7 @@
     "id": "simple-newsletter-website",
     "category": "frontend",
     "repo": "axce-j/simple-newsletter-website",
-    "heroImage": "/doubt.png",
+    "heroImage": null,
     "heroImageAlt": null,
     "intro": {
       "title": "simple-newsletter-website",

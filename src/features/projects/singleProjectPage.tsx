@@ -5,6 +5,7 @@ import {
   type SingleProject,
   type ProjectFeature,
   type ProjectHighlight,
+  type ProjectTakeaway,
 } from "./data/singleProjectData";
 
 // ─────────────────────────────────────────────
@@ -24,11 +25,13 @@ const Hero = ({ project, onBack }: { project: SingleProject; onBack: () => void 
     </button>
     <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden bg-white/5 border border-white/5">
       <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-gray-900/60 to-blue-900/40" />
-      <img
-        src={project.heroImage}
-        alt={project.heroImageAlt}
-        className="relative z-10 w-full h-full object-cover"
-      />
+      {project.heroImage && (
+        <img
+          src={project.heroImage}
+          alt={project.heroImageAlt ?? project.intro.title}
+          className="relative z-10 w-full h-full object-cover"
+        />
+      )}
     </div>
   </section>
 );
@@ -59,7 +62,10 @@ const Intro = ({ project }: { project: SingleProject }) => {
           <h1 className="text-5xl font-bold text-white leading-tight mb-3">
             {intro.title}
           </h1>
-          <p className="text-white/50 text-lg italic">{intro.tagline}</p>
+          {/* tagline has no GitHub fallback — only render if hand-written */}
+          {intro.tagline && (
+            <p className="text-white/50 text-lg italic">{intro.tagline}</p>
+          )}
         </div>
         <p className="text-white/60 text-sm leading-relaxed">{intro.description}</p>
         <div className="flex flex-wrap gap-2">
@@ -78,7 +84,7 @@ const Intro = ({ project }: { project: SingleProject }) => {
             {linkItems.map(({ href, icon: Icon, label }) => (
               <a
                 key={label}
-                href={href}
+                href={href!}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-medium
@@ -157,7 +163,6 @@ const Connector = () => (
 
 // ─────────────────────────────────────────────
 // Feature card — text left, image right
-// glassmorphism gradient matching app style
 // ─────────────────────────────────────────────
 
 const Feature = ({ feature }: { feature: ProjectFeature }) => (
@@ -168,7 +173,6 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
       shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_8px_32px_rgba(0,0,0,0.4)]
       backdrop-blur-md"
   >
-    {/* Text — always left */}
     <div className="flex flex-col justify-center gap-5">
       <div>
         <h2 className="text-2xl font-semibold text-white mb-1.5">{feature.title}</h2>
@@ -179,7 +183,6 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
       <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
     </div>
 
-    {/* Image — always right */}
     <div className="rounded-xl overflow-hidden border border-white/[0.06] aspect-[4/3]
       bg-gradient-to-br from-slate-700/40 to-slate-900/60"
     >
@@ -197,8 +200,7 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
 );
 
 // ─────────────────────────────────────────────
-// Highlight — mandatory, image left / text right
-// teal-tinted, visually distinct from features
+// Highlight — now OPTIONAL, only renders if you've written one
 // ─────────────────────────────────────────────
 
 const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => (
@@ -207,12 +209,11 @@ const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => (
       rounded-2xl p-10 mt-8 mb-20 border border-teal-500/15
       bg-gradient-to-br from-teal-900/20 via-white/[0.02] to-cyan-900/10"
   >
-    {/* Image — always left */}
     <div className="rounded-xl overflow-hidden bg-white/5 border border-white/5 aspect-[4/3]">
       {highlight.image ? (
         <img
           src={highlight.image}
-          alt={highlight.imageAlt ?? highlight.title}
+          alt={highlight.imageAlt ?? highlight.title ?? ""}
           className="w-full h-full object-cover"
         />
       ) : (
@@ -220,7 +221,6 @@ const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => (
       )}
     </div>
 
-    {/* Text — always right */}
     <div className="flex flex-col justify-center gap-4">
       <div>
         <p className="text-teal-400 text-xs font-semibold tracking-widest uppercase mb-2">
@@ -237,10 +237,10 @@ const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => (
 );
 
 // ─────────────────────────────────────────────
-// Takeaway
+// Takeaway — now OPTIONAL, only renders if you've written one
 // ─────────────────────────────────────────────
 
-const Takeaway = ({ takeaway }: { takeaway: SingleProject["takeaway"] }) => (
+const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => (
   <section className="text-center py-20 px-4 mb-8 border-t border-white/5">
     <p className="text-xs font-semibold tracking-widest uppercase text-teal-400 mb-4">
       Reflection
@@ -281,6 +281,12 @@ export default function SingleProjectPage() {
     );
   }
 
+  // highlight/takeaway are hand-authored, second-pass fields — a
+  // freshly-discovered project won't have them yet. Render only if
+  // at least a title exists, rather than showing an empty section.
+  const hasHighlight = Boolean(project.highlight.title);
+  const hasTakeaway = Boolean(project.takeaway.title);
+
   return (
     <div className="min-h-screen text-white pb-32">
       <div className="max-w-6xl mx-auto px-8 pt-10">
@@ -292,23 +298,25 @@ export default function SingleProjectPage() {
         <Intro project={project} />
 
         {/* 3. Features — all same card, stacked in column with connectors */}
-        <div className="flex flex-col mb-10">
-          <p className="text-xs font-semibold tracking-widest uppercase text-white/25 mb-8 px-1">
-            Features
-          </p>
-          {project.features.map((feature, index) => (
-            <div key={feature.id}>
-              <Feature feature={feature} />
-              {index < project.features.length - 1 && <Connector />}
-            </div>
-          ))}
-        </div>
-        {/* 5. Takeaway */}
-        <Takeaway takeaway={project.takeaway} />
+        {project.features.length > 0 && (
+          <div className="flex flex-col mb-10">
+            <p className="text-xs font-semibold tracking-widest uppercase text-white/25 mb-8 px-1">
+              Features
+            </p>
+            {project.features.map((feature, index) => (
+              <div key={feature.id}>
+                <Feature feature={feature} />
+                {index < project.features.length - 1 && <Connector />}
+              </div>
+            ))}
+          </div>
+        )}
 
-        {/* 4. Highlight — mandatory, always present */}
-        <Highlight highlight={project.highlight} />
+        {/* 4. Takeaway */}
+        {hasTakeaway && <Takeaway takeaway={project.takeaway} />}
 
+        {/* 5. Highlight */}
+        {hasHighlight && <Highlight highlight={project.highlight} />}
 
       </div>
     </div>

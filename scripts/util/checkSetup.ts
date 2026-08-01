@@ -48,7 +48,7 @@ const EXPECTED: Record<string, string[]> = {
 // convergeProjects.ts skips inserting a row rather than allowing an
 // empty category.
 const EXPECTED_NULLABLE: Record<string, string[]> = {
-  projects: ["tagline", "description"],
+  projects: ["tagline", "description", "hero_image"],
 };
 
 async function main() {

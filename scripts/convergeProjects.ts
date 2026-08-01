@@ -113,12 +113,12 @@ async function main() {
         insert into projects (
           slug, category, category_source, repo, source_type, source_id,
           title, tags, tech_stack, tech_stack_source, year,
-          hero_image, links_github, links_live, status, status_source
+          links_github, links_live, status, status_source
         ) values (
           ${slugify(adapted.title)}, ${adapted.inferredCategory}, 'inferred',
           ${adapted.sourceId}, ${adapted.sourceType}, ${adapted.sourceId},
           ${adapted.title}, ${adapted.tags}, ${adapted.inferredTechStack}, 'inferred',
-          ${inferredYear}, '/doubt.png', ${adapted.links.repo}, ${adapted.links.live},
+          ${inferredYear}, ${adapted.links.repo}, ${adapted.links.live},
           ${autoStatus}, 'auto'
         )
       `;

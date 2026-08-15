@@ -37,6 +37,19 @@ export interface ProjectTakeaway {
   description: string | null;
 }
 
+export type VideoRole = "client_demo" | "architecture" | "reflection";
+
+export interface ProjectMedia {
+  id: string;
+  type: "image" | "video";
+  url: string;
+  caption?: string | null;
+  // Only meaningful when type === "video". Null for images, and for
+  // videos uploaded before video_role existed — always guard before
+  // using it to slot a video into a gallery position.
+  videoRole?: VideoRole | null;
+}
+
 export interface SingleProject {
   id: string;          // slug, e.g. "web-forum" — not category-prefixed
   category: string;     // explicit field from Neon, e.g. "frontend", "full-stack"
@@ -52,11 +65,18 @@ export interface SingleProject {
   };
 
   features: ProjectFeature[];
+  media: ProjectMedia[];
 
   // Nullable — a freshly-discovered project has no highlight/takeaway
   // yet. UI must check before rendering (see SingleProjectPage).
   highlight: ProjectHighlight;
   takeaway: ProjectTakeaway;
+
+  // README-derived lists (## Challenges / ## Future Improvements).
+  // Empty array, not null, when absent — UI checks .length, same
+  // pattern as `features`.
+  challenges: string[];
+  futureImprovements: string[];
 
   links: {
     github?: string | null;

@@ -39,7 +39,8 @@ type DiscoveredRepo = {
   stars: number;
   forks: number;
   openIssues: number;
-  updatedAt: string | null; // pushed_at
+  updatedAt: string | null; // pushed_at — most recent PUSH, not creation
+  createdAt: string | null; // repo's actual creation date — used for `year`
 };
 
 // Paginates through every public repo for the account, filters out forks
@@ -73,6 +74,10 @@ async function listQualifyingRepos(): Promise<DiscoveredRepo[]> {
         forks: repo.forks_count ?? 0,
         openIssues: repo.open_issues_count ?? 0,
         updatedAt: repo.pushed_at ?? null,
+        // Already present in this same API response — no extra
+        // request needed. GitHub always sets this on repo creation,
+        // so it should realistically never be null.
+        createdAt: repo.created_at ?? null,
       });
     }
 
@@ -124,6 +129,7 @@ async function main() {
       open_issues: r.openIssues,
       latest_release: releases[i],
       updated_at: r.updatedAt,
+      created_at: r.createdAt,
       description: r.description,
       readme: readmes[i],
     }));
@@ -131,17 +137,18 @@ async function main() {
     await sql`
       insert into github_cache (
         repo, language, homepage, topics, stars, forks, open_issues,
-        latest_release, updated_at, description, readme, fetched_at
+        latest_release, updated_at, created_at, description, readme, fetched_at
       )
       select
         r.repo, r.language, r.homepage,
         array(select jsonb_array_elements_text(r.topics)) as topics,
         r.stars, r.forks, r.open_issues, r.latest_release, r.updated_at,
-        r.description, r.readme, now()
+        r.created_at, r.description, r.readme, now()
       from jsonb_to_recordset(${JSON.stringify(payload)}::jsonb) as r(
         repo text, language text, homepage text, topics jsonb,
         stars int, forks int, open_issues int, latest_release text,
-        updated_at timestamptz, description text, readme text
+        updated_at timestamptz, created_at timestamptz,
+        description text, readme text
       )
       on conflict (repo) do update set
         language       = excluded.language,
@@ -152,6 +159,7 @@ async function main() {
         open_issues    = excluded.open_issues,
         latest_release = excluded.latest_release,
         updated_at     = excluded.updated_at,
+        created_at     = excluded.created_at,
         description    = excluded.description,
         readme         = excluded.readme,
         fetched_at     = now()

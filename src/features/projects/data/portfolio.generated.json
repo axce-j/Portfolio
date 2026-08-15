@@ -29,7 +29,104 @@
         "vite"
       ]
     },
-    "features": [],
+    "features": [
+      {
+        "id": "63d5a682-81ce-429d-bb63-c3fa03aaada3",
+        "title": "Multi-route React application",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "c4dd8f96-14ba-4f21-b91c-f4fe59e9e95a",
+        "title": "Anime discovery and browsing",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "f60046c9-0825-4971-a6c2-46be5e2c2d95",
+        "title": "Anime search functionality",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "620ccc40-cc06-4e68-83a7-957e591d79da",
+        "title": "Search parameter-based filtering",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "bbb673bf-4511-47ba-b53d-1a6a913ec209",
+        "title": "Pagination system",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "2ad0cd43-ae52-4ff1-bb32-b0c6835b4531",
+        "title": "Detailed anime information pages",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "1aabf1ba-a443-46ae-a97e-05e5f93a6342",
+        "title": "Anime recommendations",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "3e638cfd-0dce-4fb9-b281-838b3f83a3fd",
+        "title": "Dynamic data fetching",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "c6f2fccb-2b61-4f89-a67b-20b9884b8b9d",
+        "title": "Client-side routing",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "cc27dd27-cdf1-4829-ba6f-590b1fa88a80",
+        "title": "Responsive navigation",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "66043c07-3ad2-4415-b7ce-9f65314d24aa",
+        "title": "Animated user interface",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "1a386abc-de43-4dd3-a0f0-83203881dfea",
+        "title": "Mobile-friendly design",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
     "media": [],
     "highlight": {
       "title": null,
@@ -38,10 +135,31 @@
       "image": null,
       "imageAlt": null
     },
+    "challenges": [
+      "Managing API refetching behaviour",
+      "Handling asynchronous loading and error states",
+      "Synchronizing URL search parameters with application state",
+      "Implementing efficient pagination logic",
+      "Designing reusable components across multiple routes",
+      "Organizing a growing React codebase",
+      "Working around API limitations that did not provide streaming content",
+      "Optimizing user experience while fetching remote data"
+    ],
+    "futureImprovements": [
+      "User authentication",
+      "Personalized watchlists",
+      "Favorites and bookmarking",
+      "Advanced recommendation systems",
+      "User reviews and ratings",
+      "Backend integration",
+      "Anime episode tracking",
+      "Performance optimizations",
+      "Progressive Web App (PWA) support"
+    ],
     "takeaway": {
       "title": null,
       "subtitle": null,
-      "description": null
+      "description": "Building large React applications\nStructuring scalable frontend architectures\nDesigning reusable components\nCreating custom React hooks\nConsuming REST APIs\nManaging asynchronous application state\nImplementing client-side routing\nManaging URL search parameters\nWorking with React Query caching strategies\nImplementing filtering systems\nBuilding pagination workflows\nCreating responsive user experiences\nOrganizing projects using modular folder structures\nDeploying production-ready React applications\n\nFull-stack development\nAuthentication and authorization systems\nAI-powered platforms\nDatabase architecture\nCloud deployment\nScalable application design\nProduct development and system architecture"
     },
     "links": {
       "github": "https://github.com/axce-j/anime-streaming-clone",
@@ -52,10 +170,15 @@
       "caseStudy": null
     },
     "techStack": [
-      "javascript",
-      "react",
-      "rest-api",
-      "vite"
+      "React",
+      "Vite",
+      "React Router DOM",
+      "Axios",
+      "TanStack React Query",
+      "Chakra UI",
+      "Framer Motion",
+      "Swiper",
+      "CSS3"
     ],
     "year": 2026,
     "client": null,
@@ -88,7 +211,64 @@
         "responsive-design"
       ]
     },
-    "features": [],
+    "features": [
+      {
+        "id": "de37bc64-b275-4381-b1a8-0f774f7fcdde",
+        "title": "Multi-page website experience",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "770e0a03-9982-4412-95b0-1942830d84c8",
+        "title": "Fitness brand landing page",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "c2edbe05-ba37-4d9d-bfd9-f8ccee9e9193",
+        "title": "Workout program showcase",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "fcf46b31-99c1-4671-8879-2cde92e5d86b",
+        "title": "Interactive registration form",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "adf9f346-a5c3-499b-9eb0-3a1cabe69616",
+        "title": "Registration success confirmation page",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "5a67886b-29cc-41b0-af83-52b429f91d5e",
+        "title": "Mobile-friendly responsive design",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "802f626f-fb60-45d1-9368-ea1be6801e76",
+        "title": "Structured user registration workflow",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
     "media": [],
     "highlight": {
       "title": null,
@@ -97,10 +277,19 @@
       "image": null,
       "imageAlt": null
     },
+    "challenges": [],
+    "futureImprovements": [
+      "Email notification workflow",
+      "Backend-powered registration processing",
+      "User authentication",
+      "Fitness dashboard",
+      "Workout scheduling features",
+      "Database integration"
+    ],
     "takeaway": {
       "title": null,
       "subtitle": null,
-      "description": null
+      "description": "Building larger multi-page websites\nDesigning complete user journeys\nCreating and handling interactive forms\nStructuring frontend projects effectively\nImplementing responsive layouts\nUsing advanced CSS techniques\nImproving user experience design\nOrganizing application flow across multiple pages\n\nFull-stack development\nAuthentication and authorization systems\nAI-powered platforms\nDatabase architecture\nCloud deployment\nScalable application design\nProduct development and system architecture"
     },
     "links": {
       "github": "https://github.com/axce-j/fitness-registration-website",
@@ -111,8 +300,9 @@
       "caseStudy": null
     },
     "techStack": [
-      "css",
-      "javascript"
+      "HTML5",
+      "CSS3",
+      "JavaScript"
     ],
     "year": 2026,
     "client": null,
@@ -150,19 +340,138 @@
         "vercel"
       ]
     },
-    "features": [],
+    "features": [
+      {
+        "id": "dbdc33bc-aa7e-4f75-be11-7694686f6dd0",
+        "title": "User authentication with Firebase",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "a7bc8492-750b-4c87-820e-c2619a81c923",
+        "title": "Create, edit, and delete posts",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "a37da974-1c18-4762-8ca4-96057563ecb8",
+        "title": "Nested comments and replies",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "99929bd0-9a28-4448-b038-ab70e195093e",
+        "title": "Upvote and downvote functionality",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "3f911831-bd21-423d-94e0-90d6f0db10ca",
+        "title": "Community discussion experience",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "7b72895d-4c99-4997-9c70-497ff540aa75",
+        "title": "Dynamic data fetching",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "1f88eb72-0cbb-4589-9f5a-88c4c87b75e9",
+        "title": "Responsive design",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "622bb3b7-b51c-48a0-97f3-f612b0e52f26",
+        "title": "Full CRUD operations",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "06d4347f-3b59-4bb8-bf57-79436378953d",
+        "title": "Error boundaries",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "fdfaa515-fd6e-43f6-90bf-4ac4f882335d",
+        "title": "Custom not-found pages",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "70a2e078-419b-4a0b-947f-3ab4b604099f",
+        "title": "Protected user interactions",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "46109333-3958-4a1f-a2ec-35abb7180797",
+        "title": "Automatic deployment with Vercel",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
     "media": [],
     "highlight": {
       "title": null,
       "subtitle": null,
-      "description": null,
+      "description": "Authentication handled through Firebase\nPersistent data storage using PostgreSQL\nAPI endpoints built with Next.js API Routes\nClient-side data synchronization using React Query\nDynamic routing through the Next.js App Router\nComponent-driven user interface architecture\nCloud deployment through Vercel",
       "image": null,
       "imageAlt": null
     },
+    "challenges": [
+      "Managing authenticated user sessions",
+      "Designing nested comment and reply structures",
+      "Synchronizing frontend and backend state",
+      "Handling optimistic updates and asynchronous mutations",
+      "Structuring reusable API logic",
+      "Managing relationships between users, posts, comments, and votes",
+      "Working with multiple data sources and services",
+      "Organizing a growing codebase using scalable architecture patterns"
+    ],
+    "futureImprovements": [
+      "User profiles",
+      "Community moderation tools",
+      "Notifications system",
+      "Real-time updates",
+      "Rich text editor support",
+      "Advanced search and filtering",
+      "Role-based permissions",
+      "Community creation and management",
+      "Content reporting tools",
+      "Analytics dashboard"
+    ],
     "takeaway": {
       "title": null,
       "subtitle": null,
-      "description": null
+      "description": "Building full-stack applications using Next.js\nStructuring large TypeScript codebases\nImplementing authentication and authorization workflows\nCreating REST-style API endpoints\nDesigning CRUD-based applications\nIntegrating relational databases\nManaging asynchronous data with React Query\nWorking with server and client components\nUnderstanding modern rendering strategies\nDesigning scalable project architectures\nDeploying production applications\nBuilding interactive community-driven platforms\n\nFull-stack SaaS platforms\nAuthentication and authorization systems\nAI-powered applications\nDatabase architecture and system design\nCloud deployment and DevOps workflows\nScalable application development\nProduct and platform engineering"
     },
     "links": {
       "github": "https://github.com/axce-j/web-forum",
@@ -173,67 +482,18 @@
       "caseStudy": null
     },
     "techStack": [
-      "nextjs",
-      "postgresql",
-      "tailwindcss",
-      "typescript"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
-    "id": "flowboard",
-    "category": "frontend",
-    "repo": "axce-j/Flowboard",
-    "heroImage": null,
-    "heroImageAlt": null,
-    "intro": {
-      "title": "Flowboard",
-      "tagline": null,
-      "description": "Lightweight internal task tracking application built to manage marketing content workflows through a simple centralized dashboard featuring task creation, status tracking, and internal team assignment.",
-      "tags": [
-        "content-planning",
-        "internal-tool",
-        "monolithic",
-        "nextjs",
-        "productivity",
-        "responsive-design",
-        "tailwindcss",
-        "task-management",
-        "typescript"
-      ]
-    },
-    "features": [],
-    "media": [],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": null,
-      "image": null,
-      "imageAlt": null
-    },
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": null
-    },
-    "links": {
-      "github": "https://github.com/axce-j/Flowboard",
-      "live": "https://team-task-calendar.onrender.com/",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "nextjs",
-      "tailwindcss",
-      "typescript"
+      "Next.js 15",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Material Tailwind",
+      "TanStack React Query",
+      "Firebase Authentication",
+      "Firebase Firestore",
+      "PostgreSQL",
+      "Next.js API Routes",
+      "Vercel",
+      "GitHub"
     ],
     "year": 2026,
     "client": null,
@@ -266,7 +526,64 @@
         "yml-configuration"
       ]
     },
-    "features": [],
+    "features": [
+      {
+        "id": "38a792f4-1500-490d-b916-ee0cfb29f038",
+        "title": "Responsive single-page application",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "9bb7b255-5205-4d6e-b8cb-fa0c19cb7a2c",
+        "title": "Dynamic robot profiles fetched from a public API",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "6d4c25ff-65d3-490e-ac0d-c583d2396540",
+        "title": "Interactive profile display interface",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "ac4fa6d4-4856-46a0-a3b2-8ba2d800e4bd",
+        "title": "Mobile-friendly design",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "358d5453-47b2-4d52-9a69-c9cfa286bfd0",
+        "title": "Fast development environment powered by Vite",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "fb515121-0741-4686-b593-839fe35afe4a",
+        "title": "Automated deployment with GitHub Actions",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "a47a6ba9-c3c4-426d-bd2d-46a19ec3601a",
+        "title": "GitHub Pages hosting",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
     "media": [],
     "highlight": {
       "title": null,
@@ -275,10 +592,20 @@
       "image": null,
       "imageAlt": null
     },
+    "challenges": [],
+    "futureImprovements": [
+      "Search and filtering functionality",
+      "Robot profile detail pages",
+      "Favorites and bookmarking",
+      "Pagination for large datasets",
+      "Error handling improvements",
+      "Loading state enhancements",
+      "Migration to a modern framework such as React"
+    ],
     "takeaway": {
       "title": null,
       "subtitle": null,
-      "description": null
+      "description": "Consuming APIs using the Fetch API\nWorking with asynchronous JavaScript and Promises\nHandling and displaying JSON data\nBuilding responsive single-page applications\nManaging application data from external sources\nUsing Vite as a modern frontend build tool\nCreating CI/CD workflows with GitHub Actions\nAutomating deployments to GitHub Pages\n\nFull-stack development\nAuthentication and authorization systems\nAI-powered platforms\nDatabase architecture\nCloud deployment\nScalable application design\nProduct development and system architecture"
     },
     "links": {
       "github": "https://github.com/axce-j/robot-profile-viewer",
@@ -289,8 +616,12 @@
       "caseStudy": null
     },
     "techStack": [
-      "javascript",
-      "vite"
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Vite",
+      "GitHub Actions",
+      "GitHub Pages"
     ],
     "year": 2026,
     "client": null,
@@ -322,7 +653,48 @@
         "web-development"
       ]
     },
-    "features": [],
+    "features": [
+      {
+        "id": "95b3b233-cda6-4eae-9cf9-24cc1977f8e9",
+        "title": "Responsive layout",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "76d8dcb8-df0b-4e07-9a66-4ae4a99b96e6",
+        "title": "Newsletter signup interface",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "6bb3b107-1e12-433f-8b27-57b05909c117",
+        "title": "Modern landing page structure",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "626eeb82-c9ae-4204-a7d0-ed637353d7db",
+        "title": "Mobile-friendly design",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "bc8fbf15-24fd-4cc1-891c-973ae86f2030",
+        "title": "Clean user experience",
+        "subtitle": null,
+        "description": "",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
     "media": [],
     "highlight": {
       "title": null,
@@ -331,10 +703,12 @@
       "image": null,
       "imageAlt": null
     },
+    "challenges": [],
+    "futureImprovements": [],
     "takeaway": {
       "title": null,
       "subtitle": null,
-      "description": null
+      "description": "Structuring web pages using semantic HTML\nBuilding responsive layouts with CSS\nCreating reusable UI sections\nImproving frontend design consistency\nDeploying websites with GitHub Pages\n\nFull-stack development\nAuthentication systems\nAI-powered platforms\nDatabase design\nCloud deployment\nScalable architectures"
     },
     "links": {
       "github": "https://github.com/axce-j/simple-newsletter-website",
@@ -345,10 +719,130 @@
       "caseStudy": null
     },
     "techStack": [
-      "css",
-      "javascript"
+      "HTML5",
+      "CSS3",
+      "JavaScript"
     ],
     "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "flowboard",
+    "category": "frontend",
+    "repo": "axce-j/Flowboard",
+    "heroImage": null,
+    "heroImageAlt": null,
+    "intro": {
+      "title": "Flowboard",
+      "tagline": null,
+      "description": "Lightweight internal task tracking application built to manage marketing content workflows through a simple centralized dashboard featuring task creation, status tracking, and internal team assignment.",
+      "tags": [
+        "content-planning",
+        "internal-tool",
+        "monolithic",
+        "nextjs",
+        "productivity",
+        "responsive-design",
+        "tailwindcss",
+        "task-management",
+        "typescript"
+      ]
+    },
+    "features": [
+      {
+        "id": "3acd0dca-400e-4be7-898c-72b18155d531",
+        "title": "Content Workflow",
+        "subtitle": "From idea to publication",
+        "description": "Content moves through a predefined production pipeline consisting of Idea, Draft, Ready, and Posted stages. This gives the team a simple way to understand the current state of every piece of content.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "5ba129f7-ce0b-4d4e-8656-8bcadc5431d8",
+        "title": "Task Management",
+        "subtitle": "Simple content operations",
+        "description": "Team members can create, edit, and delete content tasks while maintaining the information needed to track production. The interface uses modal-based interactions to keep task management within the main dashboard workflow.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "9a9c1c53-dc93-4284-957d-372b10ca0430",
+        "title": "Team Assignment",
+        "subtitle": "Clear ownership of work",
+        "description": "Tasks can be assigned to predefined internal team members, making responsibility visible within the shared workspace and helping the team understand who is responsible for each piece of content.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "c1bc5637-cd71-4630-bf59-57476aba11a7",
+        "title": "Workflow Filtering",
+        "subtitle": "Focus on what matters",
+        "description": "Content can be filtered according to its current production status, allowing team members to focus on specific stages of the workflow rather than navigating through unrelated tasks.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "701b6816-1732-448d-ab6d-dc07703e7458",
+        "title": "Responsive Dashboard",
+        "subtitle": "Built for everyday use",
+        "description": "The application provides a responsive dashboard interface so the internal workflow remains usable across different screen sizes without requiring a separate mobile application.",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The application was intentionally designed as a lightweight monolithic internal tool rather than a multi-tenant SaaS platform. It uses a single shared workspace protected by an application password, with team members represented as predefined internal users. This kept the implementation aligned with the actual scope of the project and avoided introducing authentication, organization management, and permission systems that were not required for its intended use.",
+      "image": null,
+      "imageAlt": null
+    },
+    "challenges": [
+      "Designing a simple content production workflow that clearly communicates the progression from Idea to Posted.",
+      "Keeping the interface lightweight while supporting multiple task states and team assignments.",
+      "Managing form interactions through reusable modal-based interfaces.",
+      "Organizing application state across task creation, editing, deletion, assignment, and filtering workflows.",
+      "Designing the application around a real internal business process rather than a generic task-management model."
+    ],
+    "futureImprovements": [
+      "Calendar-based content scheduling",
+      "Drag-and-drop workflow management",
+      "File and media attachments",
+      "Content approval workflows",
+      "Team notifications",
+      "Analytics dashboard",
+      "Role-based permissions",
+      "Search and advanced filtering",
+      "Activity history",
+      "Integration with social media publishing platforms"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project taught me that useful software does not need to be large or complicated; it needs to clearly solve the problem it was designed for.\n\nBuilding the Content Planner shifted my thinking from simply implementing features to thinking more carefully about the workflow those features are meant to support. I learned that deliberately limiting a system can be just as important as adding capabilities, especially when the requirements are clear and the users are known. The project reinforced the idea that good engineering is about making appropriate decisions for the problem rather than automatically choosing the most sophisticated architecture."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/Flowboard",
+      "live": "https://team-task-calendar.onrender.com/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "Next.js",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Render"
+    ],
+    "year": 2023,
     "client": null,
     "role": null,
     "duration": null,

@@ -6,6 +6,8 @@ import {
   type ProjectFeature,
   type ProjectHighlight,
   type ProjectTakeaway,
+  type ProjectMedia,
+  type VideoRole,
 } from "./data/singleProjectData";
 
 // ─────────────────────────────────────────────
@@ -180,7 +182,9 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
           <p className="text-sm text-white/35 italic">{feature.subtitle}</p>
         )}
       </div>
-      <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
+      {feature.description && (
+        <p className="text-sm text-white/60 leading-relaxed">{feature.description}</p>
+      )}
     </div>
 
     <div className="rounded-xl overflow-hidden border border-white/[0.06] aspect-[4/3]
@@ -200,60 +204,241 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
 );
 
 // ─────────────────────────────────────────────
-// Highlight — now OPTIONAL, only renders if you've written one
+// Highlight — OPTIONAL, only renders if you've written one
 // ─────────────────────────────────────────────
 
-const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => (
-  <div
-    className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center
-      rounded-2xl p-10 mt-8 mb-20 border border-teal-500/15
-      bg-gradient-to-br from-teal-900/20 via-white/[0.02] to-cyan-900/10"
-  >
-    <div className="rounded-xl overflow-hidden bg-white/5 border border-white/5 aspect-[4/3]">
-      {highlight.image ? (
-        <img
-          src={highlight.image}
-          alt={highlight.imageAlt ?? highlight.title ?? ""}
-          className="w-full h-full object-cover"
-        />
-      ) : (
-        <div className="w-full h-full bg-gradient-to-br from-teal-900/30 to-cyan-900/10" />
-      )}
-    </div>
+const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
+  const lines = (highlight.description ?? "")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+  // Same rationale as Takeaway below — Architecture Highlights is
+  // usually one paragraph per the template, but a bullet list is
+  // allowed too, and forcing many bullets into one prose paragraph
+  // reads badly.
+  const isListLike = lines.length > 3;
 
-    <div className="flex flex-col justify-center gap-4">
-      <div>
-        <p className="text-teal-400 text-xs font-semibold tracking-widest uppercase mb-2">
-          Highlight
-        </p>
-        <h2 className="text-2xl font-semibold text-white mb-1">{highlight.title}</h2>
-        {highlight.subtitle && (
-          <p className="text-sm text-white/40 italic">{highlight.subtitle}</p>
+  return (
+    <div
+      className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center
+        rounded-2xl p-10 mb-8 border border-teal-500/15
+        bg-gradient-to-br from-teal-900/20 via-white/[0.02] to-cyan-900/10"
+    >
+      <div className="rounded-xl overflow-hidden bg-white/5 border border-white/5 aspect-[4/3]">
+        {highlight.image ? (
+          <img
+            src={highlight.image}
+            alt={highlight.imageAlt ?? highlight.title ?? ""}
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-teal-900/30 to-cyan-900/10" />
         )}
       </div>
-      <p className="text-sm text-white/60 leading-relaxed">{highlight.description}</p>
+
+      <div className="flex flex-col justify-center gap-4">
+        <div>
+          <p className="text-teal-400 text-xs font-semibold tracking-widest uppercase mb-2">
+            Highlight
+          </p>
+          {highlight.title && (
+            <h2 className="text-2xl font-semibold text-white mb-1">{highlight.title}</h2>
+          )}
+          {highlight.subtitle && (
+            <p className="text-sm text-white/40 italic">{highlight.subtitle}</p>
+          )}
+        </div>
+        {isListLike ? (
+          <ul className="flex flex-col gap-2.5">
+            {lines.map((line, i) => (
+              <li key={i} className="flex gap-3 items-baseline text-sm text-white/60 leading-relaxed">
+                <span className="w-1 h-1 rounded-full bg-teal-500/50 shrink-0 translate-y-[-2px]" />
+                {line}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p className="text-sm text-white/60 leading-relaxed whitespace-pre-line">
+            {highlight.description}
+          </p>
+        )}
+      </div>
+    </div>
+  );
+};
+
+// ─────────────────────────────────────────────
+// Challenges — OPTIONAL, list of bullets from README's ## Challenges.
+// Amber accent: distinct from Highlight's teal (the "good" moment)
+// and Future Improvements' violet (the "ahead" moment) — this one
+// reads as friction encountered, so it gets the warm/caution tone.
+// ─────────────────────────────────────────────
+
+const Challenges = ({ challenges }: { challenges: string[] }) => (
+  <div
+    className="rounded-2xl p-10 mb-8 border border-amber-500/15
+      bg-gradient-to-br from-amber-950/20 via-white/[0.02] to-transparent"
+  >
+    <p className="text-amber-400 text-xs font-semibold tracking-widest uppercase mb-6">
+      Challenges
+    </p>
+    <ul className="flex flex-col gap-4">
+      {challenges.map((item, i) => (
+        <li key={i} className="flex gap-4 items-baseline">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500/50 shrink-0 translate-y-[-2px]" />
+          <span className="text-sm text-white/65 leading-relaxed">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+// ─────────────────────────────────────────────
+// Takeaway — OPTIONAL, only renders if you've written one
+// ─────────────────────────────────────────────
+
+const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => {
+  const lines = (takeaway.description ?? "")
+    .split("\n")
+    .map((l) => l.trim())
+    .filter(Boolean);
+
+  // Heuristic: takeaway.description is "What I Learned" bullets +
+  // "Looking Back" prose, joined by readmeAdapter.ts. When both
+  // sections were actually written as bullet lists (rather than
+  // Looking Back being flowing prose, as the template asks for), the
+  // result is many short lines — that reads terribly forced into a
+  // single centered "quote" paragraph, so render it as a real list
+  // instead once it's past a handful of lines.
+  const isListLike = lines.length > 3;
+
+  return (
+    <section className="text-center py-20 px-4 mb-8 border-t border-white/5">
+      <p className="text-xs font-semibold tracking-widest uppercase text-teal-400 mb-4">
+        Reflection
+      </p>
+      {takeaway.title && (
+        <h2 className="text-3xl font-bold text-white mb-2">{takeaway.title}</h2>
+      )}
+      {takeaway.subtitle && (
+        <p className="text-white/40 text-base italic mb-8">{takeaway.subtitle}</p>
+      )}
+      {isListLike ? (
+        <ul className="max-w-xl mx-auto text-left flex flex-col gap-2.5">
+          {lines.map((line, i) => (
+            <li key={i} className="flex gap-3 items-baseline text-sm text-white/60 leading-relaxed">
+              <span className="w-1 h-1 rounded-full bg-teal-500/50 shrink-0 translate-y-[-2px]" />
+              {line}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p className="text-white/60 text-sm leading-relaxed max-w-2xl mx-auto whitespace-pre-line">
+          {takeaway.description}
+        </p>
+      )}
+    </section>
+  );
+};
+
+// ─────────────────────────────────────────────
+// Future Improvements — OPTIONAL, list of bullets from README's
+// ## Future Improvements. Violet accent — forward-looking counterpart
+// to Challenges' amber.
+// ─────────────────────────────────────────────
+
+const FutureImprovements = ({ items }: { items: string[] }) => (
+  <div
+    className="rounded-2xl p-10 mb-16 border border-violet-500/15
+      bg-gradient-to-br from-violet-950/20 via-white/[0.02] to-transparent"
+  >
+    <p className="text-violet-400 text-xs font-semibold tracking-widest uppercase mb-6">
+      Future Improvements
+    </p>
+    <ul className="flex flex-col gap-4">
+      {items.map((item, i) => (
+        <li key={i} className="flex gap-4 items-baseline">
+          <span className="w-1.5 h-1.5 rounded-full bg-violet-500/50 shrink-0 translate-y-[-2px]" />
+          <span className="text-sm text-white/65 leading-relaxed">{item}</span>
+        </li>
+      ))}
+    </ul>
+  </div>
+);
+
+// ─────────────────────────────────────────────
+// Media Gallery — Images. Horizontal scroll, same card language as
+// Feature (rounded-xl, border-white/[0.06]), lazy-loaded.
+// ─────────────────────────────────────────────
+
+const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
+  <div className="mb-16">
+    <p className="text-xs font-semibold tracking-widest uppercase text-white/25 mb-6 px-1">
+      Gallery
+    </p>
+    <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
+      {images.map((img) => (
+        <div
+          key={img.id}
+          className="shrink-0 w-72 aspect-[4/3] rounded-xl overflow-hidden snap-start
+            border border-white/[0.06] bg-white/5"
+        >
+          <img
+            src={img.url}
+            alt={img.caption ?? ""}
+            loading="lazy"
+            className="w-full h-full object-cover"
+          />
+        </div>
+      ))}
     </div>
   </div>
 );
 
 // ─────────────────────────────────────────────
-// Takeaway — now OPTIONAL, only renders if you've written one
+// Media Gallery — Videos. Three fixed slots, only rendering the ones
+// that have a video. Labels match README_TEMPLATE_INSTRUCTIONS.md's
+// "## Demo Videos" labels exactly, so what you typed in the README is
+// what shows up on the site.
 // ─────────────────────────────────────────────
 
-const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => (
-  <section className="text-center py-20 px-4 mb-8 border-t border-white/5">
-    <p className="text-xs font-semibold tracking-widest uppercase text-teal-400 mb-4">
-      Reflection
-    </p>
-    <h2 className="text-3xl font-bold text-white mb-2">{takeaway.title}</h2>
-    {takeaway.subtitle && (
-      <p className="text-white/40 text-base italic mb-8">{takeaway.subtitle}</p>
-    )}
-    <p className="text-white/60 text-sm leading-relaxed max-w-2xl mx-auto">
-      {takeaway.description}
-    </p>
-  </section>
-);
+const VIDEO_SLOT_LABEL: Record<VideoRole, string> = {
+  client_demo: "Client Walkthrough",
+  architecture: "Architecture & Decisions",
+  reflection: "Developer Reflection",
+};
+
+const MediaGalleryVideos = ({ videos }: { videos: ProjectMedia[] }) => {
+  const bySlot: Partial<Record<VideoRole, ProjectMedia>> = {};
+  for (const v of videos) {
+    if (v.videoRole) bySlot[v.videoRole] = v;
+  }
+  const slots = (Object.keys(VIDEO_SLOT_LABEL) as VideoRole[]).filter((role) => bySlot[role]);
+  if (slots.length === 0) return null;
+
+  return (
+    <div className="mb-16">
+      <p className="text-xs font-semibold tracking-widest uppercase text-white/25 mb-6 px-1">
+        Demo Videos
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {slots.map((role) => (
+          <div key={role} className="flex flex-col gap-2">
+            <div className="rounded-xl overflow-hidden border border-white/[0.06] bg-black aspect-video">
+              <video
+                src={bySlot[role]!.url}
+                controls
+                preload="metadata"
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <p className="text-xs text-white/40 px-1">{VIDEO_SLOT_LABEL[role]}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 // ─────────────────────────────────────────────
 // Page
@@ -284,8 +469,19 @@ export default function SingleProjectPage() {
   // highlight/takeaway are hand-authored, second-pass fields — a
   // freshly-discovered project won't have them yet. Render only if
   // at least a title exists, rather than showing an empty section.
-  const hasHighlight = Boolean(project.highlight.title);
-  const hasTakeaway = Boolean(project.takeaway.title);
+  // Render if EITHER a hand-written title OR README-parsed description
+  // exists — title alone used to be the only signal, back when these
+  // sections were 100% hand-authored. Phase 2C's README parsing only
+  // fills description (there's no README equivalent of a punchy
+  // title), so gating on title alone was silently hiding real,
+  // correctly-parsed content that just hadn't been given a title yet.
+  const hasHighlight = Boolean(project.highlight.title || project.highlight.description);
+  const hasTakeaway = Boolean(project.takeaway.title || project.takeaway.description);
+  const hasChallenges = project.challenges.length > 0;
+  const hasFutureImprovements = project.futureImprovements.length > 0;
+
+  const images = project.media.filter((m) => m.type === "image");
+  const videos = project.media.filter((m) => m.type === "video");
 
   return (
     <div className="min-h-screen text-white pb-32">
@@ -312,11 +508,21 @@ export default function SingleProjectPage() {
           </div>
         )}
 
-        {/* 4. Takeaway */}
+        {/* 4. Highlight */}
+        {hasHighlight && <Highlight highlight={project.highlight} />}
+
+        {/* 5. Challenges */}
+        {hasChallenges && <Challenges challenges={project.challenges} />}
+
+        {/* 6. Takeaway */}
         {hasTakeaway && <Takeaway takeaway={project.takeaway} />}
 
-        {/* 5. Highlight */}
-        {hasHighlight && <Highlight highlight={project.highlight} />}
+        {/* 7. Future Improvements */}
+        {hasFutureImprovements && <FutureImprovements items={project.futureImprovements} />}
+
+        {/* 8. Media galleries */}
+        {images.length > 0 && <MediaGalleryImages images={images} />}
+        {videos.length > 0 && <MediaGalleryVideos videos={videos} />}
 
       </div>
     </div>

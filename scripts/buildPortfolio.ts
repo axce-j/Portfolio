@@ -14,6 +14,18 @@ import { writeFileSync, mkdirSync } from "fs";
 const sql = neon(process.env.DATABASE_URL!);
 const OUTPUT_PATH = "src/features/projects/data/portfolio.generated.json";
 
+// challenges/future_improvements are stored as single newline-joined
+// text blobs (see readmeAdapter.ts's bodyToText) — split back into a
+// list here, since the frontend renders them as bullet lists, same
+// shape as features.
+function toList(text: string | null): string[] {
+  if (!text) return [];
+  return text
+    .split("\n")
+    .map((line) => line.trim())
+    .filter((line) => line.length > 0);
+}
+
 async function main() {
   // status = 'published' is the gate — a draft (freshly discovered,
   // not yet hand-finished) never reaches the site, no matter what else
@@ -85,6 +97,10 @@ async function main() {
         type: m.media_type,
         url: m.url,
         caption: m.caption,
+        // video_role is null for images, and for videos uploaded
+        // before this column existed — always check for null before
+        // using it to slot a video into client_demo/architecture/reflection.
+        videoRole: m.video_role,
       })),
 
     highlight: {
@@ -94,6 +110,11 @@ async function main() {
       image: p.highlight_image,
       imageAlt: p.highlight_image_alt,
     },
+
+    // New in Phase 2D — previously fetched via `p.*` but never mapped
+    // into the output, so the frontend had nothing to read.
+    challenges: toList(p.challenges),
+    futureImprovements: toList(p.future_improvements),
 
     takeaway: {
       title: p.takeaway_title,

@@ -17,10 +17,10 @@ import portfolioData from "./portfolio.generated.json";
 export interface ProjectFeature {
   id: string;
   title: string;
-  subtitle?: string;
+  subtitle: string | null;
   description: string;
-  image?: string;
-  imageAlt?: string;
+  image: string | null;
+  imageAlt: string | null;
 }
 
 export interface ProjectHighlight {

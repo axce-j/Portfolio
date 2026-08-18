@@ -27,7 +27,7 @@ export async function triggerRebuild(): Promise<{ mode: "local" | "deploy-hook" 
 	  try {
 		// Dynamic import so this dependency (and its Neon connection)
 		// only loads when actually needed, not on every cold start.
-		const { generatePortfolioJson } = await import("../../scripts/buildPortfolio");
+		const { generatePortfolioJson } = await import("../../scripts/buildPortfolio.js");
 		const count = await generatePortfolioJson();
 		return { mode: "local", detail: `Regenerated locally — ${count} published project(s)` };
 	  } catch (err) {

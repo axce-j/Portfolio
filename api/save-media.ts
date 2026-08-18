@@ -8,8 +8,8 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
-import { triggerRebuild } from "./_lib/triggerRebuild";
- 
+import { triggerRebuild } from "./_lib/triggerRebuild.js";
+
 const sql = neon(process.env.DATABASE_URL!);
 
 const VALID_VIDEO_ROLES = ["client_demo", "architecture", "reflection"];

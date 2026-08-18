@@ -8,7 +8,8 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
-
+import { triggerRebuild } from "./_lib/trigger-rebuild";
+ 
 const sql = neon(process.env.DATABASE_URL!);
 
 const VALID_VIDEO_ROLES = ["client_demo", "architecture", "reflection"];
@@ -52,5 +53,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     )
   `;
 
-  return res.status(200).json({ success: true });
+  const rebuild = await triggerRebuild();
+
+  return res.status(200).json({ success: true, rebuild });
 }

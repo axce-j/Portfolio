@@ -11,7 +11,7 @@ import Expertise from "./pages/expertise";
 import Settings from "./pages/settings";
 import Chronicle from "./pages/chronicle";
 import AdminUploadPage from "./features/admin/AdminUploadPage";
-import { ADMIN_ROUTE } from "./config/adminAccess";
+import { getAdminRoute } from "./config/adminAccess";
 import { useSecretTypedPhrase } from "./features/admin/hooks/useSecretTypedPhrase";
 
 // Wraps only the public-facing pages in the sidebar/nav chrome.
@@ -35,7 +35,7 @@ function App() {
 		<Routes>
 			{/* Admin page — deliberately OUTSIDE PublicLayout, so it gets
 			    a clean full-screen canvas with none of the site chrome. */}
-			<Route path={ADMIN_ROUTE} element={<AdminUploadPage />} />
+			<Route path={getAdminRoute()} element={<AdminUploadPage />} />
 
 			{/* Everything else — wrapped in the sidebar/nav layout */}
 			<Route element={<PublicLayout />}>

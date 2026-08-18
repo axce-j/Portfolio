@@ -26,7 +26,7 @@ function toList(text: string | null): string[] {
     .filter((line) => line.length > 0);
 }
 
-async function main() {
+async function generatePortfolioJson(): Promise<number> {
   // status = 'published' is the gate — a draft (freshly discovered,
   // not yet hand-finished) never reaches the site, no matter what else
   // is true about it.
@@ -144,7 +144,18 @@ async function main() {
 
   mkdirSync("src/features/projects/data", { recursive: true });
   writeFileSync(OUTPUT_PATH, JSON.stringify(merged, null, 2));
-  console.log(`✅ Wrote ${merged.length} published project(s) to ${OUTPUT_PATH}`);
+  return merged.length;
+}
+
+// Exported so api/save-media.ts and api/save-project-text.ts can
+// regenerate the JSON directly when running under `vercel dev`
+// locally — see LOCAL_REBUILD note in those files for why this only
+// makes sense locally, not in a real deployed serverless function.
+export { generatePortfolioJson };
+
+async function main() {
+  const count = await generatePortfolioJson();
+  console.log(`✅ Wrote ${count} published project(s) to ${OUTPUT_PATH}`);
 }
 
 main().catch((err) => {

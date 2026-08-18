@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  ADMIN_ROUTE,
+  getAdminRoute,
   SECRET_PHRASE,
   SECRET_PHRASE_TIMEOUT_MS,
 } from "../../../config/adminAccess";
@@ -39,7 +39,7 @@ export function useSecretTypedPhrase() {
       if (bufferRef.current === SECRET_PHRASE.toLowerCase()) {
         bufferRef.current = "";
         if (timerRef.current) clearTimeout(timerRef.current);
-        navigate(ADMIN_ROUTE);
+        navigate(getAdminRoute());
       }
     }
 

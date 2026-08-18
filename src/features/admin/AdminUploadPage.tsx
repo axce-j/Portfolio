@@ -88,6 +88,7 @@ function UploadForm({ password, projects }: { password: string; projects: Projec
   const [file, setFile] = useState<File | null>(null);
   const [status, setStatus] = useState<"idle" | "uploading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [rebuildDetail, setRebuildDetail] = useState<string | null>(null);
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -147,8 +148,10 @@ function UploadForm({ password, projects }: { password: string; projects: Projec
         const body = await saveRes.json().catch(() => ({}));
         throw new Error(body.error ?? "Could not save media record");
       }
+      const saved = await saveRes.json();
 
       setStatus("success");
+      setRebuildDetail(saved.rebuild?.detail ?? null);
       setFile(null);
       setCaption("");
     } catch (err) {
@@ -230,7 +233,11 @@ function UploadForm({ password, projects }: { password: string; projects: Projec
         </label>
 
         {error && <p className="text-xs text-red-400">{error}</p>}
-        {status === "success" && <p className="text-xs text-teal-400">Uploaded ✓</p>}
+        {status === "success" && (
+          <p className="text-xs text-teal-400">
+            Uploaded ✓{rebuildDetail ? ` — ${rebuildDetail}` : ""}
+          </p>
+        )}
 
         <button
           type="submit"
@@ -277,6 +284,7 @@ function TextEditForm({ password, projects }: { password: string; projects: Proj
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<"idle" | "saving" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [rebuildDetail, setRebuildDetail] = useState<string | null>(null);
 
   async function loadProjectValues(slug: string) {
     setLoading(true);
@@ -328,7 +336,9 @@ function TextEditForm({ password, projects }: { password: string; projects: Proj
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error ?? "Could not save");
       }
+      const saved = await res.json();
       setStatus("success");
+      setRebuildDetail(saved.rebuild?.detail ?? null);
     } catch (err) {
       setStatus("error");
       setError(err instanceof Error ? err.message : "Save failed");
@@ -398,7 +408,11 @@ function TextEditForm({ password, projects }: { password: string; projects: Proj
         )}
 
         {error && <p className="text-xs text-red-400">{error}</p>}
-        {status === "success" && <p className="text-xs text-teal-400">Saved ✓</p>}
+        {status === "success" && (
+          <p className="text-xs text-teal-400">
+            Saved ✓{rebuildDetail ? ` — ${rebuildDetail}` : ""}
+          </p>
+        )}
 
         <button
           onClick={handleSave}

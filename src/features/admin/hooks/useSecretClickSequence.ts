@@ -1,7 +1,7 @@
 import { useCallback, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
-  ADMIN_ROUTE,
+  getAdminRoute,
   SECRET_CLICK_COUNT,
   SECRET_CLICK_WINDOW_MS,
 } from "../../../config/adminAccess";
@@ -33,7 +33,7 @@ export function useSecretClickSequence() {
     if (countRef.current >= SECRET_CLICK_COUNT) {
       countRef.current = 0;
       if (timerRef.current) clearTimeout(timerRef.current);
-      navigate(ADMIN_ROUTE);
+      navigate(getAdminRoute());
     }
   }, [navigate]);
 

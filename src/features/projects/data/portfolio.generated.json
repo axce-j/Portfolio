@@ -31,7 +31,7 @@
     },
     "features": [
       {
-        "id": "e90913cd-d669-4477-bf38-24d40cc0a2d7",
+        "id": "a856ea25-2b05-4f47-b927-69edcbef80ef",
         "title": "Anime Discovery",
         "subtitle": "Explore a large content catalog",
         "description": "The application retrieves anime information from the Jikan API and presents it through dedicated discovery interfaces. Users can browse different categories and explore titles without requiring the application to maintain its own anime database.",
@@ -39,7 +39,7 @@
         "imageAlt": null
       },
       {
-        "id": "1f739f56-c5ac-4a6d-ab42-f8394e2f8ae1",
+        "id": "f5cc7681-4ef1-40e7-8db1-e98682c45746",
         "title": "Search & Filtering",
         "subtitle": "Find titles more efficiently",
         "description": "Users can search for anime and refine results using URL-based search parameters and filtering logic. Keeping these parameters in the URL allows search states to remain navigable and shareable across routes.",
@@ -47,7 +47,7 @@
         "imageAlt": null
       },
       {
-        "id": "6ded6c35-ebde-4d55-b04a-c21270c7dd29",
+        "id": "360c0c0c-ab51-42d8-abab-65770c1fea2a",
         "title": "Detailed Anime Pages",
         "subtitle": "Explore each title in depth",
         "description": "Each anime has a dedicated route containing detailed information and related recommendations. Dynamic routing allows the same page structure to display different content based on the selected anime.",
@@ -55,7 +55,7 @@
         "imageAlt": null
       },
       {
-        "id": "ca04cd2b-ad7c-482f-9163-4d2a1e1d87d5",
+        "id": "325bcc2b-a631-43cc-b3dd-16c685f2ce5f",
         "title": "API Data Management",
         "subtitle": "Handle remote data reliably",
         "description": "The application uses Axios and TanStack React Query to manage requests to the Jikan API, including asynchronous loading states, caching, and refetching behaviour. This helped separate remote server data from the UI and keep components focused on presentation and interaction.",
@@ -152,7 +152,7 @@
     },
     "features": [
       {
-        "id": "62af37c5-93bc-4a71-8dbc-09a4c78d7688",
+        "id": "4862c9da-e715-467e-8608-913d18796d08",
         "title": "Multi-Page Experience",
         "subtitle": "Connected pages and workflows",
         "description": "The website is structured across multiple pages that guide visitors from the initial fitness brand introduction through program discovery and registration. Each page contributes to a connected user journey rather than functioning as an isolated landing page.",
@@ -160,7 +160,7 @@
         "imageAlt": null
       },
       {
-        "id": "dff9c783-a1bc-4a5d-9a57-fa67158d2565",
+        "id": "562eb0d4-5b32-4740-9221-911a7f45dc4e",
         "title": "Registration Workflow",
         "subtitle": "From form to confirmation",
         "description": "Users can complete an interactive registration form and proceed to a dedicated confirmation page after submitting their information. This provided practical experience with form handling and designing sequential user flows.",
@@ -168,7 +168,7 @@
         "imageAlt": null
       },
       {
-        "id": "1523600d-764e-4632-b03d-6aa9eba19103",
+        "id": "6760689a-be59-4d4e-8207-fa6d2e01f879",
         "title": "Responsive Interface",
         "subtitle": "Designed for every screen",
         "description": "The layouts adapt to different viewport sizes using responsive CSS techniques. The design was developed to keep the content, navigation, and registration experience usable across desktop and mobile devices.",
@@ -226,6 +226,194 @@
     "latestRelease": "v1.0.0"
   },
   {
+    "id": "simple-newsletter-website",
+    "category": "frontend",
+    "repo": "axce-j/simple-newsletter-website",
+    "heroImage": null,
+    "heroImageAlt": null,
+    "intro": {
+      "title": "simple-newsletter-website",
+      "tagline": null,
+      "description": "Responsive newsletter landing page built during my early frontend development journey. This project showcases foundational HTML, CSS, and JavaScript skills while demonstrating my progression toward building modern full-stack applications.",
+      "tags": [
+        "beginner-project",
+        "css",
+        "frontend-development",
+        "html",
+        "javascript",
+        "landing-page",
+        "newsletter",
+        "responsive-design",
+        "web-development"
+      ]
+    },
+    "features": [
+      {
+        "id": "278f6842-5215-4eb1-9daa-2ffcd177e858",
+        "title": "Responsive Layout",
+        "subtitle": "Adapts across screen sizes",
+        "description": "The page uses responsive CSS techniques to maintain its layout and usability across desktop and mobile screen sizes. The structure was kept intentionally simple so the content remains easy to navigate at different viewport sizes.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "df7613c1-8879-42b8-98f4-1eb0f2932c82",
+        "title": "Newsletter Interface",
+        "subtitle": "Focused signup experience",
+        "description": "The landing page is centered around a newsletter signup experience, with the surrounding layout designed to guide visitors toward the primary interaction without unnecessary interface elements.",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The project uses a straightforward HTML, CSS, and JavaScript structure without a framework or external application architecture. This kept the focus on understanding the fundamentals of semantic page structure, responsive styling, and basic frontend interactions before introducing more complex tooling.",
+      "image": null,
+      "imageAlt": null
+    },
+    "challenges": [
+      "Creating a responsive layout without relying on a frontend framework.",
+      "Maintaining consistent spacing and alignment across different screen sizes.",
+      "Structuring the page so the newsletter signup remained the primary interaction.",
+      "Balancing visual design with the limited scope of a simple landing page."
+    ],
+    "futureImprovements": [
+      "Connect the signup form to a real newsletter service",
+      "Add form validation and feedback states",
+      "Improve accessibility",
+      "Add subtle interaction and transition effects",
+      "Introduce automated deployment workflows"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project strengthened my understanding of the frontend fundamentals that more complex applications are built upon.\n\nThe Simple Newsletter Website represents the starting point of my transition into software development. At this stage, the challenge was not building complex systems, but learning how to turn a design idea into a functioning and responsive web page. Looking back, those fundamentals became the foundation for everything that followed, from API-driven applications to full-stack systems and production platforms."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/simple-newsletter-website",
+      "live": "https://axce-j.github.io/simple-newsletter-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "robot-profile-viewer",
+    "category": "frontend",
+    "repo": "axce-j/robot-profile-viewer",
+    "heroImage": null,
+    "heroImageAlt": null,
+    "intro": {
+      "title": "robot-profile-viewer",
+      "tagline": null,
+      "description": "Responsive single-page application that consumes a public API to display robot profiles, built to explore Vite, asynchronous JavaScript, API integration, and automated GitHub Pages deployment workflows.",
+      "tags": [
+        "api",
+        "fetch-api",
+        "frontend",
+        "github-actions",
+        "github-pages",
+        "javascript",
+        "responsive-design",
+        "single-page-applications",
+        "vite",
+        "yml-configuration"
+      ]
+    },
+    "features": [
+      {
+        "id": "3fc80929-96f1-4d01-ad6e-bec539bf563d",
+        "title": "API-Driven Profiles",
+        "subtitle": "Dynamic data from an API",
+        "description": "Robot profile information is retrieved from a public API using the browser's Fetch API rather than being hardcoded into the application. The returned data is processed and rendered dynamically within the interface.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "fb8bed0d-081f-4ee4-a75d-73a85cbe52ea",
+        "title": "Asynchronous Data Handling",
+        "subtitle": "Working with remote data",
+        "description": "The application handles asynchronous requests and updates the interface based on data received from the API. This provided practical experience working with Promises and the flow of data between an external service and a frontend application.",
+        "image": null,
+        "imageAlt": null
+      },
+      {
+        "id": "1ae0dda7-99c2-40e6-8365-82fe1ff842f0",
+        "title": "Responsive Interface",
+        "subtitle": "Built for different screens",
+        "description": "The interface adapts to different screen sizes while maintaining a straightforward profile browsing experience. Responsive styling was implemented with CSS to make the application usable on both desktop and mobile devices.",
+        "image": null,
+        "imageAlt": null
+      }
+    ],
+    "media": [],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The most important architectural step in this project was moving from static page content to a data-driven frontend. Instead of storing robot profiles directly in the interface, the application requests the data from an external API and builds the displayed profiles from the response. This established an early foundation for understanding how frontend applications interact with external services.",
+      "image": null,
+      "imageAlt": null
+    },
+    "challenges": [
+      "Working with asynchronous API requests and Promises.",
+      "Handling and rendering JSON data returned from an external service.",
+      "Updating the interface dynamically based on API responses.",
+      "Understanding the build and deployment process introduced by Vite and GitHub Actions."
+    ],
+    "futureImprovements": [
+      "Search and filtering functionality",
+      "Robot profile detail pages",
+      "Favorites and bookmarking",
+      "Pagination for large datasets",
+      "Error handling improvements",
+      "Loading state enhancements",
+      "Migration to a modern framework such as React"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project taught me how much more interactive a frontend becomes when its interface is driven by external data rather than static content.\n\nThe Robot Profile Viewer was an early turning point in my development journey because it was one of my first experiences making a frontend application communicate with something outside the browser. It helped me understand that building software is not just about creating interfaces, but also about handling the data and processes that make those interfaces useful. The project was simple, but the concepts introduced here became foundations for the more complex applications I built later."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/robot-profile-viewer",
+      "live": "https://axce-j.github.io/-Robo-profile-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Vite",
+      "GitHub Actions",
+      "GitHub Pages"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
     "id": "web-forum",
     "category": "full-stack",
     "repo": "axce-j/web-forum",
@@ -255,7 +443,7 @@
     },
     "features": [
       {
-        "id": "d5ac4308-e56c-42f2-9ba2-a32c8824abea",
+        "id": "1e92adb8-679e-4f0a-ace5-00c440bf68ca",
         "title": "Authentication",
         "subtitle": "Secure access to discussions",
         "description": "Users can authenticate through Firebase before accessing protected interactions within the platform. Authentication state is integrated into the application so user-specific actions can be handled separately from public content.",
@@ -263,7 +451,7 @@
         "imageAlt": null
       },
       {
-        "id": "38da6f59-4e69-47c0-89ff-5b4f05908c72",
+        "id": "75cd9ea9-3779-4bfd-9694-d45991e7c371",
         "title": "Discussion Management",
         "subtitle": "Create and manage conversations",
         "description": "Users can create, edit, and delete discussion posts, providing the core CRUD workflow of the platform. The application organizes these interactions around a community feed where users can discover and participate in discussions.",
@@ -271,7 +459,7 @@
         "imageAlt": null
       },
       {
-        "id": "c4a5e4aa-a930-4cf5-a322-6fe33066ad2a",
+        "id": "39641764-db2e-448c-98de-f72cc19ed790",
         "title": "Nested Discussions",
         "subtitle": "Conversations beyond one level",
         "description": "Posts support nested comments and replies, allowing conversations to develop into structured discussion threads rather than simple one-level comment sections.",
@@ -279,7 +467,7 @@
         "imageAlt": null
       },
       {
-        "id": "d451f824-899e-4227-9ae4-83fbdd976969",
+        "id": "aa78a714-7e13-45e8-b2e3-5bfdd57abc12",
         "title": "Community Voting",
         "subtitle": "Let the community respond",
         "description": "Users can interact with discussions through upvotes and downvotes. This adds a layer of community-driven engagement and required the application to coordinate user actions with persistent backend data.",
@@ -350,194 +538,6 @@
     "latestRelease": "v1.0.0"
   },
   {
-    "id": "robot-profile-viewer",
-    "category": "frontend",
-    "repo": "axce-j/robot-profile-viewer",
-    "heroImage": null,
-    "heroImageAlt": null,
-    "intro": {
-      "title": "robot-profile-viewer",
-      "tagline": null,
-      "description": "Responsive single-page application that consumes a public API to display robot profiles, built to explore Vite, asynchronous JavaScript, API integration, and automated GitHub Pages deployment workflows.",
-      "tags": [
-        "api",
-        "fetch-api",
-        "frontend",
-        "github-actions",
-        "github-pages",
-        "javascript",
-        "responsive-design",
-        "single-page-applications",
-        "vite",
-        "yml-configuration"
-      ]
-    },
-    "features": [
-      {
-        "id": "8e1adac8-e4d2-4053-8142-3d5e04f9b038",
-        "title": "API-Driven Profiles",
-        "subtitle": "Dynamic data from an API",
-        "description": "Robot profile information is retrieved from a public API using the browser's Fetch API rather than being hardcoded into the application. The returned data is processed and rendered dynamically within the interface.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "4053b752-f351-47bb-bda0-bf802c7c3b81",
-        "title": "Asynchronous Data Handling",
-        "subtitle": "Working with remote data",
-        "description": "The application handles asynchronous requests and updates the interface based on data received from the API. This provided practical experience working with Promises and the flow of data between an external service and a frontend application.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "5f57ef32-0e8a-48d0-bc15-1506245212c8",
-        "title": "Responsive Interface",
-        "subtitle": "Built for different screens",
-        "description": "The interface adapts to different screen sizes while maintaining a straightforward profile browsing experience. Responsive styling was implemented with CSS to make the application usable on both desktop and mobile devices.",
-        "image": null,
-        "imageAlt": null
-      }
-    ],
-    "media": [],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": "The most important architectural step in this project was moving from static page content to a data-driven frontend. Instead of storing robot profiles directly in the interface, the application requests the data from an external API and builds the displayed profiles from the response. This established an early foundation for understanding how frontend applications interact with external services.",
-      "image": null,
-      "imageAlt": null
-    },
-    "challenges": [
-      "Working with asynchronous API requests and Promises.",
-      "Handling and rendering JSON data returned from an external service.",
-      "Updating the interface dynamically based on API responses.",
-      "Understanding the build and deployment process introduced by Vite and GitHub Actions."
-    ],
-    "futureImprovements": [
-      "Search and filtering functionality",
-      "Robot profile detail pages",
-      "Favorites and bookmarking",
-      "Pagination for large datasets",
-      "Error handling improvements",
-      "Loading state enhancements",
-      "Migration to a modern framework such as React"
-    ],
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": "This project taught me how much more interactive a frontend becomes when its interface is driven by external data rather than static content.\n\nThe Robot Profile Viewer was an early turning point in my development journey because it was one of my first experiences making a frontend application communicate with something outside the browser. It helped me understand that building software is not just about creating interfaces, but also about handling the data and processes that make those interfaces useful. The project was simple, but the concepts introduced here became foundations for the more complex applications I built later."
-    },
-    "links": {
-      "github": "https://github.com/axce-j/robot-profile-viewer",
-      "live": "https://axce-j.github.io/-Robo-profile-website/",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Vite",
-      "GitHub Actions",
-      "GitHub Pages"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
-    "id": "simple-newsletter-website",
-    "category": "frontend",
-    "repo": "axce-j/simple-newsletter-website",
-    "heroImage": null,
-    "heroImageAlt": null,
-    "intro": {
-      "title": "simple-newsletter-website",
-      "tagline": null,
-      "description": "Responsive newsletter landing page built during my early frontend development journey. This project showcases foundational HTML, CSS, and JavaScript skills while demonstrating my progression toward building modern full-stack applications.",
-      "tags": [
-        "beginner-project",
-        "css",
-        "frontend-development",
-        "html",
-        "javascript",
-        "landing-page",
-        "newsletter",
-        "responsive-design",
-        "web-development"
-      ]
-    },
-    "features": [
-      {
-        "id": "bae237a2-79f4-494a-b463-3fc56c2ca89a",
-        "title": "Responsive Layout",
-        "subtitle": "Adapts across screen sizes",
-        "description": "The page uses responsive CSS techniques to maintain its layout and usability across desktop and mobile screen sizes. The structure was kept intentionally simple so the content remains easy to navigate at different viewport sizes.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "385a879a-29a8-4a4a-bc3e-20c0a40ef38c",
-        "title": "Newsletter Interface",
-        "subtitle": "Focused signup experience",
-        "description": "The landing page is centered around a newsletter signup experience, with the surrounding layout designed to guide visitors toward the primary interaction without unnecessary interface elements.",
-        "image": null,
-        "imageAlt": null
-      }
-    ],
-    "media": [],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": "The project uses a straightforward HTML, CSS, and JavaScript structure without a framework or external application architecture. This kept the focus on understanding the fundamentals of semantic page structure, responsive styling, and basic frontend interactions before introducing more complex tooling.",
-      "image": null,
-      "imageAlt": null
-    },
-    "challenges": [
-      "Creating a responsive layout without relying on a frontend framework.",
-      "Maintaining consistent spacing and alignment across different screen sizes.",
-      "Structuring the page so the newsletter signup remained the primary interaction.",
-      "Balancing visual design with the limited scope of a simple landing page."
-    ],
-    "futureImprovements": [
-      "Connect the signup form to a real newsletter service",
-      "Add form validation and feedback states",
-      "Improve accessibility",
-      "Add subtle interaction and transition effects",
-      "Introduce automated deployment workflows"
-    ],
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": "This project strengthened my understanding of the frontend fundamentals that more complex applications are built upon.\n\nThe Simple Newsletter Website represents the starting point of my transition into software development. At this stage, the challenge was not building complex systems, but learning how to turn a design idea into a functioning and responsive web page. Looking back, those fundamentals became the foundation for everything that followed, from API-driven applications to full-stack systems and production platforms."
-    },
-    "links": {
-      "github": "https://github.com/axce-j/simple-newsletter-website",
-      "live": "https://axce-j.github.io/simple-newsletter-website/",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
     "id": "flowboard",
     "category": "frontend",
     "repo": "axce-j/Flowboard",
@@ -561,7 +561,7 @@
     },
     "features": [
       {
-        "id": "f327307b-97a3-4ce4-bf47-3c0ad7f0a5ad",
+        "id": "be90ad47-ebf8-4abf-aedd-226eb89dc23f",
         "title": "Content Workflow",
         "subtitle": "From idea to publication",
         "description": "Content moves through a predefined production pipeline consisting of Idea, Draft, Ready, and Posted stages. This gives the team a simple way to understand the current state of every piece of content.",
@@ -569,7 +569,7 @@
         "imageAlt": null
       },
       {
-        "id": "1f944e9f-926f-432f-bf49-55b4fbb90215",
+        "id": "85f97e4a-56c4-41c5-9822-3a2f1240a646",
         "title": "Task Management",
         "subtitle": "Simple content operations",
         "description": "Team members can create, edit, and delete content tasks while maintaining the information needed to track production. The interface uses modal-based interactions to keep task management within the main dashboard workflow.",
@@ -577,7 +577,7 @@
         "imageAlt": null
       },
       {
-        "id": "ed2d8195-31f1-43f1-9360-a2588ff375c9",
+        "id": "59752c17-1e9b-4bd7-b64d-9fe6c569f4e5",
         "title": "Team Assignment",
         "subtitle": "Clear ownership of work",
         "description": "Tasks can be assigned to predefined internal team members, making responsibility visible within the shared workspace and helping the team understand who is responsible for each piece of content.",
@@ -585,7 +585,7 @@
         "imageAlt": null
       },
       {
-        "id": "908fe2e1-e852-4b01-8289-cbd413997e8f",
+        "id": "ef841ae1-81ab-470f-a226-dd8cafff2a0e",
         "title": "Workflow Filtering",
         "subtitle": "Focus on what matters",
         "description": "Content can be filtered according to its current production status, allowing team members to focus on specific stages of the workflow rather than navigating through unrelated tasks.",
@@ -593,7 +593,7 @@
         "imageAlt": null
       },
       {
-        "id": "e72d540d-899b-4abe-81d5-e66ba2073940",
+        "id": "8b33270a-90cc-4b73-8dc9-f5a4d4b3d792",
         "title": "Responsive Dashboard",
         "subtitle": "Built for everyday use",
         "description": "The application provides a responsive dashboard interface so the internal workflow remains usable across different screen sizes without requiring a separate mobile application.",
@@ -601,7 +601,22 @@
         "imageAlt": null
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "00bcb5c9-667a-469f-b436-34c84a9a7d3a",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1786966511/portfolio/abwhcxogmyctre0mzvw8.png",
+        "caption": "flowboard1",
+        "videoRole": null
+      },
+      {
+        "id": "e86926d3-7adf-4bb9-99e1-351d868682c0",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1787007032/portfolio/n28ikcql5jlzp2n0wior.png",
+        "caption": "floowboard2",
+        "videoRole": null
+      }
+    ],
     "highlight": {
       "title": null,
       "subtitle": null,
@@ -629,7 +644,7 @@
       "Integration with social media publishing platforms"
     ],
     "takeaway": {
-      "title": null,
+      "title": "CDN Structure and Media Optimization",
       "subtitle": null,
       "description": "This project taught me that useful software does not need to be large or complicated; it needs to clearly solve the problem it was designed for.\n\nBuilding the Content Planner shifted my thinking from simply implementing features to thinking more carefully about the workflow those features are meant to support. I learned that deliberately limiting a system can be just as important as adding capabilities, especially when the requirements are clear and the users are known. The project reinforced the idea that good engineering is about making appropriate decisions for the problem rather than automatically choosing the most sophisticated architecture."
     },
@@ -648,7 +663,7 @@
       "Tailwind CSS",
       "Render"
     ],
-    "year": 2023,
+    "year": 2024,
     "client": null,
     "role": null,
     "duration": null,

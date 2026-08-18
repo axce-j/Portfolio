@@ -18,7 +18,7 @@
 
 import type { VercelRequest, VercelResponse } from "@vercel/node";
 import { neon } from "@neondatabase/serverless";
-import { triggerRebuild } from "./_lib/trigger-rebuild";
+import { triggerRebuild } from "./_lib/triggerRebuild";
 
  
 const sql = neon(process.env.DATABASE_URL!);

@@ -9,7 +9,7 @@ import {
   Takeaway,
   FutureImprovements,
   MediaGalleryImages,
-  MediaGalleryVideos,
+//   MediaGalleryVideos,
   VIDEO_SLOT_LABEL,
 } from "../projects/singleProjectPage";
 import type { SingleProject, ProjectMedia, VideoRole } from "../projects/data/singleProjectData";

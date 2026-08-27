@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"dev:local": "cp vercel.json /tmp/vercel.json.bak && echo '{}' > vercel.json && (npx vercel dev; cp /tmp/vercel.json.bak vercel.json)",
+
 		"prebuild": "NODE_OPTIONS=--network-family-autoselection-attempt-timeout=3000 tsx scripts/sources/syncGithub.ts && NODE_OPTIONS=--network-family-autoselection-attempt-timeout=3000 tsx scripts/convergeProjects.ts && NODE_OPTIONS=--network-family-autoselection-attempt-timeout=3000 tsx scripts/buildPortfolio.ts",
 		"build": "tsc -b && vite build",
 		"lint": "eslint .",

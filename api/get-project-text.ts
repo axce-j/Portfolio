@@ -28,7 +28,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       tagline, description, role, duration, client, year,
       highlight_title, highlight_subtitle, highlight_description,
       takeaway_title, takeaway_subtitle, takeaway_description,
-      challenges, future_improvements
+      challenges, future_improvements,
+      hero_image, highlight_image
     from projects
     where slug = ${projectSlug}
   `;
@@ -52,5 +53,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     takeawayDescription: p.takeaway_description ?? "",
     challenges: p.challenges ?? "",
     futureImprovements: p.future_improvements ?? "",
+    // Used by the Upload Media tab to preview the current hero/
+    // highlight image before you overwrite it — not part of the
+    // text-edit form itself.
+    heroImage: p.hero_image ?? null,
+    highlightImage: p.highlight_image ?? null,
   });
 }

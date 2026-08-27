@@ -14,7 +14,7 @@ import {
 // Hero
 // ─────────────────────────────────────────────
 
-const Hero = ({ project, onBack }: { project: SingleProject; onBack: () => void }) => (
+export const Hero = ({ project, onBack }: { project: SingleProject; onBack: () => void }) => (
   <section className="relative w-full mb-16">
     <button
       onClick={onBack}
@@ -42,7 +42,7 @@ const Hero = ({ project, onBack }: { project: SingleProject; onBack: () => void 
 // Intro
 // ─────────────────────────────────────────────
 
-const Intro = ({ project }: { project: SingleProject }) => {
+export const Intro = ({ project }: { project: SingleProject }) => {
   const { intro, links, techStack, year, client, role, duration } = project;
 
   const linkItems = [
@@ -148,7 +148,7 @@ const Intro = ({ project }: { project: SingleProject }) => {
 // Connector — shown between feature cards
 // ─────────────────────────────────────────────
 
-const Connector = () => (
+export const Connector = () => (
   <div className="flex flex-col items-center py-3 select-none">
     <div className="w-px h-5 bg-white/10" />
     <div className="flex items-center justify-center w-7 h-7 rounded-full
@@ -167,7 +167,7 @@ const Connector = () => (
 // Feature card — text left, image right
 // ─────────────────────────────────────────────
 
-const Feature = ({ feature }: { feature: ProjectFeature }) => (
+export const Feature = ({ feature }: { feature: ProjectFeature }) => (
   <div
     className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center
       rounded-2xl p-10 border border-white/[0.07]
@@ -207,7 +207,7 @@ const Feature = ({ feature }: { feature: ProjectFeature }) => (
 // Highlight — OPTIONAL, only renders if you've written one
 // ─────────────────────────────────────────────
 
-const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
+export const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
   const lines = (highlight.description ?? "")
     .split("\n")
     .map((l) => l.trim())
@@ -274,7 +274,7 @@ const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
 // reads as friction encountered, so it gets the warm/caution tone.
 // ─────────────────────────────────────────────
 
-const Challenges = ({ challenges }: { challenges: string[] }) => (
+export const Challenges = ({ challenges }: { challenges: string[] }) => (
   <div
     className="rounded-2xl p-10 mb-8 border border-amber-500/15
       bg-gradient-to-br from-amber-950/20 via-white/[0.02] to-transparent"
@@ -297,7 +297,7 @@ const Challenges = ({ challenges }: { challenges: string[] }) => (
 // Takeaway — OPTIONAL, only renders if you've written one
 // ─────────────────────────────────────────────
 
-const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => {
+export const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => {
   const lines = (takeaway.description ?? "")
     .split("\n")
     .map((l) => l.trim())
@@ -347,7 +347,7 @@ const Takeaway = ({ takeaway }: { takeaway: ProjectTakeaway }) => {
 // to Challenges' amber.
 // ─────────────────────────────────────────────
 
-const FutureImprovements = ({ items }: { items: string[] }) => (
+export const FutureImprovements = ({ items }: { items: string[] }) => (
   <div
     className="rounded-2xl p-10 mb-16 border border-violet-500/15
       bg-gradient-to-br from-violet-950/20 via-white/[0.02] to-transparent"
@@ -371,16 +371,16 @@ const FutureImprovements = ({ items }: { items: string[] }) => (
 // Feature (rounded-xl, border-white/[0.06]), lazy-loaded.
 // ─────────────────────────────────────────────
 
-const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
+export const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
   <div className="mb-16">
     <p className="text-xs font-semibold tracking-widest uppercase text-white/25 mb-6 px-1">
       Gallery
     </p>
-    <div className="flex gap-4 overflow-x-auto pb-2 snap-x snap-mandatory scrollbar-thin">
+    <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
       {images.map((img) => (
         <div
           key={img.id}
-          className="shrink-0 w-72 aspect-[4/3] rounded-xl overflow-hidden snap-start
+          className="aspect-[4/3] rounded-xl overflow-hidden
             border border-white/[0.06] bg-white/5"
         >
           <img
@@ -402,13 +402,13 @@ const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
 // what shows up on the site.
 // ─────────────────────────────────────────────
 
-const VIDEO_SLOT_LABEL: Record<VideoRole, string> = {
+export const VIDEO_SLOT_LABEL: Record<VideoRole, string> = {
   client_demo: "Client Walkthrough",
   architecture: "Architecture & Decisions",
   reflection: "Developer Reflection",
 };
 
-const MediaGalleryVideos = ({ videos }: { videos: ProjectMedia[] }) => {
+export const MediaGalleryVideos = ({ videos }: { videos: ProjectMedia[] }) => {
   const bySlot: Partial<Record<VideoRole, ProjectMedia>> = {};
   for (const v of videos) {
     if (v.videoRole) bySlot[v.videoRole] = v;

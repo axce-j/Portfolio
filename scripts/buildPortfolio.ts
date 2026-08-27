@@ -26,6 +26,89 @@ function toList(text: string | null): string[] {
     .filter((line) => line.length > 0);
 }
 
+// Maps one raw joined DB row (projects + github_cache stats) plus its
+// features/media rows into the exact shape the frontend expects.
+// Extracted so api/get-full-project.ts can reuse this EXACT logic for
+// a single project (any status, not just published) — the visual
+// admin editor renders real data through the real page components,
+// and this function is what guarantees that data has the identical
+// shape whether it came from the static JSON or a live admin fetch.
+function mapProjectRow(p: any, features: any[], media: any[]) {
+  return {
+    id: p.slug,
+    category: p.category,
+    repo: p.repo,
+    heroImage: p.hero_image,
+    heroImageAlt: p.hero_image_alt,
+
+    intro: {
+      title: p.title,
+      tagline: p.tagline,
+      description: p.description ?? p.gh_description,
+      tags: p.tags,
+    },
+
+    features: features
+      .filter((f) => f.project_id === p.id)
+      .map((f) => ({
+        id: f.id,
+        title: f.title,
+        subtitle: f.subtitle,
+        description: f.description,
+        image: f.image,
+        imageAlt: f.image_alt,
+      })),
+
+    media: media
+      .filter((m) => m.project_id === p.id)
+      .map((m) => ({
+        id: m.id,
+        type: m.media_type,
+        url: m.url,
+        caption: m.caption,
+        videoRole: m.video_role,
+      })),
+
+    highlight: {
+      title: p.highlight_title,
+      subtitle: p.highlight_subtitle,
+      description: p.highlight_description,
+      image: p.highlight_image,
+      imageAlt: p.highlight_image_alt,
+    },
+
+    challenges: toList(p.challenges),
+    futureImprovements: toList(p.future_improvements),
+
+    takeaway: {
+      title: p.takeaway_title,
+      subtitle: p.takeaway_subtitle,
+      description: p.takeaway_description,
+    },
+
+    links: {
+      github: p.links_github,
+      live: p.links_live,
+      figma: p.links_figma,
+      behance: p.links_behance,
+      dribbble: p.links_dribbble,
+      caseStudy: p.links_case_study,
+    },
+
+    techStack: p.tech_stack,
+    year: p.year,
+    client: p.client,
+    role: p.role,
+    duration: p.duration,
+
+    stars: p.gh_stars ?? null,
+    forks: p.gh_forks ?? null,
+    latestRelease: p.gh_latest_release ?? null,
+  };
+}
+
+export { mapProjectRow };
+
 async function generatePortfolioJson(): Promise<number> {
   // status = 'published' is the gate — a draft (freshly discovered,
   // not yet hand-finished) never reaches the site, no matter what else
@@ -62,85 +145,7 @@ async function generatePortfolioJson(): Promise<number> {
       `
     : [];
 
-  const merged = projects.map((p) => ({
-    id: p.slug,
-    category: p.category,
-    repo: p.repo,
-    heroImage: p.hero_image,
-    heroImageAlt: p.hero_image_alt,
-
-    intro: {
-      title: p.title,
-      tagline: p.tagline, // no GitHub equivalent — always hand-written, no fallback
-      // Explicit precedence, not a "winner-picking" merge: your copy
-      // wins if you've written it, GitHub's repo description is the
-      // fallback if you haven't gotten to it yet.
-      description: p.description ?? p.gh_description,
-      tags: p.tags,
-    },
-
-    features: features
-      .filter((f) => f.project_id === p.id)
-      .map((f) => ({
-        id: f.id,
-        title: f.title,
-        subtitle: f.subtitle,
-        description: f.description,
-        image: f.image,
-        imageAlt: f.image_alt,
-      })),
-
-    media: media
-      .filter((m) => m.project_id === p.id)
-      .map((m) => ({
-        id: m.id,
-        type: m.media_type,
-        url: m.url,
-        caption: m.caption,
-        // video_role is null for images, and for videos uploaded
-        // before this column existed — always check for null before
-        // using it to slot a video into client_demo/architecture/reflection.
-        videoRole: m.video_role,
-      })),
-
-    highlight: {
-      title: p.highlight_title,
-      subtitle: p.highlight_subtitle,
-      description: p.highlight_description,
-      image: p.highlight_image,
-      imageAlt: p.highlight_image_alt,
-    },
-
-    // New in Phase 2D — previously fetched via `p.*` but never mapped
-    // into the output, so the frontend had nothing to read.
-    challenges: toList(p.challenges),
-    futureImprovements: toList(p.future_improvements),
-
-    takeaway: {
-      title: p.takeaway_title,
-      subtitle: p.takeaway_subtitle,
-      description: p.takeaway_description,
-    },
-
-    links: {
-      github: p.links_github,
-      live: p.links_live,
-      figma: p.links_figma,
-      behance: p.links_behance,
-      dribbble: p.links_dribbble,
-      caseStudy: p.links_case_study,
-    },
-
-    techStack: p.tech_stack,
-    year: p.year,
-    client: p.client,
-    role: p.role,
-    duration: p.duration,
-
-    stars: p.gh_stars ?? null,
-    forks: p.gh_forks ?? null,
-    latestRelease: p.gh_latest_release ?? null,
-  }));
+  const merged = projects.map((p) => mapProjectRow(p, features, media));
 
   mkdirSync("src/features/projects/data", { recursive: true });
   writeFileSync(OUTPUT_PATH, JSON.stringify(merged, null, 2));

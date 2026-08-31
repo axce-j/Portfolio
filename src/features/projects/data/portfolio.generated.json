@@ -31,7 +31,7 @@
     },
     "features": [
       {
-        "id": "89d5c51d-99ef-41fa-b834-52f802a76448",
+        "id": "a2274671-934e-4446-b220-2401544eb371",
         "title": "Anime Discovery",
         "subtitle": "Explore a large content catalog",
         "description": "The application retrieves anime information from the Jikan API and presents it through dedicated discovery interfaces. Users can browse different categories and explore titles without requiring the application to maintain its own anime database.",
@@ -39,7 +39,7 @@
         "imageAlt": null
       },
       {
-        "id": "9265b37b-9c3c-40ad-a0c8-8e2cd380c279",
+        "id": "3c867630-00b7-4b2a-bb21-b87f836dd32a",
         "title": "Search & Filtering",
         "subtitle": "Find titles more efficiently",
         "description": "Users can search for anime and refine results using URL-based search parameters and filtering logic. Keeping these parameters in the URL allows search states to remain navigable and shareable across routes.",
@@ -47,7 +47,7 @@
         "imageAlt": null
       },
       {
-        "id": "33486839-d5a2-4371-9a13-bced5b2b0a06",
+        "id": "4b74c9ca-5f47-401d-92c6-96a0f0828265",
         "title": "Detailed Anime Pages",
         "subtitle": "Explore each title in depth",
         "description": "Each anime has a dedicated route containing detailed information and related recommendations. Dynamic routing allows the same page structure to display different content based on the selected anime.",
@@ -55,7 +55,7 @@
         "imageAlt": null
       },
       {
-        "id": "14d51dcb-afe1-48f9-9ddb-37f72f67601b",
+        "id": "e7da5af4-5fb4-4fcf-ac40-c9e320abec00",
         "title": "API Data Management",
         "subtitle": "Handle remote data reliably",
         "description": "The application uses Axios and TanStack React Query to manage requests to the Jikan API, including asynchronous loading states, caching, and refetching behaviour. This helped separate remote server data from the UI and keep components focused on presentation and interaction.",
@@ -131,8 +131,8 @@
     "id": "fitness-registration-website",
     "category": "frontend",
     "repo": "axce-j/fitness-registration-website",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1787597304/portfolio/mxlty4n5zrueje9su0hy.png",
-    "heroImageAlt": "Hero",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169752/portfolio/pj3ze1mjc1bz65hla1rv.png",
+    "heroImageAlt": null,
     "intro": {
       "title": "fitness-registration-website",
       "tagline": null,
@@ -152,36 +152,79 @@
     },
     "features": [
       {
-        "id": "f3134a2e-7c13-4bd0-a8e1-53b6f0da34e4",
+        "id": "2de6704c-0a2e-484c-832e-800a6d8f1967",
         "title": "Multi-Page Experience",
         "subtitle": "Connected pages and workflows",
         "description": "The website is structured across multiple pages that guide visitors from the initial fitness brand introduction through program discovery and registration. Each page contributes to a connected user journey rather than functioning as an isolated landing page.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169839/portfolio/jd3cq5e9rmx10xjdx9zh.png",
         "imageAlt": null
       },
       {
-        "id": "4503012d-9c76-4d41-92e8-80c966b277b8",
+        "id": "0a3fcb69-8f4e-4dd1-9f42-d61dd6881945",
         "title": "Registration Workflow",
         "subtitle": "From form to confirmation",
         "description": "Users can complete an interactive registration form and proceed to a dedicated confirmation page after submitting their information. This provided practical experience with form handling and designing sequential user flows.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169910/portfolio/tggpj5dwtg5cwupp9jf3.png",
         "imageAlt": null
       },
       {
-        "id": "208b625d-ef07-4780-bfa9-f3114063ff25",
+        "id": "0bf0950c-c971-4fb9-9d41-c3d2b1c2b8e3",
         "title": "Responsive Interface",
         "subtitle": "Designed for every screen",
         "description": "The layouts adapt to different viewport sizes using responsive CSS techniques. The design was developed to keep the content, navigation, and registration experience usable across desktop and mobile devices.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170035/portfolio/fmysn8dd3ohz2t2vb7gz.png",
         "imageAlt": null
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "caa23168-078b-4b31-bcbd-90ff7f625a4c",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170233/portfolio/kwlkjrvsei3nmt0ha9uw.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "a2e143d5-4855-4ae2-b9c4-55562ad8dc5a",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170278/portfolio/itxyglgbiapetjoz7uii.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "43432ed6-446f-486f-bd24-747c5b35e13a",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170293/portfolio/lfktnlx3arge64xfuvrf.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "b2e84c0c-6abc-4149-baa6-d82a3deeef44",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170317/portfolio/yjd8ogcx7zvtehnqmapo.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "8f550183-6ef2-4303-b7e0-43a942ef7d9c",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170335/portfolio/vkvsxdphlhacujvlsgbk.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "89322641-46f8-4392-bbcc-fabdd8273bd0",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170377/portfolio/mzshtv5e46dfcreo6gbb.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
     "highlight": {
       "title": null,
       "subtitle": null,
       "description": "The project uses a multi-page frontend structure where separate pages are connected to form a single user journey. Instead of treating each page as an independent design exercise, the application was organized around how a visitor moves from discovering the fitness brand to selecting a program and completing registration.",
-      "image": null,
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170144/portfolio/ojrbpsxhgbejjimikryu.png",
       "imageAlt": null
     },
     "challenges": [
@@ -229,7 +272,7 @@
     "id": "simple-newsletter-website",
     "category": "frontend",
     "repo": "axce-j/simple-newsletter-website",
-    "heroImage": null,
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168811/portfolio/b9yoah4tetrfbyrb0h4m.png",
     "heroImageAlt": null,
     "intro": {
       "title": "simple-newsletter-website",
@@ -249,28 +292,71 @@
     },
     "features": [
       {
-        "id": "fc07fac6-6dfe-4f3e-b788-92ad183d274c",
+        "id": "d14bfd95-86d8-4e07-84ee-3785a2d91569",
         "title": "Responsive Layout",
         "subtitle": "Adapts across screen sizes",
         "description": "The page uses responsive CSS techniques to maintain its layout and usability across desktop and mobile screen sizes. The structure was kept intentionally simple so the content remains easy to navigate at different viewport sizes.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168906/portfolio/hzztl8b8ckt748gkdlms.png",
         "imageAlt": null
       },
       {
-        "id": "c8514a77-2c6c-4e5d-871f-a3c87883528b",
+        "id": "3fa5156a-332d-4f85-907b-f8b104061751",
         "title": "Newsletter Interface",
         "subtitle": "Focused signup experience",
         "description": "The landing page is centered around a newsletter signup experience, with the surrounding layout designed to guide visitors toward the primary interaction without unnecessary interface elements.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168981/portfolio/sxv7zg2jvmgwyyiui94i.png",
         "imageAlt": null
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "e57998ff-7a5f-4c2f-a9a3-5e3a98ff498b",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169185/portfolio/lpc0kpl0vne0wbxtco8g.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "60391347-fc7d-49d0-b830-95a0e04d66b5",
+        "type": "video",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787868988/portfolio/wthkycoapiu0espvg9zw.mp4",
+        "caption": null,
+        "videoRole": "client_demo"
+      },
+      {
+        "id": "980a47e0-f1f3-4364-a898-ac6a3f1a9b6f",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169338/portfolio/jnvk8z3abtuuos3phjub.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "844e456a-1cd8-47f1-960f-048ff875dce9",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169403/portfolio/xqhxlnhks163grxg31zx.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "fbf57dbf-666d-4f28-91cc-fed2b31333b4",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169511/portfolio/aq4cnu26ivv8wusvq0ph.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "1d9f173d-9ec7-47be-9050-2f2b1b39a774",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169568/portfolio/ozjicfxgah7nm8d4gpbk.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
     "highlight": {
       "title": null,
       "subtitle": null,
       "description": "The project uses a straightforward HTML, CSS, and JavaScript structure without a framework or external application architecture. This kept the focus on understanding the fundamentals of semantic page structure, responsive styling, and basic frontend interactions before introducing more complex tooling.",
-      "image": null,
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169063/portfolio/cbxxi3cc8ttdmbqbdmoq.png",
       "imageAlt": null
     },
     "challenges": [
@@ -316,7 +402,7 @@
     "id": "robot-profile-viewer",
     "category": "frontend",
     "repo": "axce-j/robot-profile-viewer",
-    "heroImage": null,
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1787867939/portfolio/ccgg7l7tmmwculgjwocc.png",
     "heroImageAlt": null,
     "intro": {
       "title": "robot-profile-viewer",
@@ -337,7 +423,7 @@
     },
     "features": [
       {
-        "id": "86c6b07a-1e81-4879-80db-356a554cd51e",
+        "id": "f3caace7-9930-4fd2-80da-6886b3c2ef11",
         "title": "API-Driven Profiles",
         "subtitle": "Dynamic data from an API",
         "description": "Robot profile information is retrieved from a public API using the browser's Fetch API rather than being hardcoded into the application. The returned data is processed and rendered dynamically within the interface.",
@@ -345,7 +431,7 @@
         "imageAlt": null
       },
       {
-        "id": "6f537fcb-2923-4ab9-847b-38616ed385e9",
+        "id": "5e0411b1-1d12-4ff8-8362-1802bc305c29",
         "title": "Asynchronous Data Handling",
         "subtitle": "Working with remote data",
         "description": "The application handles asynchronous requests and updates the interface based on data received from the API. This provided practical experience working with Promises and the flow of data between an external service and a frontend application.",
@@ -353,7 +439,7 @@
         "imageAlt": null
       },
       {
-        "id": "758734a9-a2e7-4444-bcf2-7ec7fd72b406",
+        "id": "4b47c262-8d37-487d-a441-01583fae6949",
         "title": "Responsive Interface",
         "subtitle": "Built for different screens",
         "description": "The interface adapts to different screen sizes while maintaining a straightforward profile browsing experience. Responsive styling was implemented with CSS to make the application usable on both desktop and mobile devices.",
@@ -361,7 +447,15 @@
         "imageAlt": null
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "f19e97b9-a28f-4b25-b220-b6ddb6071682",
+        "type": "video",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787867778/portfolio/ebgife6l46kdryqnh0ow.webm",
+        "caption": null,
+        "videoRole": "client_demo"
+      }
+    ],
     "highlight": {
       "title": null,
       "subtitle": null,
@@ -417,7 +511,7 @@
     "id": "web-forum",
     "category": "full-stack",
     "repo": "axce-j/web-forum",
-    "heroImage": null,
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1787869376/portfolio/ihqqkjky0okrn2laizlv.jpg",
     "heroImageAlt": null,
     "intro": {
       "title": "web-forum",
@@ -443,7 +537,7 @@
     },
     "features": [
       {
-        "id": "1a5bdd7f-4af2-4ac6-ac50-2c7716942599",
+        "id": "8cb1c434-ba86-4943-937b-1fe4a8c68c05",
         "title": "Authentication",
         "subtitle": "Secure access to discussions",
         "description": "Users can authenticate through Firebase before accessing protected interactions within the platform. Authentication state is integrated into the application so user-specific actions can be handled separately from public content.",
@@ -451,7 +545,7 @@
         "imageAlt": null
       },
       {
-        "id": "06c30fb9-0bc6-460b-ba91-c45a39b87ba6",
+        "id": "acbd1e07-1e18-4659-87bf-9f3133d7bf52",
         "title": "Discussion Management",
         "subtitle": "Create and manage conversations",
         "description": "Users can create, edit, and delete discussion posts, providing the core CRUD workflow of the platform. The application organizes these interactions around a community feed where users can discover and participate in discussions.",
@@ -459,7 +553,7 @@
         "imageAlt": null
       },
       {
-        "id": "a1ec6baa-f46b-43b7-838a-8f080495c799",
+        "id": "038c3050-eb0b-485f-b30d-0e1adb746660",
         "title": "Nested Discussions",
         "subtitle": "Conversations beyond one level",
         "description": "Posts support nested comments and replies, allowing conversations to develop into structured discussion threads rather than simple one-level comment sections.",
@@ -467,7 +561,7 @@
         "imageAlt": null
       },
       {
-        "id": "54d82204-73cf-41fa-ae3a-9a32429ee2fb",
+        "id": "dacb4b3f-5395-4518-997d-ffbd483509ff",
         "title": "Community Voting",
         "subtitle": "Let the community respond",
         "description": "Users can interact with discussions through upvotes and downvotes. This adds a layer of community-driven engagement and required the application to coordinate user actions with persistent backend data.",
@@ -561,7 +655,7 @@
     },
     "features": [
       {
-        "id": "0ecb66eb-f089-40d9-b2cb-13b972831b6e",
+        "id": "f8dba1f4-ae70-4b7f-a2fd-a56c46d397e8",
         "title": "Content Workflow",
         "subtitle": "From idea to publication",
         "description": "Content moves through a predefined production pipeline consisting of Idea, Draft, Ready, and Posted stages. This gives the team a simple way to understand the current state of every piece of content.",
@@ -569,7 +663,7 @@
         "imageAlt": null
       },
       {
-        "id": "0fa339f0-cd1c-4dfd-b04d-a4db09bdfa79",
+        "id": "681fee92-9c1a-4cf7-b550-e48c1ecc7f69",
         "title": "Task Management",
         "subtitle": "Simple content operations",
         "description": "Team members can create, edit, and delete content tasks while maintaining the information needed to track production. The interface uses modal-based interactions to keep task management within the main dashboard workflow.",
@@ -577,7 +671,7 @@
         "imageAlt": null
       },
       {
-        "id": "d3cf2f1b-ee06-4f6b-891b-cc0f46d8a8b1",
+        "id": "3e3cc33f-3b6f-43b5-a127-ca43940d7083",
         "title": "Team Assignment",
         "subtitle": "Clear ownership of work",
         "description": "Tasks can be assigned to predefined internal team members, making responsibility visible within the shared workspace and helping the team understand who is responsible for each piece of content.",
@@ -585,7 +679,7 @@
         "imageAlt": null
       },
       {
-        "id": "fabbe565-72cd-47d2-8b09-36eb23729aea",
+        "id": "f0af3af2-036f-4452-a731-6339f1e9f776",
         "title": "Workflow Filtering",
         "subtitle": "Focus on what matters",
         "description": "Content can be filtered according to its current production status, allowing team members to focus on specific stages of the workflow rather than navigating through unrelated tasks.",
@@ -593,7 +687,7 @@
         "imageAlt": null
       },
       {
-        "id": "e1d1f687-a37d-498a-acd7-381efda25028",
+        "id": "faacae7f-4336-418e-a807-ab11e90f4dc8",
         "title": "Responsive Dashboard",
         "subtitle": "Built for everyday use",
         "description": "The application provides a responsive dashboard interface so the internal workflow remains usable across different screen sizes without requiring a separate mobile application.",

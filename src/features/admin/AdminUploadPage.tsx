@@ -1,6 +1,7 @@
 import { useState, useEffect, type FormEvent } from "react";
 import VisualEditor from "./VisualEditor";
 import { FeatureForm, type FeatureRow } from "./FeatureForm";
+import BlurredImageFrame from "@/components/blurredImageFrame";
 
 type ProjectOption = { slug: string; title: string };
 type MediaType = "image" | "video";
@@ -270,8 +271,8 @@ function UploadForm({ password, projects }: { password: string; projects: Projec
             <div className="rounded-lg overflow-hidden border border-white/10 bg-white/5 aspect-video flex items-center justify-center">
               {previewLoading ? (
                 <p className="text-xs text-white/30">Loading…</p>
-              ) : currentPreviewUrl ? (
-                <img src={currentPreviewUrl} alt="" className="w-full h-full object-cover" />
+			) : currentPreviewUrl ? (
+                <BlurredImageFrame src={currentPreviewUrl} alt="" />
               ) : (
                 <p className="text-xs text-white/30">Nothing set yet</p>
               )}

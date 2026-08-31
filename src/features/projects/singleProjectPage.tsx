@@ -9,6 +9,7 @@ import {
   type ProjectMedia,
   type VideoRole,
 } from "./data/singleProjectData";
+import BlurredImageFrame from "@/components/blurredImageFrame";
 
 // ─────────────────────────────────────────────
 // Hero
@@ -18,8 +19,7 @@ export const Hero = ({ project, onBack }: { project: SingleProject; onBack: () =
   <section className="relative w-full mb-16">
     <button
       onClick={onBack}
-      className="absolute top-4 left-4 z-10 flex items-center gap-2 px-3 py-1.5 rounded-full
-        bg-black/40 border border-white/10 text-white/70 hover:text-white hover:bg-black/60
+      className="absolute top-4 left-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full        bg-black/40 border border-white/10 text-white/70 hover:text-white hover:bg-black/60
         text-xs backdrop-blur-sm transition-all duration-200"
     >
       <ArrowLeft className="w-3 h-3" />
@@ -27,12 +27,13 @@ export const Hero = ({ project, onBack }: { project: SingleProject; onBack: () =
     </button>
     <div className="relative w-full aspect-[16/7] rounded-2xl overflow-hidden bg-white/5 border border-white/5">
       <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-gray-900/60 to-blue-900/40" />
-      {project.heroImage && (
-        <img
-          src={project.heroImage}
-          alt={project.heroImageAlt ?? project.intro.title}
-          className="relative z-10 w-full h-full object-cover"
-        />
+	  {project.heroImage && (
+        <div className="relative z-10 w-full h-full">
+          <BlurredImageFrame
+            src={project.heroImage}
+            alt={project.heroImageAlt ?? project.intro.title}
+          />
+        </div>
       )}
     </div>
   </section>
@@ -190,11 +191,10 @@ export const Feature = ({ feature }: { feature: ProjectFeature }) => (
     <div className="rounded-xl overflow-hidden border border-white/[0.06] aspect-[4/3]
       bg-gradient-to-br from-slate-700/40 to-slate-900/60"
     >
-      {feature.image ? (
-        <img
+          {feature.image ? (
+        <BlurredImageFrame
           src={feature.image}
           alt={feature.imageAlt ?? feature.title}
-          className="w-full h-full object-cover"
         />
       ) : (
         <div className="w-full h-full" />
@@ -225,11 +225,10 @@ export const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
         bg-gradient-to-br from-teal-900/20 via-white/[0.02] to-cyan-900/10"
     >
       <div className="rounded-xl overflow-hidden bg-white/5 border border-white/5 aspect-[4/3]">
-        {highlight.image ? (
-          <img
+	  {highlight.image ? (
+          <BlurredImageFrame
             src={highlight.image}
             alt={highlight.imageAlt ?? highlight.title ?? ""}
-            className="w-full h-full object-cover"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-teal-900/30 to-cyan-900/10" />
@@ -383,11 +382,10 @@ export const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
           className="aspect-[4/3] rounded-xl overflow-hidden
             border border-white/[0.06] bg-white/5"
         >
-          <img
+                   <BlurredImageFrame
             src={img.url}
             alt={img.caption ?? ""}
             loading="lazy"
-            className="w-full h-full object-cover"
           />
         </div>
       ))}
@@ -488,8 +486,7 @@ export default function SingleProjectPage() {
       <div className="max-w-6xl mx-auto px-8 pt-10">
 
         {/* 1. Hero */}
-        <Hero project={project} onBack={() => navigate(-1)} />
-
+        <Hero project={project} onBack={() => navigate("/projects")} />
         {/* 2. Intro + meta */}
         <Intro project={project} />
 

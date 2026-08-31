@@ -13,7 +13,7 @@
 // entirely.
 
 import { useState, type FormEvent } from "react";
-
+import BlurredImageFrame from "@/components/blurredImageFrame";
 export type FeatureRow = {
   id: string;
   title: string;
@@ -178,9 +178,9 @@ export function FeatureForm({
         <label className="flex flex-col gap-1.5 text-xs text-white/40">
           Image {feature?.image ? "(replace)" : "(optional)"}
           {feature?.image && !file && (
-            <div className="w-full aspect-video rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-1">
-              <img src={feature.image} alt="" className="w-full h-full object-cover" />
-            </div>
+                       <div className="w-full aspect-video rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-1">
+					   <BlurredImageFrame src={feature.image} alt="" />
+					 </div>
           )}
           <input
             type="file"

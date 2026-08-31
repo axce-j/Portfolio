@@ -91,16 +91,35 @@ function isPublishReady(args: {
 // subtitle=null, description="" (the frontend only renders
 // description when it's non-empty), while the structured
 // ### Title / *subtitle* / paragraph format produces all three.
-async function syncFeaturesFromReadme(projectId: string, features: ParsedFeature[]) {
-  await sql`delete from project_features where project_id = ${projectId} and source = 'readme'`;
-  for (let i = 0; i < features.length; i++) {
-    const f = features[i];
-    await sql`
-      insert into project_features (project_id, sort_order, title, subtitle, description, source)
-      values (${projectId}, ${i}, ${f.title}, ${f.subtitle}, ${f.description}, 'readme')
-    `;
+function normalizeTitle(t: string): string {
+	return t.trim().toLowerCase();
   }
-}
+  
+  async function syncFeaturesFromReadme(projectId: string, features: ParsedFeature[]) {
+	const manualRows = await sql`
+	  select title from project_features
+	  where project_id = ${projectId} and source = 'manual'
+	`;
+	const manualTitles = new Set(manualRows.map((r) => normalizeTitle(r.title as string)));
+  
+	const tombstones = await sql`
+	  select title_key from project_feature_deletions where project_id = ${projectId}
+	`;
+	const deletedTitles = new Set(tombstones.map((r) => r.title_key as string));
+  
+	await sql`delete from project_features where project_id = ${projectId} and source = 'readme'`;
+  
+	let sortOrder = 0;
+	for (const f of features) {
+	  const key = normalizeTitle(f.title);
+	  if (manualTitles.has(key) || deletedTitles.has(key)) continue;
+	  await sql`
+		insert into project_features (project_id, sort_order, title, subtitle, description, source)
+		values (${projectId}, ${sortOrder}, ${f.title}, ${f.subtitle}, ${f.description}, 'readme')
+	  `;
+	  sortOrder++;
+	}
+  }
 
 async function main() {
   const cacheRows = await sql`

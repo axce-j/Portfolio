@@ -89,11 +89,46 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   `;
   const nextOrder = orderRows[0].next_order;
 
-  const inserted = await sql`
-    insert into project_features (project_id, sort_order, title, subtitle, description, image, image_alt, source)
-    values (${projectId}, ${nextOrder}, ${title}, ${cleanSubtitle}, ${cleanDescription}, ${image ?? null}, ${imageAlt ?? null}, 'manual')
-    returning id
+  const dupeCheck = await sql`
+	select id from project_features
+	where project_id = ${projectId}
+	  and lower(trim(title)) = ${title.trim().toLowerCase()}
   `;
+  
+  if (dupeCheck.length > 0) {
+	return res.status(409).json({
+	  error: "A feature with this title already exists for this project. Edit it instead of adding a new one.",
+	});
+  }
+  
+  await sql`
+	delete from project_feature_deletions
+	where project_id = ${projectId} and title_key = ${title.trim().toLowerCase()}
+  `;
+  
+  const inserted = await sql`
+  insert into project_features (
+    project_id,
+    sort_order,
+    title,
+    subtitle,
+    description,
+    image,
+    image_alt,
+    source
+  )
+  values (
+    ${projectId},
+    ${nextOrder},
+    ${title},
+    ${cleanSubtitle},
+    ${cleanDescription},
+    ${image ?? null},
+    ${imageAlt ?? null},
+    'manual'
+  )
+  returning id
+`;
 
   const rebuild = await triggerRebuild();
   return res.status(200).json({ success: true, featureId: inserted[0].id, rebuild });

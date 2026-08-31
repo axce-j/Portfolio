@@ -138,11 +138,11 @@ export function FeatureForm({
         </p>
 
         {feature?.source === "readme" && (
-          <p className="text-[11px] text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
-            This feature came from your README. Editing it here makes it permanent — future README
-            syncs won't touch it again. Deleting it, however, is NOT permanent: it'll reappear next
-            sync unless you also remove it from the README itself.
-          </p>
+       <p className="text-[11px] text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+	   This feature came from your README. Editing it here makes it permanent — future README
+	   syncs won't touch it again. Deleting it is now permanent — it will not reappear on the next
+	   README sync, even if it's still in your README.
+	 </p>
         )}
 
         <label className="flex flex-col gap-1.5 text-xs text-white/40">

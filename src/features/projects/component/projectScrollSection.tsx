@@ -1,6 +1,6 @@
 import { useRef, useState, useMemo } from "react";
 import ProjectCard from "@/components/ui/cards";
-import { ProjectSection } from "../data/projectData";
+import { ProjectSection } from "../data/projectsData";
 
 // ─────────────────────────────────────────────
 // Scrollbar style
@@ -41,14 +41,14 @@ export default function ProjectsScrollSection({
     });
   };
 
-  // ─────────────────────────────────────────────
-  // Smart Gradient Assignment (Per Section)
-  // ─────────────────────────────────────────────
+  // Per-card randomized gradient — independent of category. Category's
+  // fixed gradient (CATEGORY_META) is a separate concern, used for the
+  // home page's featured category cards, not for individual project
+  // cards within a section here.
   const sectionsWithGradients = useMemo(() => {
     const themes = ["teal", "blue", "yellow", "mixed"] as const;
 
     return sections.map((section) => {
-      // Shuffle themes for variety
       const shuffled = [...themes].sort(() => Math.random() - 0.5);
 
       const projectsWithGradient = section.projects.map((project, idx) => ({
@@ -115,7 +115,7 @@ export default function ProjectsScrollSection({
                   title={project.title}
                   subtitle={project.subtitle}
                   cover={project.cover}
-                  gradient={project.gradient}     // ← Smart gradient passed here
+                  gradient={project.gradient}
                 />
               ))}
               <div className="flex-shrink-0 w-4" />

@@ -3,6 +3,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Briefcase } from "lucide-react";
 import { ExpertiseEntry } from "@/features/Home/data/home-section-data";
+import BlurredImageFrame from "../blurredImageFrame";
 
 
 
@@ -66,19 +67,8 @@ export const ProjectCard: React.FC<ProjectCardProps> = ({
           <div className={`absolute inset-0 bg-gradient-to-br ${hoverGradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 group-hover:bottom-[-4rem]`} />
           
           <div className="w-full h-full flex items-center justify-center relative z-10">
-            {cover ? (
-              <div className="relative w-full h-full rounded-lg overflow-hidden">
-                <img
-                  src={cover}
-                  alt={title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/20">
-                  <h2 className="text-2xl font-bold text-white text-center px-4">
-                    {title}
-                  </h2>
-                </div>
-              </div>
+		  {cover ? (
+              <BlurredImageFrame src={cover} alt={title} className="rounded-lg" />
             ) : (
               <div className="w-full h-full rounded-lg bg-slate-800/40 flex items-center justify-center border border-slate-700/40 backdrop-blur-sm">
                 <div className="text-center">
@@ -178,13 +168,8 @@ export const WorkExperienceCard: React.FC<WorkExperienceCardProps> = ({
           />
 
           <div className="w-full h-full flex items-center justify-center relative z-10">
-            {cover ? (
-              <div className="relative w-full h-full rounded-lg overflow-hidden">
-                <img src={cover} alt={company} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 flex items-center justify-center bg-black/30">
-                  <h2 className="text-2xl font-bold text-white text-center px-4">{role}</h2>
-                </div>
-              </div>
+		  {cover ? (
+              <BlurredImageFrame src={cover} alt={company} className="rounded-lg" />
             ) : (
               <div className="w-full h-full rounded-lg bg-slate-800/40 flex flex-col items-center justify-center border border-slate-700/40 backdrop-blur-sm gap-2 md:gap-3 px-6">
                 <div

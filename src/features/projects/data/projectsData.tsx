@@ -1,34 +1,28 @@
 /**
  * ═══════════════════════════════════════════════════════════════
- * PROJECT DATA — SINGLE SOURCE OF TRUTH
+ * PROJECT DATA — grouping + category display metadata
  * ═══════════════════════════════════════════════════════════════
  *
- * Categories are derived automatically from entry file prefixes.
- * To add a new category:
- *   1. Create a new entry file: ./entries/{category}-01.ts
- *   2. That's it. The category card appears everywhere automatically.
+ * Categories come from Neon's `projects.category` (real field, set by
+ * inference or by hand — see convergeProjects.ts), NOT from parsing the
+ * project id/slug. Real slugs (e.g. "web-forum") aren't category-
+ * prefixed, unlike the old placeholder entries ("frontend-01").
  *
- * Category display metadata (label, gradient, subtitle) lives in
- * CATEGORY_META below. If a prefix has no entry there, it falls
- * back to sensible defaults — so new categories still render.
+ * To control how a category displays (label, gradient, subtitle), add
+ * it to CATEGORY_META below. Any category without an entry still works
+ * — falls back to sensible defaults so nothing silently disappears.
  */
 
 import {
 	singleProjects,
-	getAllProjectTypes,
+	getAllCategories,
 	type SingleProject,
   } from "./singleProjectData";
-  
-  // ─────────────────────────────────────────────
-  // Re-export core types so consumers only need
-  // to import from this file
-  // ─────────────────────────────────────────────
   
   export type { SingleProject };
   
   export type ProjectSection = {
 	title: string;
-	/** e.g. "frontend" — matches the entry file prefix */
 	category: string;
 	projects: Array<{
 	  id: string;
@@ -36,25 +30,13 @@ import {
 	  title: string;
 	  subtitle: string;
 	  cover?: string;
-	  gradient: string;
+	  gradient: "teal" | "blue" | "yellow" | "mixed";
 	}>;
   };
   
-  // ─────────────────────────────────────────────
-  // Category display metadata
-  // ─────────────────────────────────────────────
-  // Add an entry here when you add a new category
-  // so you can control the label, gradient and
-  // featured-card subtitle. Falls back to defaults
-  // if the key is missing.
-  // ─────────────────────────────────────────────
-  
   type CategoryMeta = {
-	/** Human-readable label used on cards and section headers */
 	label: string;
-	/** Tailwind gradient key used by ProjectCard */
 	gradient: "teal" | "blue" | "yellow" | "mixed";
-	/** Short subtitle shown on the home featured card */
 	featuredSubtitle: string;
   };
   
@@ -74,15 +56,19 @@ import {
 	  gradient: "mixed",
 	  featuredSubtitle: "Most secure and robust back-end solutions",
 	},
-	// ── Add new categories below ──────────────────
-	// mobile: {
-	//   label: "Mobile Projects",
-	//   gradient: "teal",
-	//   featuredSubtitle: "Cross-platform iOS & Android apps",
-	// },
+	mobile: {
+	  label: "Mobile Projects",
+	  gradient: "teal",
+	  featuredSubtitle: "Cross-platform iOS & Android apps",
+	},
+	"full-stack": {
+	  label: "Full-Stack Projects",
+	  gradient: "mixed",
+	  featuredSubtitle: "End-to-end apps, front and back",
+	},
   };
   
-  /** Fallback for any prefix not listed in CATEGORY_META */
+  /** Fallback for any category not listed in CATEGORY_META */
   function getMetaForCategory(category: string): CategoryMeta {
 	return (
 	  CATEGORY_META[category] ?? {
@@ -97,23 +83,12 @@ import {
   // Derived data
   // ─────────────────────────────────────────────
   
-  /**
-   * All unique category prefixes found in ./entries/*.ts
-   * e.g. ["design", "frontend", "backend"]
-   * Adding a new entry file prefix auto-extends this list.
-   */
-  export const projectCategoryKeys: string[] = getAllProjectTypes();
+  /** All unique categories currently present in published projects */
+  export const projectCategoryKeys: string[] = getAllCategories();
   
-  /**
-   * Full category descriptors — one per unique prefix.
-   * Used by the home page featured section and the projects
-   * index page section headers.
-   */
   export type ProjectCategory = CategoryMeta & {
 	key: string;
-	/** Anchor-friendly path to the section on /projects */
 	sectionPath: string;
-	/** Path to the full category listing (future /projects/frontend etc.) */
 	viewMorePath: string;
   };
   
@@ -127,15 +102,15 @@ import {
   );
   
   /**
-   * Projects grouped by category — used by the /projects index page
-   * scroll sections. Shape matches what ProjectsScrollSection expects.
+   * Projects grouped by category — used by /projects index page.
+   * Replaces the old projectData.ts, which hardcoded only
+   * frontend/design/backend and silently dropped anything else
+   * (e.g. a "full-stack" project would never have appeared there).
    */
   export const projectSections: ProjectSection[] = projectCategoryKeys.map(
 	(key) => {
 	  const meta = getMetaForCategory(key);
-	  const entries = singleProjects.filter((p) =>
-		p.id.toLowerCase().startsWith(key.toLowerCase())
-	  );
+	  const entries = singleProjects.filter((p) => p.category === key);
   
 	  return {
 		title: meta.label,
@@ -144,7 +119,7 @@ import {
 		  id: p.id,
 		  type: key,
 		  title: p.intro.title,
-		  subtitle: p.intro.tagline,
+		  subtitle: p.intro.tagline ?? p.intro.description.slice(0, 80),
 		  cover: p.heroImage || undefined,
 		  gradient: meta.gradient,
 		})),
@@ -153,12 +128,10 @@ import {
   );
   
   // ─────────────────────────────────────────────
-  // Flat helpers (convenience)
+  // Flat helpers
   // ─────────────────────────────────────────────
   
-  /** Every project entry, flat */
   export const allProjects = singleProjects;
   
-  /** Look up a section by category key */
   export const getSectionByCategory = (key: string): ProjectSection | undefined =>
 	projectSections.find((s) => s.category === key);

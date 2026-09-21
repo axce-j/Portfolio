@@ -17,6 +17,7 @@
 const ADMIN_ROUTE_SECRET = import.meta.env.VITE_ADMIN_ROUTE_SECRET ?? "change-me-please";
 
 const ADMIN_ROUTE_PREFIX = import.meta.env.VITE_ADMIN_ROUTE_PREFIX ?? "/admin-";
+export { ADMIN_ROUTE_PREFIX };
 
 // How often the route changes. 24h is a reasonable default — long
 // enough that you can actually use the route once you've navigated
@@ -51,6 +52,25 @@ export function getAdminRoute(referenceDate: Date = new Date()): string {
   const windowIndex = Math.floor(referenceDate.getTime() / windowMs);
   const suffix = simpleHash(`${ADMIN_ROUTE_SECRET}:${windowIndex}`);
   return `${ADMIN_ROUTE_PREFIX}${suffix}`;
+}
+
+/**
+ * Checks a URL suffix (the part after ADMIN_ROUTE_PREFIX) against the
+ * current window AND the one immediately before/after it. Used only
+ * once, at the moment someone lands on the admin route — not on a
+ * timer, and not re-run reactively — so a link that was valid the
+ * instant it was navigated to doesn't fail the check just because it
+ * arrived a second before/after a window boundary. Deliberately does
+ * NOT get stricter over time; see AdminRouteGate for how a session
+ * stays valid afterwards regardless of how long you stay on the page.
+ */
+export function isValidAdminSuffix(suffix: string, referenceDate: Date = new Date()): boolean {
+  const windowMs = ADMIN_ROUTE_WINDOW_HOURS * 60 * 60 * 1000;
+  const currentIndex = Math.floor(referenceDate.getTime() / windowMs);
+  for (const windowIndex of [currentIndex - 1, currentIndex, currentIndex + 1]) {
+    if (simpleHash(`${ADMIN_ROUTE_SECRET}:${windowIndex}`) === suffix) return true;
+  }
+  return false;
 }
 
 // Click-sequence trigger (works on mobile) — click the trigger element

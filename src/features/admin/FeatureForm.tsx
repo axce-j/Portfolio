@@ -1,19 +1,16 @@
 // src/features/admin/FeatureForm.tsx
 //
-// Extracted out of AdminUploadPage.tsx so both AdminUploadPage.tsx
-// (the "Edit Features" tab) and VisualEditor.tsx (clicking a feature
-// card) can import this from a common source. Originally this lived
-// inside AdminUploadPage.tsx and VisualEditor imported it from there
-// — but AdminUploadPage.tsx also imports VisualEditor (to render it
-// as the "Visual Editor" tab), which made that a circular import.
-// Function components in a cycle like that usually still work with
-// Vite's bundler (nothing gets called until render, by which point
-// both modules are initialized), but "usually works" isn't a bar
-// worth relying on — breaking the cycle here removes the ambiguity
-// entirely.
+// Used only by VisualEditor now (the standalone "Edit Features" tab
+// is gone — see AdminUploadPage.tsx). Previously this hit
+// /api/save-feature and /api/delete-feature directly on submit; now
+// it just collects the form values and hands them to the caller via
+// onSave/onDelete, synchronously, with no network call. VisualEditor
+// stages the result into its draft and flushes everything together
+// when the project-level Save button is clicked.
 
 import { useState, type FormEvent } from "react";
 import BlurredImageFrame from "@/components/blurredImageFrame";
+
 export type FeatureRow = {
   id: string;
   title: string;
@@ -25,106 +22,41 @@ export type FeatureRow = {
   source: "manual" | "readme";
 };
 
+export type FeatureFormValues = {
+  title: string;
+  subtitle: string | null;
+  description: string;
+  /** A newly-picked file to use as the image, or null if unchanged. */
+  file: File | null;
+};
+
 export function FeatureForm({
-  password,
-  projectSlug,
   feature,
-  onDone,
+  onSave,
+  onDelete,
   onCancel,
 }: {
-  password: string;
-  projectSlug: string;
   feature: FeatureRow | null;
-  onDone: () => void;
+  onSave: (values: FeatureFormValues) => void;
+  /** Omitted for a brand-new (not-yet-saved) feature — nothing to delete yet. */
+  onDelete?: () => void;
   onCancel: () => void;
 }) {
   const [title, setTitle] = useState(feature?.title ?? "");
   const [subtitle, setSubtitle] = useState(feature?.subtitle ?? "");
   const [description, setDescription] = useState(feature?.description ?? "");
   const [file, setFile] = useState<File | null>(null);
-  const [status, setStatus] = useState<"idle" | "saving" | "deleting" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
   const [confirmDelete, setConfirmDelete] = useState(false);
 
-  async function uploadFileIfAny(): Promise<string | undefined> {
-    if (!file) return undefined;
-    const sigRes = await fetch("/api/cloudinary-signature", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ password }),
-    });
-    if (!sigRes.ok) throw new Error("Could not get upload signature");
-    const { cloudName, apiKey, timestamp, signature, folder } = await sigRes.json();
-
-    const form = new FormData();
-    form.append("file", file);
-    form.append("api_key", apiKey);
-    form.append("timestamp", String(timestamp));
-    form.append("signature", signature);
-    form.append("folder", folder);
-
-    const uploadRes = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/auto/upload`, {
-      method: "POST",
-      body: form,
-    });
-    if (!uploadRes.ok) throw new Error("Cloudinary upload failed");
-    const uploaded = await uploadRes.json();
-    return uploaded.secure_url as string;
-  }
-
-  async function handleSave(e: FormEvent) {
+  function handleSave(e: FormEvent) {
     e.preventDefault();
     setError(null);
     if (!title.trim()) {
       setError("Title is required");
       return;
     }
-    setStatus("saving");
-    try {
-      const imageUrl = await uploadFileIfAny();
-      const res = await fetch("/api/save-feature", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          password,
-          projectSlug,
-          featureId: feature?.id,
-          title,
-          subtitle: subtitle || null,
-          description,
-          image: imageUrl,
-        }),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Could not save feature");
-      }
-      onDone();
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Save failed");
-    }
-  }
-
-  async function handleDelete() {
-    if (!feature) return;
-    setStatus("deleting");
-    setError(null);
-    try {
-      const res = await fetch("/api/delete-feature", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password, projectSlug, featureId: feature.id }),
-      });
-      if (!res.ok) {
-        const body = await res.json().catch(() => ({}));
-        throw new Error(body.error ?? "Could not delete feature");
-      }
-      onDone();
-    } catch (err) {
-      setStatus("error");
-      setError(err instanceof Error ? err.message : "Delete failed");
-    }
+    onSave({ title, subtitle: subtitle || null, description, file });
   }
 
   return (
@@ -136,13 +68,16 @@ export function FeatureForm({
         <p className="text-xs font-semibold tracking-widest uppercase text-white/30">
           {feature ? "Edit Feature" : "New Feature"}
         </p>
+        <p className="text-[11px] text-white/30 -mt-2">
+          Changes here are staged, not saved yet — click "Save Project" on the main editor once you're happy.
+        </p>
 
         {feature?.source === "readme" && (
-       <p className="text-[11px] text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
-	   This feature came from your README. Editing it here makes it permanent — future README
-	   syncs won't touch it again. Deleting it is now permanent — it will not reappear on the next
-	   README sync, even if it's still in your README.
-	 </p>
+          <p className="text-[11px] text-amber-400/80 bg-amber-500/10 border border-amber-500/20 rounded-lg px-3 py-2">
+            This feature came from your README. Editing it here makes it permanent — future README
+            syncs won't touch it again. Deleting it is permanent — it will not reappear on the next
+            README sync, even if it's still in your README.
+          </p>
         )}
 
         <label className="flex flex-col gap-1.5 text-xs text-white/40">
@@ -178,9 +113,14 @@ export function FeatureForm({
         <label className="flex flex-col gap-1.5 text-xs text-white/40">
           Image {feature?.image ? "(replace)" : "(optional)"}
           {feature?.image && !file && (
-                       <div className="w-full aspect-video rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-1">
-					   <BlurredImageFrame src={feature.image} alt="" />
-					 </div>
+            <div className="w-full aspect-video rounded-lg overflow-hidden border border-white/10 bg-white/5 mb-1">
+              <BlurredImageFrame src={feature.image} alt="" />
+            </div>
+          )}
+          {file && (
+            <p className="text-[11px] text-teal-400/80">
+              "{file.name}" staged — will upload when you save the project.
+            </p>
           )}
           <input
             type="file"
@@ -196,12 +136,10 @@ export function FeatureForm({
         <div className="flex gap-3">
           <button
             type="submit"
-            disabled={status === "saving" || status === "deleting"}
             className="flex-1 px-4 py-2.5 rounded-xl bg-teal-500/20 border border-teal-500/30
-              text-teal-300 text-sm font-medium hover:bg-teal-500/30 transition-all
-              disabled:opacity-40 disabled:cursor-not-allowed"
+              text-teal-300 text-sm font-medium hover:bg-teal-500/30 transition-all"
           >
-            {status === "saving" ? "Saving…" : "Save"}
+            Use these changes
           </button>
           <button
             type="button"
@@ -213,7 +151,7 @@ export function FeatureForm({
           </button>
         </div>
 
-        {feature && (
+        {feature && onDelete && (
           <div className="pt-3 border-t border-white/10">
             {!confirmDelete ? (
               <button
@@ -225,14 +163,13 @@ export function FeatureForm({
               </button>
             ) : (
               <div className="flex items-center gap-3">
-                <p className="text-xs text-red-400">Delete permanently?</p>
+                <p className="text-xs text-red-400">Delete when project is saved?</p>
                 <button
                   type="button"
-                  onClick={handleDelete}
-                  disabled={status === "deleting"}
+                  onClick={onDelete}
                   className="text-xs px-3 py-1 rounded-lg bg-red-500/20 border border-red-500/30 text-red-300"
                 >
-                  {status === "deleting" ? "Deleting…" : "Yes, delete"}
+                  Yes, stage delete
                 </button>
                 <button
                   type="button"

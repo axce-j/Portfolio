@@ -9,7 +9,7 @@ import {
   type ProjectMedia,
   type VideoRole,
 } from "./data/singleProjectData";
-import BlurredImageFrame from "@/components/blurredImageFrame";
+import ExpandableImage from "@/components/ExpandableImage";
 
 // ─────────────────────────────────────────────
 // Hero
@@ -29,9 +29,12 @@ export const Hero = ({ project, onBack }: { project: SingleProject; onBack: () =
       <div className="absolute inset-0 bg-gradient-to-br from-teal-900/40 via-gray-900/60 to-blue-900/40" />
 	  {project.heroImage && (
         <div className="relative z-10 w-full h-full">
-          <BlurredImageFrame
+          <ExpandableImage
             src={project.heroImage}
             alt={project.heroImageAlt ?? project.intro.title}
+            loading="eager"
+            maxWidth={1600}
+            sizes="100vw"
           />
         </div>
       )}
@@ -192,9 +195,12 @@ export const Feature = ({ feature }: { feature: ProjectFeature }) => (
       bg-gradient-to-br from-slate-700/40 to-slate-900/60"
     >
           {feature.image ? (
-        <BlurredImageFrame
+        <ExpandableImage
           src={feature.image}
           alt={feature.imageAlt ?? feature.title}
+          loading="lazy"
+          maxWidth={900}
+          sizes="(min-width: 1024px) 50vw, 100vw"
         />
       ) : (
         <div className="w-full h-full" />
@@ -226,9 +232,12 @@ export const Highlight = ({ highlight }: { highlight: ProjectHighlight }) => {
     >
       <div className="rounded-xl overflow-hidden bg-white/5 border border-white/5 aspect-[4/3]">
 	  {highlight.image ? (
-          <BlurredImageFrame
+          <ExpandableImage
             src={highlight.image}
             alt={highlight.imageAlt ?? highlight.title ?? ""}
+            loading="lazy"
+            maxWidth={900}
+            sizes="(min-width: 1024px) 50vw, 100vw"
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-teal-900/30 to-cyan-900/10" />
@@ -382,10 +391,12 @@ export const MediaGalleryImages = ({ images }: { images: ProjectMedia[] }) => (
           className="aspect-[4/3] rounded-xl overflow-hidden
             border border-white/[0.06] bg-white/5"
         >
-                   <BlurredImageFrame
+                   <ExpandableImage
             src={img.url}
             alt={img.caption ?? ""}
             loading="lazy"
+            maxWidth={600}
+            sizes="(min-width: 768px) 33vw, 50vw"
           />
         </div>
       ))}

@@ -1,9 +1,464 @@
 [
   {
+    "id": "simple-newsletter-website",
+    "category": "frontend",
+    "repo": "axce-j/simple-newsletter-website",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168811/portfolio/b9yoah4tetrfbyrb0h4m.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "simple-newsletter-website",
+      "tagline": null,
+      "description": "Responsive newsletter landing page built during my early frontend development journey. This project showcases foundational HTML, CSS, and JavaScript skills while demonstrating my progression toward building modern full-stack applications.",
+      "tags": [
+        "beginner-project",
+        "css",
+        "frontend-development",
+        "html",
+        "javascript",
+        "landing-page",
+        "newsletter",
+        "responsive-design",
+        "web-development"
+      ]
+    },
+    "features": [
+      {
+        "id": "d14bfd95-86d8-4e07-84ee-3785a2d91569",
+        "title": "Responsive Layout",
+        "subtitle": "Adapts across screen sizes",
+        "description": "The page uses responsive CSS techniques to maintain its layout and usability across desktop and mobile screen sizes. The structure was kept intentionally simple so the content remains easy to navigate at different viewport sizes.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168906/portfolio/hzztl8b8ckt748gkdlms.png",
+        "imageAlt": null
+      },
+      {
+        "id": "3fa5156a-332d-4f85-907b-f8b104061751",
+        "title": "Newsletter Interface",
+        "subtitle": "Focused signup experience",
+        "description": "The landing page is centered around a newsletter signup experience, with the surrounding layout designed to guide visitors toward the primary interaction without unnecessary interface elements.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168981/portfolio/sxv7zg2jvmgwyyiui94i.png",
+        "imageAlt": null
+      }
+    ],
+    "media": [
+      {
+        "id": "60391347-fc7d-49d0-b830-95a0e04d66b5",
+        "type": "video",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787868988/portfolio/wthkycoapiu0espvg9zw.mp4",
+        "caption": null,
+        "videoRole": "client_demo"
+      },
+      {
+        "id": "e57998ff-7a5f-4c2f-a9a3-5e3a98ff498b",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169185/portfolio/lpc0kpl0vne0wbxtco8g.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "980a47e0-f1f3-4364-a898-ac6a3f1a9b6f",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169338/portfolio/jnvk8z3abtuuos3phjub.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "844e456a-1cd8-47f1-960f-048ff875dce9",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169403/portfolio/xqhxlnhks163grxg31zx.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "fbf57dbf-666d-4f28-91cc-fed2b31333b4",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169511/portfolio/aq4cnu26ivv8wusvq0ph.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "1d9f173d-9ec7-47be-9050-2f2b1b39a774",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169568/portfolio/ozjicfxgah7nm8d4gpbk.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The project uses a straightforward HTML, CSS, and JavaScript structure without a framework or external application architecture. This kept the focus on understanding the fundamentals of semantic page structure, responsive styling, and basic frontend interactions before introducing more complex tooling.",
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169063/portfolio/cbxxi3cc8ttdmbqbdmoq.png",
+      "imageAlt": null
+    },
+    "challenges": [
+      "Creating a responsive layout without relying on a frontend framework.",
+      "Maintaining consistent spacing and alignment across different screen sizes.",
+      "Structuring the page so the newsletter signup remained the primary interaction.",
+      "Balancing visual design with the limited scope of a simple landing page."
+    ],
+    "futureImprovements": [
+      "Connect the signup form to a real newsletter service",
+      "Add form validation and feedback states",
+      "Improve accessibility",
+      "Add subtle interaction and transition effects",
+      "Introduce automated deployment workflows"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project strengthened my understanding of the frontend fundamentals that more complex applications are built upon.\n\nThe Simple Newsletter Website represents the starting point of my transition into software development. At this stage, the challenge was not building complex systems, but learning how to turn a design idea into a functioning and responsive web page. Looking back, those fundamentals became the foundation for everything that followed, from API-driven applications to full-stack systems and production platforms."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/simple-newsletter-website",
+      "live": "https://axce-j.github.io/simple-newsletter-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "web-forum",
+    "category": "full-stack",
+    "repo": "axce-j/web-forum",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213250/portfolio/icptpl76eljvlkjpzlta.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "web-forum",
+      "tagline": null,
+      "description": "Community forum application built with Next.js, TypeScript, Firebase, and PostgreSQL, featuring authentication, posts, nested comments, voting, and full CRUD functionality.",
+      "tags": [
+        "app-router",
+        "authentication",
+        "community-platform",
+        "crud",
+        "firebase",
+        "firestore",
+        "forum-software",
+        "full-stack",
+        "nextjs",
+        "postgresql",
+        "react-query",
+        "server-side-rendering",
+        "tailwindcss",
+        "typescript",
+        "vercel"
+      ]
+    },
+    "features": [
+      {
+        "id": "a3ae170a-3860-4aaa-853e-887ebcfe9891",
+        "title": "Community Voting",
+        "subtitle": "Let the community respond",
+        "description": "Users can interact with discussions through upvotes and downvotes. This adds a layer of community-driven engagement and required the application to coordinate user actions with persistent backend data.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213420/portfolio/zhbd8ov8446usxjgbgtd.png",
+        "imageAlt": null
+      },
+      {
+        "id": "9940bb14-7197-4251-bf01-0332408e3f5a",
+        "title": "Authentication",
+        "subtitle": "Secure access to discussions",
+        "description": "Users can authenticate through Firebase before accessing protected interactions within the platform. Authentication state is integrated into the application so user-specific actions can be handled separately from public content.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213317/portfolio/m0xazndbh2jrsvkgqbbv.png",
+        "imageAlt": null
+      },
+      {
+        "id": "908a7bac-3d51-43ab-bcca-e788d015db46",
+        "title": "Discussion Management",
+        "subtitle": "Create and manage conversations",
+        "description": "Users can create, edit, and delete discussion posts, providing the core CRUD workflow of the platform. The application organizes these interactions around a community feed where users can discover and participate in discussions.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213351/portfolio/xrqlnvumsnntc7ax4ovy.png",
+        "imageAlt": null
+      },
+      {
+        "id": "cbce34c6-44e5-40a6-8477-2c58bb1e1973",
+        "title": "Nested Discussions",
+        "subtitle": "Conversations beyond one level",
+        "description": "Posts support nested comments and replies, allowing conversations to develop into structured discussion threads rather than simple one-level comment sections.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213388/portfolio/qtocl9vbt1aqch4ro5hz.png",
+        "imageAlt": null
+      }
+    ],
+    "media": [
+      {
+        "id": "3235a55e-2229-455a-99d9-f3000525fa1f",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213680/portfolio/rhszqwvfl7ahllpdw9f1.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "7bd205bc-a3e1-4ce1-94fa-2137994e6aa1",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213699/portfolio/cdusdqaoasrtcseviswu.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "11c97cdf-a772-4ffc-9901-af863ac4c664",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213732/portfolio/cogcyds4izzat31rotb1.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "1ad81a4a-b156-4fd2-b11e-9cffebe90067",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213769/portfolio/fqba6icy2igujk91w32o.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "7bbdfe8e-346b-434c-8d39-78b2c64ea928",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213785/portfolio/v7gi6rsflhicqxoawzen.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "1d5e0d97-fd06-446f-b6b6-1f49dbdadf62",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213809/portfolio/tewu8ohu0ntr3wnpulu2.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The application combines Next.js application routing and API routes with Firebase authentication and persistent application data. React Query is used to manage asynchronous client-side data interactions, while the project separates authentication, API logic, shared utilities, types, and UI components into dedicated areas of the codebase. This allowed the project to remain organized as functionality expanded beyond a simple frontend application.",
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213865/portfolio/glccvuzhzmx04godcjgj.png",
+      "imageAlt": null
+    },
+    "challenges": [
+      "Managing authenticated user state across protected interactions and application views.",
+      "Designing nested comment and reply structures while keeping discussion data manageable.",
+      "Synchronizing frontend state with asynchronous backend mutations.",
+      "Managing relationships between users, posts, comments, and voting interactions.",
+      "Organizing the growing codebase as the application moved beyond basic frontend functionality."
+    ],
+    "futureImprovements": [
+      "User profiles",
+      "Community moderation tools",
+      "Notifications system",
+      "Real-time updates",
+      "Rich text editor support",
+      "Advanced search and filtering",
+      "Role-based permissions",
+      "Community creation and management",
+      "Content reporting tools",
+      "Analytics dashboard"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project taught me that building a full-stack application requires thinking about the relationships between users, data, and interactions rather than treating the interface as the entire product.\n\nThe Web Forum was one of the projects that changed how I approached software development because it forced me to think beyond individual screens and consider the system behind them. Building authentication, persistent data, discussions, and user interactions made the connection between frontend decisions and backend design much clearer to me. Looking back, its biggest value was not the number of features it contained, but the foundation it gave me for building larger and more complete systems."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/web-forum",
+      "live": "https://webforum-77k2.vercel.app",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "Next.js 15",
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Material Tailwind",
+      "TanStack React Query",
+      "Firebase Authentication",
+      "Firebase Firestore",
+      "PostgreSQL",
+      "Next.js API Routes",
+      "Vercel",
+      "GitHub"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
+    "id": "robot-profile-viewer",
+    "category": "frontend",
+    "repo": "axce-j/robot-profile-viewer",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209386/portfolio/rfoklvygasvybbcuhimp.png",
+    "heroImageAlt": null,
+    "intro": {
+      "title": "robot-profile-viewer",
+      "tagline": null,
+      "description": "Responsive single-page application that consumes a public API to display robot profiles, built to explore Vite, asynchronous JavaScript, API integration, and automated GitHub Pages deployment workflows.",
+      "tags": [
+        "api",
+        "fetch-api",
+        "frontend",
+        "github-actions",
+        "github-pages",
+        "javascript",
+        "responsive-design",
+        "single-page-applications",
+        "vite",
+        "yml-configuration"
+      ]
+    },
+    "features": [
+      {
+        "id": "2913a403-fc08-4552-88f0-2fa49296f720",
+        "title": "Asynchronous Data Handling",
+        "subtitle": "Working with remote data",
+        "description": "The application handles asynchronous requests and updates the interface based on data received from the API. This provided practical experience working with Promises and the flow of data between an external service and a frontend application.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788211995/portfolio/zbylrpqrm41zxfmaim2a.png",
+        "imageAlt": null
+      },
+      {
+        "id": "75be2e22-00ef-4d2c-8e47-6bcd79e94828",
+        "title": "API-Driven Profiles",
+        "subtitle": "Dynamic data from an API",
+        "description": "Robot profile information is retrieved from a public API using the browser's Fetch API rather than being hardcoded into the application. The returned data is processed and rendered dynamically within the interface.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788211922/portfolio/s44alyzqxarugz9v6scv.png",
+        "imageAlt": null
+      },
+      {
+        "id": "28460a5f-e857-4f80-9c10-7da3756be020",
+        "title": "Responsive Interface",
+        "subtitle": "Built for different screens",
+        "description": "The interface adapts to different screen sizes while maintaining a straightforward profile browsing experience. Responsive styling was implemented with CSS to make the application usable on both desktop and mobile devices.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212034/portfolio/xx2kd9vv3donoeoadhcv.png",
+        "imageAlt": null
+      }
+    ],
+    "media": [
+      {
+        "id": "6e232361-9581-4759-a46d-15f982e8ce42",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212117/portfolio/vosjhqmekcno9aypsyed.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "f19e97b9-a28f-4b25-b220-b6ddb6071682",
+        "type": "video",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787867778/portfolio/ebgife6l46kdryqnh0ow.webm",
+        "caption": null,
+        "videoRole": "client_demo"
+      },
+      {
+        "id": "a712e6b6-bb9e-4a5b-a938-7edf385e9bb9",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212137/portfolio/w6rstolsq5liljbc95ch.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "781ee065-4a7d-440a-863c-827149c73354",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212153/portfolio/vndumqfuar7jzbnyf2oo.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "06a2e1a9-0b99-4c86-83da-ec4ec741d41f",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212166/portfolio/hflmtim4bammea98e2gy.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "684a050c-4206-46aa-a33f-3f6ba3094bbd",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212185/portfolio/k1vubzi7nav7tmbla5je.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "5583161e-4090-44fc-af68-3b7d70dcda42",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212204/portfolio/wb4chobde529jmthwpth.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "4031a1b3-e9fd-4f87-89ac-316c8148a530",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1789642539/portfolio/eckllkeu4myn8iri3cer.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
+    "highlight": {
+      "title": null,
+      "subtitle": null,
+      "description": "The most important architectural step in this project was moving from static page content to a data-driven frontend. Instead of storing robot profiles directly in the interface, the application requests the data from an external API and builds the displayed profiles from the response. This established an early foundation for understanding how frontend applications interact with external services.",
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212095/portfolio/kw3xlgtbxqec2hror1jg.png",
+      "imageAlt": null
+    },
+    "challenges": [
+      "Working with asynchronous API requests and Promises.",
+      "Handling and rendering JSON data returned from an external service.",
+      "Updating the interface dynamically based on API responses.",
+      "Understanding the build and deployment process introduced by Vite and GitHub Actions."
+    ],
+    "futureImprovements": [
+      "Search and filtering functionality",
+      "Robot profile detail pages",
+      "Favorites and bookmarking",
+      "Pagination for large datasets",
+      "Error handling improvements",
+      "Loading state enhancements",
+      "Migration to a modern framework such as React"
+    ],
+    "takeaway": {
+      "title": null,
+      "subtitle": null,
+      "description": "This project taught me how much more interactive a frontend becomes when its interface is driven by external data rather than static content.\n\nThe Robot Profile Viewer was an early turning point in my development journey because it was one of my first experiences making a frontend application communicate with something outside the browser. It helped me understand that building software is not just about creating interfaces, but also about handling the data and processes that make those interfaces useful. The project was simple, but the concepts introduced here became foundations for the more complex applications I built later."
+    },
+    "links": {
+      "github": "https://github.com/axce-j/robot-profile-viewer",
+      "live": "https://axce-j.github.io/-Robo-profile-website/",
+      "figma": null,
+      "behance": null,
+      "dribbble": null,
+      "caseStudy": null
+    },
+    "techStack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Vite",
+      "GitHub Actions",
+      "GitHub Pages"
+    ],
+    "year": 2026,
+    "client": null,
+    "role": null,
+    "duration": null,
+    "stars": 0,
+    "forks": 0,
+    "latestRelease": "v1.0.0"
+  },
+  {
     "id": "anime-streaming-clone",
     "category": "frontend",
     "repo": "axce-j/anime-streaming-clone",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788170713/portfolio/npyxiqfn0qa8f2agxpeo.png",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208550/portfolio/wfjyjuiktgjqroq4zn8n.png",
     "heroImageAlt": null,
     "intro": {
       "title": "anime-streaming-clone",
@@ -31,44 +486,87 @@
     },
     "features": [
       {
-        "id": "7f03be99-43c5-4cbb-bd68-31f0cb0155e4",
+        "id": "0596a6c0-a364-48d2-bbd2-7ccd85d4f6d7",
         "title": "Anime Discovery",
         "subtitle": "Explore a large content catalog",
         "description": "The application retrieves anime information from the Jikan API and presents it through dedicated discovery interfaces. Users can browse different categories and explore titles without requiring the application to maintain its own anime database.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208596/portfolio/fmdbql3mxgpq9tny1k5v.png",
         "imageAlt": null
       },
       {
-        "id": "047ff23e-0f48-4083-b62f-2cde9b88e80a",
-        "title": "Search & Filtering",
-        "subtitle": "Find titles more efficiently",
-        "description": "Users can search for anime and refine results using URL-based search parameters and filtering logic. Keeping these parameters in the URL allows search states to remain navigable and shareable across routes.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "55a9557b-e4b5-427c-8bad-4fc6f47ab72c",
+        "id": "47b7d94c-dee5-47be-a134-adfc593e7266",
         "title": "Detailed Anime Pages",
         "subtitle": "Explore each title in depth",
         "description": "Each anime has a dedicated route containing detailed information and related recommendations. Dynamic routing allows the same page structure to display different content based on the selected anime.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208817/portfolio/f8elcw7gqyzrrgvqposf.png",
         "imageAlt": null
       },
       {
-        "id": "b29348b0-a56f-473c-a001-5621a13ec220",
+        "id": "b966afb7-88ed-4a69-a763-1f7771bb11dd",
         "title": "API Data Management",
         "subtitle": "Handle remote data reliably",
         "description": "The application uses Axios and TanStack React Query to manage requests to the Jikan API, including asynchronous loading states, caching, and refetching behaviour. This helped separate remote server data from the UI and keep components focused on presentation and interaction.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208919/portfolio/z75dwlkhcnkejhdpapkw.png",
+        "imageAlt": null
+      },
+      {
+        "id": "e3ab4912-b16a-4e1d-af98-fd8e921c7db8",
+        "title": "Search & Filtering",
+        "subtitle": "Find titles more efficiently",
+        "description": "Users can search for anime and refine results using URL-based search parameters and filtering logic. Keeping these parameters in the URL allows search states to remain navigable and shareable across routes.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208743/portfolio/qnb0wdkkrm0pfeyr7iyo.png",
         "imageAlt": null
       }
     ],
-    "media": [],
+    "media": [
+      {
+        "id": "5302f70d-f4c5-4d86-bdbd-3171cafb9f17",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208987/portfolio/lftarlznykfuo4fef1pb.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "ace16634-7624-4b6c-93b5-03901fa21c54",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209011/portfolio/lnrmmcziuppcgzxuagr9.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "ff66d79f-fc1a-464e-8f9f-1ec4dddec1fc",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209038/portfolio/uoukyba7ahtpf0osuetx.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "47d6ad15-c724-4804-b9bf-7ed1c21384e2",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209085/portfolio/tbusyfzhlpvhjdbj6qoq.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "6a33f807-0cbe-412e-bb55-7abfa41aa469",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209115/portfolio/ba77dfarw3rb7dhba2jn.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "055ae948-a812-4e41-be9f-9f8143479797",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788209138/portfolio/trjmdchkpg2yy4wtbrbz.png",
+        "caption": null,
+        "videoRole": null
+      }
+    ],
     "highlight": {
       "title": null,
       "subtitle": null,
       "description": "The application is structured around external API data rather than locally maintained content. Jikan provides the anime data while Axios handles HTTP communication and TanStack React Query manages asynchronous server state, caching, and refetching. React Router handles navigation between discovery, search, and detail views, allowing the application to behave as a multi-route frontend while keeping the data layer separate from the presentation layer.",
-      "image": null,
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788208961/portfolio/jxpe7mgjv1rd6jy3pfuf.png",
       "imageAlt": null
     },
     "challenges": [
@@ -118,130 +616,6 @@
       "CSS3",
       "Jikan API",
       "MyAnimeList data"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
-    "id": "web-forum",
-    "category": "full-stack",
-    "repo": "axce-j/web-forum",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788171706/portfolio/nt16hvkugtz3rruawzep.jpg",
-    "heroImageAlt": null,
-    "intro": {
-      "title": "web-forum",
-      "tagline": null,
-      "description": "Community forum application built with Next.js, TypeScript, Firebase, and PostgreSQL, featuring authentication, posts, nested comments, voting, and full CRUD functionality.",
-      "tags": [
-        "app-router",
-        "authentication",
-        "community-platform",
-        "crud",
-        "firebase",
-        "firestore",
-        "forum-software",
-        "full-stack",
-        "nextjs",
-        "postgresql",
-        "react-query",
-        "server-side-rendering",
-        "tailwindcss",
-        "typescript",
-        "vercel"
-      ]
-    },
-    "features": [
-      {
-        "id": "55491fe2-2e79-44ae-98a8-cea05f3586d4",
-        "title": "Authentication",
-        "subtitle": "Secure access to discussions",
-        "description": "Users can authenticate through Firebase before accessing protected interactions within the platform. Authentication state is integrated into the application so user-specific actions can be handled separately from public content.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "d085a048-2fb4-4864-a33c-3b62a02f490a",
-        "title": "Discussion Management",
-        "subtitle": "Create and manage conversations",
-        "description": "Users can create, edit, and delete discussion posts, providing the core CRUD workflow of the platform. The application organizes these interactions around a community feed where users can discover and participate in discussions.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "b284a003-3880-4e4a-b6d6-da42d413393d",
-        "title": "Nested Discussions",
-        "subtitle": "Conversations beyond one level",
-        "description": "Posts support nested comments and replies, allowing conversations to develop into structured discussion threads rather than simple one-level comment sections.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "80acb2a0-05d2-4680-bc1c-09b34afe4663",
-        "title": "Community Voting",
-        "subtitle": "Let the community respond",
-        "description": "Users can interact with discussions through upvotes and downvotes. This adds a layer of community-driven engagement and required the application to coordinate user actions with persistent backend data.",
-        "image": null,
-        "imageAlt": null
-      }
-    ],
-    "media": [],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": "The application combines Next.js application routing and API routes with Firebase authentication and persistent application data. React Query is used to manage asynchronous client-side data interactions, while the project separates authentication, API logic, shared utilities, types, and UI components into dedicated areas of the codebase. This allowed the project to remain organized as functionality expanded beyond a simple frontend application.",
-      "image": null,
-      "imageAlt": null
-    },
-    "challenges": [
-      "Managing authenticated user state across protected interactions and application views.",
-      "Designing nested comment and reply structures while keeping discussion data manageable.",
-      "Synchronizing frontend state with asynchronous backend mutations.",
-      "Managing relationships between users, posts, comments, and voting interactions.",
-      "Organizing the growing codebase as the application moved beyond basic frontend functionality."
-    ],
-    "futureImprovements": [
-      "User profiles",
-      "Community moderation tools",
-      "Notifications system",
-      "Real-time updates",
-      "Rich text editor support",
-      "Advanced search and filtering",
-      "Role-based permissions",
-      "Community creation and management",
-      "Content reporting tools",
-      "Analytics dashboard"
-    ],
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": "This project taught me that building a full-stack application requires thinking about the relationships between users, data, and interactions rather than treating the interface as the entire product.\n\nThe Web Forum was one of the projects that changed how I approached software development because it forced me to think beyond individual screens and consider the system behind them. Building authentication, persistent data, discussions, and user interactions made the connection between frontend decisions and backend design much clearer to me. Looking back, its biggest value was not the number of features it contained, but the foundation it gave me for building larger and more complete systems."
-    },
-    "links": {
-      "github": "https://github.com/axce-j/web-forum",
-      "live": "https://webforum-77k2.vercel.app",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "Next.js 15",
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Material Tailwind",
-      "TanStack React Query",
-      "Firebase Authentication",
-      "Firebase Firestore",
-      "PostgreSQL",
-      "Next.js API Routes",
-      "Vercel",
-      "GitHub"
     ],
     "year": 2026,
     "client": null,
@@ -393,249 +767,10 @@
     "latestRelease": "v1.0.0"
   },
   {
-    "id": "robot-profile-viewer",
-    "category": "frontend",
-    "repo": "axce-j/robot-profile-viewer",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788171663/portfolio/jq0yrkm2crjqvbuctpni.jpg",
-    "heroImageAlt": null,
-    "intro": {
-      "title": "robot-profile-viewer",
-      "tagline": null,
-      "description": "Responsive single-page application that consumes a public API to display robot profiles, built to explore Vite, asynchronous JavaScript, API integration, and automated GitHub Pages deployment workflows.",
-      "tags": [
-        "api",
-        "fetch-api",
-        "frontend",
-        "github-actions",
-        "github-pages",
-        "javascript",
-        "responsive-design",
-        "single-page-applications",
-        "vite",
-        "yml-configuration"
-      ]
-    },
-    "features": [
-      {
-        "id": "25831bce-4623-4a14-90b8-fbce291abab1",
-        "title": "API-Driven Profiles",
-        "subtitle": "Dynamic data from an API",
-        "description": "Robot profile information is retrieved from a public API using the browser's Fetch API rather than being hardcoded into the application. The returned data is processed and rendered dynamically within the interface.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "83e11f15-169d-469e-be29-b7bc0d861557",
-        "title": "Asynchronous Data Handling",
-        "subtitle": "Working with remote data",
-        "description": "The application handles asynchronous requests and updates the interface based on data received from the API. This provided practical experience working with Promises and the flow of data between an external service and a frontend application.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "5c9f6895-2edc-408a-b60e-4c36599fdeee",
-        "title": "Responsive Interface",
-        "subtitle": "Built for different screens",
-        "description": "The interface adapts to different screen sizes while maintaining a straightforward profile browsing experience. Responsive styling was implemented with CSS to make the application usable on both desktop and mobile devices.",
-        "image": null,
-        "imageAlt": null
-      }
-    ],
-    "media": [
-      {
-        "id": "f19e97b9-a28f-4b25-b220-b6ddb6071682",
-        "type": "video",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787867778/portfolio/ebgife6l46kdryqnh0ow.webm",
-        "caption": null,
-        "videoRole": "client_demo"
-      }
-    ],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": "The most important architectural step in this project was moving from static page content to a data-driven frontend. Instead of storing robot profiles directly in the interface, the application requests the data from an external API and builds the displayed profiles from the response. This established an early foundation for understanding how frontend applications interact with external services.",
-      "image": null,
-      "imageAlt": null
-    },
-    "challenges": [
-      "Working with asynchronous API requests and Promises.",
-      "Handling and rendering JSON data returned from an external service.",
-      "Updating the interface dynamically based on API responses.",
-      "Understanding the build and deployment process introduced by Vite and GitHub Actions."
-    ],
-    "futureImprovements": [
-      "Search and filtering functionality",
-      "Robot profile detail pages",
-      "Favorites and bookmarking",
-      "Pagination for large datasets",
-      "Error handling improvements",
-      "Loading state enhancements",
-      "Migration to a modern framework such as React"
-    ],
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": "This project taught me how much more interactive a frontend becomes when its interface is driven by external data rather than static content.\n\nThe Robot Profile Viewer was an early turning point in my development journey because it was one of my first experiences making a frontend application communicate with something outside the browser. It helped me understand that building software is not just about creating interfaces, but also about handling the data and processes that make those interfaces useful. The project was simple, but the concepts introduced here became foundations for the more complex applications I built later."
-    },
-    "links": {
-      "github": "https://github.com/axce-j/robot-profile-viewer",
-      "live": "https://axce-j.github.io/-Robo-profile-website/",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript",
-      "Vite",
-      "GitHub Actions",
-      "GitHub Pages"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
-    "id": "simple-newsletter-website",
-    "category": "frontend",
-    "repo": "axce-j/simple-newsletter-website",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168811/portfolio/b9yoah4tetrfbyrb0h4m.png",
-    "heroImageAlt": null,
-    "intro": {
-      "title": "simple-newsletter-website",
-      "tagline": null,
-      "description": "Responsive newsletter landing page built during my early frontend development journey. This project showcases foundational HTML, CSS, and JavaScript skills while demonstrating my progression toward building modern full-stack applications.",
-      "tags": [
-        "beginner-project",
-        "css",
-        "frontend-development",
-        "html",
-        "javascript",
-        "landing-page",
-        "newsletter",
-        "responsive-design",
-        "web-development"
-      ]
-    },
-    "features": [
-      {
-        "id": "d14bfd95-86d8-4e07-84ee-3785a2d91569",
-        "title": "Responsive Layout",
-        "subtitle": "Adapts across screen sizes",
-        "description": "The page uses responsive CSS techniques to maintain its layout and usability across desktop and mobile screen sizes. The structure was kept intentionally simple so the content remains easy to navigate at different viewport sizes.",
-        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168906/portfolio/hzztl8b8ckt748gkdlms.png",
-        "imageAlt": null
-      },
-      {
-        "id": "3fa5156a-332d-4f85-907b-f8b104061751",
-        "title": "Newsletter Interface",
-        "subtitle": "Focused signup experience",
-        "description": "The landing page is centered around a newsletter signup experience, with the surrounding layout designed to guide visitors toward the primary interaction without unnecessary interface elements.",
-        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788168981/portfolio/sxv7zg2jvmgwyyiui94i.png",
-        "imageAlt": null
-      }
-    ],
-    "media": [
-      {
-        "id": "e57998ff-7a5f-4c2f-a9a3-5e3a98ff498b",
-        "type": "image",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169185/portfolio/lpc0kpl0vne0wbxtco8g.png",
-        "caption": null,
-        "videoRole": null
-      },
-      {
-        "id": "60391347-fc7d-49d0-b830-95a0e04d66b5",
-        "type": "video",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787868988/portfolio/wthkycoapiu0espvg9zw.mp4",
-        "caption": null,
-        "videoRole": "client_demo"
-      },
-      {
-        "id": "980a47e0-f1f3-4364-a898-ac6a3f1a9b6f",
-        "type": "image",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169338/portfolio/jnvk8z3abtuuos3phjub.png",
-        "caption": null,
-        "videoRole": null
-      },
-      {
-        "id": "844e456a-1cd8-47f1-960f-048ff875dce9",
-        "type": "image",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169403/portfolio/xqhxlnhks163grxg31zx.png",
-        "caption": null,
-        "videoRole": null
-      },
-      {
-        "id": "fbf57dbf-666d-4f28-91cc-fed2b31333b4",
-        "type": "image",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169511/portfolio/aq4cnu26ivv8wusvq0ph.png",
-        "caption": null,
-        "videoRole": null
-      },
-      {
-        "id": "1d9f173d-9ec7-47be-9050-2f2b1b39a774",
-        "type": "image",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169568/portfolio/ozjicfxgah7nm8d4gpbk.png",
-        "caption": null,
-        "videoRole": null
-      }
-    ],
-    "highlight": {
-      "title": null,
-      "subtitle": null,
-      "description": "The project uses a straightforward HTML, CSS, and JavaScript structure without a framework or external application architecture. This kept the focus on understanding the fundamentals of semantic page structure, responsive styling, and basic frontend interactions before introducing more complex tooling.",
-      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788169063/portfolio/cbxxi3cc8ttdmbqbdmoq.png",
-      "imageAlt": null
-    },
-    "challenges": [
-      "Creating a responsive layout without relying on a frontend framework.",
-      "Maintaining consistent spacing and alignment across different screen sizes.",
-      "Structuring the page so the newsletter signup remained the primary interaction.",
-      "Balancing visual design with the limited scope of a simple landing page."
-    ],
-    "futureImprovements": [
-      "Connect the signup form to a real newsletter service",
-      "Add form validation and feedback states",
-      "Improve accessibility",
-      "Add subtle interaction and transition effects",
-      "Introduce automated deployment workflows"
-    ],
-    "takeaway": {
-      "title": null,
-      "subtitle": null,
-      "description": "This project strengthened my understanding of the frontend fundamentals that more complex applications are built upon.\n\nThe Simple Newsletter Website represents the starting point of my transition into software development. At this stage, the challenge was not building complex systems, but learning how to turn a design idea into a functioning and responsive web page. Looking back, those fundamentals became the foundation for everything that followed, from API-driven applications to full-stack systems and production platforms."
-    },
-    "links": {
-      "github": "https://github.com/axce-j/simple-newsletter-website",
-      "live": "https://axce-j.github.io/simple-newsletter-website/",
-      "figma": null,
-      "behance": null,
-      "dribbble": null,
-      "caseStudy": null
-    },
-    "techStack": [
-      "HTML5",
-      "CSS3",
-      "JavaScript"
-    ],
-    "year": 2026,
-    "client": null,
-    "role": null,
-    "duration": null,
-    "stars": 0,
-    "forks": 0,
-    "latestRelease": "v1.0.0"
-  },
-  {
     "id": "flowboard",
     "category": "frontend",
     "repo": "axce-j/Flowboard",
-    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788171682/portfolio/eu6rlnotmbs3zu20jowm.jpg",
+    "heroImage": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212397/portfolio/qtcdkc6ytq01ochgts2t.png",
     "heroImageAlt": null,
     "intro": {
       "title": "Flowboard",
@@ -655,54 +790,47 @@
     },
     "features": [
       {
-        "id": "357b8d47-3d1c-44df-8632-2eca0cd71bd6",
-        "title": "Content Workflow",
-        "subtitle": "From idea to publication",
-        "description": "Content moves through a predefined production pipeline consisting of Idea, Draft, Ready, and Posted stages. This gives the team a simple way to understand the current state of every piece of content.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "7097655c-a545-451b-a744-22e89ab57fa8",
+        "id": "c98292b5-adb2-44ee-a164-2f17d669d29b",
         "title": "Task Management",
         "subtitle": "Simple content operations",
         "description": "Team members can create, edit, and delete content tasks while maintaining the information needed to track production. The interface uses modal-based interactions to keep task management within the main dashboard workflow.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213004/portfolio/hyawmle8bj30fpnouiwe.png",
         "imageAlt": null
       },
       {
-        "id": "9fecb4c9-c31c-4066-8a0f-cc4807e286db",
-        "title": "Team Assignment",
-        "subtitle": "Clear ownership of work",
-        "description": "Tasks can be assigned to predefined internal team members, making responsibility visible within the shared workspace and helping the team understand who is responsible for each piece of content.",
-        "image": null,
-        "imageAlt": null
-      },
-      {
-        "id": "e3979cad-feee-4e11-a384-47a345a22393",
+        "id": "bee23f8d-9553-42f1-a79e-2fcaa99b4d99",
         "title": "Workflow Filtering",
         "subtitle": "Focus on what matters",
         "description": "Content can be filtered according to its current production status, allowing team members to focus on specific stages of the workflow rather than navigating through unrelated tasks.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213111/portfolio/o8nhy0tltj8y8pq5ncop.png",
         "imageAlt": null
       },
       {
-        "id": "a4dddad3-8b74-42ca-aa2b-daa97dc515bd",
+        "id": "a73d7da7-9108-4121-9089-65f994fa7257",
         "title": "Responsive Dashboard",
         "subtitle": "Built for everyday use",
         "description": "The application provides a responsive dashboard interface so the internal workflow remains usable across different screen sizes without requiring a separate mobile application.",
-        "image": null,
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213170/portfolio/wzfhhaycydjvgbjslnbb.png",
+        "imageAlt": null
+      },
+      {
+        "id": "f03812d4-e853-420a-ab15-40433c0fb475",
+        "title": "Team Assignment",
+        "subtitle": "Clear ownership of work",
+        "description": "Tasks can be assigned to predefined internal team members, making responsibility visible within the shared workspace and helping the team understand who is responsible for each piece of content.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788213070/portfolio/bt8uyzmyls5qhfpexdec.png",
+        "imageAlt": null
+      },
+      {
+        "id": "8aef55f8-2409-456c-8e5f-854da5add1ea",
+        "title": "Content Workflow",
+        "subtitle": "From idea to publication",
+        "description": "Content moves through a predefined production pipeline consisting of Idea, Draft, Ready, and Posted stages. This gives the team a simple way to understand the current state of every piece of content.",
+        "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212958/portfolio/rqzz6l0skgwapsohcxq4.png",
         "imageAlt": null
       }
     ],
     "media": [
-      {
-        "id": "3af3e932-ad54-457b-b4ec-d5ab145bffb0",
-        "type": "video",
-        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787866634/portfolio/mje1lmiq1gswxxaalkng.webm",
-        "caption": null,
-        "videoRole": "client_demo"
-      },
       {
         "id": "00bcb5c9-667a-469f-b436-34c84a9a7d3a",
         "type": "image",
@@ -718,9 +846,51 @@
         "videoRole": null
       },
       {
+        "id": "3af3e932-ad54-457b-b4ec-d5ab145bffb0",
+        "type": "video",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/video/upload/v1787866634/portfolio/mje1lmiq1gswxxaalkng.webm",
+        "caption": null,
+        "videoRole": "client_demo"
+      },
+      {
         "id": "b3e61232-474e-40bc-ad5f-8718cab9faf5",
         "type": "image",
         "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788171634/portfolio/mfday7cyjuhllxjdrmma.jpg",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "84a2948c-4b20-474c-8652-b88e4d5becea",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212450/portfolio/fcfzcy5gg6isxxg0j8yx.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "53373c6d-88db-465c-834d-ba72e7becacd",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212469/portfolio/wbnnt9my9mldfbpck4dm.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "00b1ab51-3c9d-438f-9c9d-a3e9cd6b8ef6",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212491/portfolio/npxw7420ajarihaki87o.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "ece303bb-aa1e-4af5-83bf-246c57ee36a9",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212510/portfolio/xfqo8yx3pnrxof0twoq3.png",
+        "caption": null,
+        "videoRole": null
+      },
+      {
+        "id": "b558414d-d30d-499f-b885-87daadb17ff0",
+        "type": "image",
+        "url": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1788212523/portfolio/kp8bmh7s6pifv3hmg6vh.png",
         "caption": null,
         "videoRole": null
       }
@@ -729,7 +899,7 @@
       "title": null,
       "subtitle": null,
       "description": "The application was intentionally designed as a lightweight monolithic internal tool rather than a multi-tenant SaaS platform. It uses a single shared workspace protected by an application password, with team members represented as predefined internal users. This kept the implementation aligned with the actual scope of the project and avoided introducing authentication, organization management, and permission systems that were not required for its intended use.",
-      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1787597873/portfolio/hauajsnqrqmmjtlfsxx6.png",
+      "image": "https://res.cloudinary.com/dv7lp8bgb/image/upload/v1789584037/portfolio/ttx6rnhyvukyi398exrq.png",
       "imageAlt": null
     },
     "challenges": [

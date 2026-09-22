@@ -14,6 +14,7 @@ import AdminUploadPage from "./features/admin/AdminUploadPage";
  import { ADMIN_ROUTE_PREFIX } from "./config/adminAccess";
 import { useSecretTypedPhrase } from "./features/admin/hooks/useSecretTypedPhrase";
 import AdminRouteGate from "./features/admin/AdminRouteGate";
+import NotFoundPage from "./Not-found";
 
 // Wraps only the public-facing pages in the sidebar/nav chrome.
 // Anything NOT nested under this layout route (like the admin page
@@ -61,6 +62,11 @@ function App() {
 				<Route path="/contacts" element={<ContactsPage />} />
 				<Route path="/settings" element={<Settings />} />
 			</Route>
+
+			{/* Catch-all — deliberately OUTSIDE PublicLayout too (no sidebar
+			    on a broken link), and must stay LAST: React Router matches
+			    in order, so anything above it gets first refusal. */}
+			<Route path="*" element={<NotFoundPage />} />
 		</Routes>
 	);
 }

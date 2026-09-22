@@ -18,8 +18,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-
+/* This app is always-dark (no light/dark toggle actually wires up
+   the shadcn .dark class below), so --background's light-mode
+   default of white was leaking through as the *real* body
+   background whenever iOS's overscroll bounce revealed anything
+   beyond the hand-styled dark content sitting on top of it.
+   overscroll-behavior: none stops the bounce itself from revealing
+   anything at all on pages that shouldn't scroll in the first
+   place. */
+html, body {
+  background-color: #15161A;
+  overscroll-behavior: none;
+}
 
 
 @layer base {
@@ -77,9 +87,6 @@
     --chart-5: 340 75% 55%;
   }
 }
-
-
-
 
 
 @layer base {

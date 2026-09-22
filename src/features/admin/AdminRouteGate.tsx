@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { isValidAdminSuffix } from "@/config/adminAccess";
-
+import NotFoundPage from "@/Not-found";
+ 
 const SESSION_KEY = "admin-route-authorized";
 
 /**
@@ -32,6 +33,10 @@ export default function AdminRouteGate({ children }: { children: React.ReactNode
     return valid;
   });
 
-  if (!authorized) return null;
+  // Renders the same 404 as any other bad route rather than blank —
+  // a blank page at this exact URL pattern would itself be a tell
+  // that the admin route is real, even to someone without the
+  // password. See NotFoundPage for the full rationale.
+  if (!authorized) return <NotFoundPage />;
   return <>{children}</>;
 }

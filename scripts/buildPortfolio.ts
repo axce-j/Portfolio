@@ -10,6 +10,7 @@
 import "dotenv/config"; // loads .env locally; no-op on Vercel, where env vars are already set
 import { neon } from "@neondatabase/serverless";
 import { writeFileSync, mkdirSync } from "fs";
+import { pathToFileURL } from "url";
 
 const sql = neon(process.env.DATABASE_URL!);
 const OUTPUT_PATH = "src/features/projects/data/portfolio.generated.json";
@@ -159,10 +160,24 @@ async function generatePortfolioJson(): Promise<number> {
 export { generatePortfolioJson };
 
 async function main() {
-  const count = await generatePortfolioJson();
-  console.log(`✅ Wrote ${count} published project(s) to ${OUTPUT_PATH}`);
-}
-
+	const count = await generatePortfolioJson();
+	console.log(`✅ Wrote ${count} published project(s) to ${OUTPUT_PATH}`);
+  }
+  
+  // Only run when this file is executed directly (`tsx scripts/buildPortfolio.ts`,
+  // as part of `npm run prebuild`) — NOT when imported as a module, which is what
+  // api/get-full-project.ts does to reuse mapProjectRow. Without this guard,
+  // merely importing this file (even just for one function) unconditionally runs
+  // main(), which tries to write portfolio.generated.json to a read-only
+  // production filesystem and then calls process.exit(1) on failure — killing
+  // whatever function imported it. This is what broke /api/get-full-project.
+  const isMainModule = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
+  if (isMainModule) {
+	main().catch((err) => {
+	  console.error("❌ buildPortfolio failed:", err);
+	  process.exit(1);
+	});
+  }
 main().catch((err) => {
   console.error("❌ buildPortfolio failed:", err);
   process.exit(1);

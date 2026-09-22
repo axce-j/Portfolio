@@ -30,6 +30,15 @@ const ARC_SPAN_DEG = 270;
  * hand-picked per-item icon field or a fuzzy keyword table that will
  * often guess wrong. If per-project icons matter later, the natural
  * path is an optional `icon` field items can carry.
+ *
+ * Mobile scaling: the hub, every node, and the connector SVG all live
+ * inside one fixed STAGE x STAGE px box, positioned using raw STAGE-unit
+ * pixel values throughout (hex size, label width, gaps, node positions).
+ * That whole box gets ONE CSS `transform: scale(fitScale)` applied to it
+ * when the available width is less than STAGE. Because every value inside
+ * is just a proportion of that one box, they all shrink together in lock
+ * step — there's no separate per-element scaling logic to keep in sync,
+ * and nothing can independently drift and overflow the viewport.
  */
 export function RadialPicker({
   category,
@@ -46,8 +55,9 @@ export function RadialPicker({
 }) {
   const [expanded, setExpanded] = useState(false);
 
-  // Fixed stage in SVG user-space units, scaled to fit via viewBox —
-  // looks right at any rendered size without a resize listener.
+  // Fixed stage in px — every position/size below is a raw number in
+  // this same coordinate space. The stage itself is what gets scaled
+  // down to fit small screens, not any individual value inside it.
   const STAGE = 620;
   const CENTER = STAGE / 2;
   const RADIUS = 220;
@@ -61,37 +71,53 @@ export function RadialPicker({
   const LABEL_W = 112;
   const NODE_TOTAL_W = HEX_SIZE + NODE_GAP + LABEL_W;
 
-  const containerRef = useRef<HTMLDivElement>(null);
+  const outerRef = useRef<HTMLDivElement>(null);
   const hubRef = useRef<HTMLButtonElement>(null);
 
+  // How much to shrink the STAGE x STAGE box so it fits the available
+  // width. 1 = full size (desktop). Recomputed on resize while expanded.
+  const [fitScale, setFitScale] = useState(1);
+
   // Half-width/half-height of the hub button, in STAGE units, so
-  // connector lines can start exactly at its edge instead of a
-  // guessed offset. Measured from the real DOM node because the
-  // button's size depends on the label text and isn't fixed.
+  // connector lines can start exactly at its edge instead of a guessed
+  // offset. Measured from the real DOM node because the button's size
+  // depends on the label text and isn't fixed. getBoundingClientRect()
+  // already reflects the stage's CSS transform:scale, so converting
+  // back to STAGE units is just dividing by that same fitScale.
   const [hubHalf, setHubHalf] = useState({ w: 90, h: 34 });
 
   useLayoutEffect(() => {
-    if (!expanded || !containerRef.current || !hubRef.current) return;
+    if (!expanded) return;
 
-    const measure = () => {
-      const containerRect = containerRef.current!.getBoundingClientRect();
+    const measureFit = () => {
+      // Viewport-relative on purpose, matching this component's original
+      // "cap at 92vw" intent — it fits itself to the screen rather than
+      // to a specific parent container.
+      const availableWidth = window.innerWidth * 0.92;
+      setFitScale(Math.min(1, availableWidth / STAGE));
+    };
+
+    measureFit();
+    window.addEventListener("resize", measureFit);
+    return () => window.removeEventListener("resize", measureFit);
+  }, [expanded]);
+
+  useLayoutEffect(() => {
+    if (!expanded || !hubRef.current) return;
+
+    const measureHub = () => {
       const hubRect = hubRef.current!.getBoundingClientRect();
-      // The container can be scaled down by the `maxWidth: 92vw` cap
-      // while the SVG's viewBox keeps STAGE units — convert the
-      // hub's real pixel size back into those same units.
-      const scale = STAGE / containerRect.width;
       setHubHalf({
-        w: (hubRect.width / 2) * scale,
-        h: (hubRect.height / 2) * scale,
+        w: hubRect.width / 2 / fitScale,
+        h: hubRect.height / 2 / fitScale,
       });
     };
 
-    measure();
-    const ro = new ResizeObserver(measure);
+    measureHub();
+    const ro = new ResizeObserver(measureHub);
     ro.observe(hubRef.current);
-    ro.observe(containerRef.current);
     return () => ro.disconnect();
-  }, [expanded]);
+  }, [expanded, fitScale]);
 
   const positions = items.map((item, i) => {
     const angleDeg =
@@ -125,46 +151,70 @@ export function RadialPicker({
     return `M ${edge.x} ${edge.y} C ${midX} ${edge.y}, ${midX} ${node.y}, ${node.x} ${node.y}`;
   };
 
+  // Collapsed: just the hub, centered by the flex wrapper, natural size.
+  // Expanded: the wrapper's own box is sized to the SCALED footprint
+  // (STAGE * fitScale) so surrounding layout doesn't reserve a giant
+  // 620px gap on a phone — CSS transform:scale shrinks what's drawn,
+  // not the layout box, so that has to be set explicitly here.
+  const wrapperStyle = expanded
+    ? { width: STAGE * fitScale, height: STAGE * fitScale }
+    : undefined;
+
   return (
-    <div
-      ref={containerRef}
-      className="relative flex items-center justify-center"
-      style={{ width: STAGE, maxWidth: "92vw" }}
-    >
-      {expanded && (
-        <svg viewBox={`0 0 ${STAGE} ${STAGE}`} className="absolute inset-0 w-full h-full pointer-events-none">
-          {positions.map((p) => {
-            const edge = edgePointFor(p.x, p.y);
-            return (
-              <path
-                key={`line-${p.id}`}
-                d={pathFor(edge, p)}
-                fill="none"
-                stroke="rgba(45, 212, 191, 0.55)"
-                strokeWidth={2.5}
-                strokeLinecap="round"
-              />
-            );
-          })}
-        </svg>
+    <div ref={outerRef} className="relative flex items-center justify-center" style={wrapperStyle}>
+      {!expanded && (
+        <button
+          type="button"
+          onClick={() => setExpanded(true)}
+          className="z-10 flex flex-col items-center gap-1 px-6 py-4 rounded-2xl
+            bg-white/[0.04] border border-teal-500/30 hover:border-teal-500/50 hover:bg-teal-500/10
+            transition-all duration-200 whitespace-nowrap"
+        >
+          <span className="text-xs font-bold tracking-widest uppercase text-white/30">{category}</span>
+          <span className="text-lg text-teal-300 font-bold">{hubLabel}</span>
+        </button>
       )}
 
-      {/* The hub IS the button — no inner button nested in a card. */}
-      <button
-        ref={hubRef}
-        type="button"
-        onClick={() => setExpanded((e) => !e)}
-        style={expanded ? { position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" } : undefined}
-        className="z-10 flex flex-col items-center gap-1 px-6 py-4 rounded-2xl
-          bg-white/[0.04] border border-teal-500/30 hover:border-teal-500/50 hover:bg-teal-500/10
-          transition-all duration-200 whitespace-nowrap"
-      >
-        <span className="text-xs font-bold tracking-widest uppercase text-white/30">{category}</span>
-        <span className="text-lg text-teal-300 font-bold">{hubLabel}</span>
-      </button>
-
       {expanded && (
-        <div className="relative" style={{ width: STAGE, height: STAGE }}>
+        <div
+          className="absolute top-0 left-0"
+          style={{
+            width: STAGE,
+            height: STAGE,
+            transform: `scale(${fitScale})`,
+            transformOrigin: "top left",
+          }}
+        >
+          <svg viewBox={`0 0 ${STAGE} ${STAGE}`} className="absolute inset-0 w-full h-full pointer-events-none">
+            {positions.map((p) => {
+              const edge = edgePointFor(p.x, p.y);
+              return (
+                <path
+                  key={`line-${p.id}`}
+                  d={pathFor(edge, p)}
+                  fill="none"
+                  stroke="rgba(45, 212, 191, 0.55)"
+                  strokeWidth={2.5}
+                  strokeLinecap="round"
+                />
+              );
+            })}
+          </svg>
+
+          {/* The hub IS the button — no inner button nested in a card. */}
+          <button
+            ref={hubRef}
+            type="button"
+            onClick={() => setExpanded(false)}
+            style={{ position: "absolute", left: "50%", top: "50%", transform: "translate(-50%, -50%)" }}
+            className="z-10 flex flex-col items-center gap-1 px-6 py-4 rounded-2xl
+              bg-white/[0.04] border border-teal-500/30 hover:border-teal-500/50 hover:bg-teal-500/10
+              transition-all duration-200 whitespace-nowrap"
+          >
+            <span className="text-xs font-bold tracking-widest uppercase text-white/30">{category}</span>
+            <span className="text-lg text-teal-300 font-bold">{hubLabel}</span>
+          </button>
+
           {positions.map((p) => {
             // Label goes on whichever side points away from the hub,
             // so it never sits between the hex and the connector
@@ -184,12 +234,13 @@ export function RadialPicker({
                 type="button"
                 onClick={() => onSelect(p.id)}
                 style={{
-                  left: `${(p.x / STAGE) * 100}%`,
-                  top: `${(p.y / STAGE) * 100}%`,
+                  position: "absolute",
+                  left: p.x,
+                  top: p.y,
                   width: NODE_TOTAL_W,
                   transform: `translate(${xShift}px, -50%)`,
                 }}
-                className={`absolute flex items-center gap-3 group ${onRight ? "flex-row" : "flex-row-reverse"}`}
+                className={`flex items-center gap-3 group ${onRight ? "flex-row" : "flex-row-reverse"}`}
               >
                 <div
                   style={{ clipPath: HEX_CLIP, width: HEX_SIZE, height: HEX_SIZE }}

@@ -160,25 +160,23 @@ async function generatePortfolioJson(): Promise<number> {
 export { generatePortfolioJson };
 
 async function main() {
-	const count = await generatePortfolioJson();
-	console.log(`✅ Wrote ${count} published project(s) to ${OUTPUT_PATH}`);
-  }
-  
-  // Only run when this file is executed directly (`tsx scripts/buildPortfolio.ts`,
-  // as part of `npm run prebuild`) — NOT when imported as a module, which is what
-  // api/get-full-project.ts does to reuse mapProjectRow. Without this guard,
-  // merely importing this file (even just for one function) unconditionally runs
-  // main(), which tries to write portfolio.generated.json to a read-only
-  // production filesystem and then calls process.exit(1) on failure — killing
-  // whatever function imported it. This is what broke /api/get-full-project.
-  const isMainModule = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
-  if (isMainModule) {
-	main().catch((err) => {
-	  console.error("❌ buildPortfolio failed:", err);
-	  process.exit(1);
-	});
-  }
-main().catch((err) => {
-  console.error("❌ buildPortfolio failed:", err);
-  process.exit(1);
-});
+  const count = await generatePortfolioJson();
+  console.log(`✅ Wrote ${count} published project(s) to ${OUTPUT_PATH}`);
+}
+
+// Only run when this file is executed directly (`tsx scripts/buildPortfolio.ts`,
+// as part of `npm run prebuild`) — NOT when imported as a module, which is
+// what api/get-full-project.ts does to reuse mapProjectRow. Without this
+// guard, merely importing this file (even just for one function) unconditionally
+// runs main(), which tries to write portfolio.generated.json to a read-only
+// production filesystem and then calls process.exit(1) on failure — killing
+// whatever function imported it. This is exactly what's been breaking
+// /api/get-full-project: every cold start imports mapProjectRow from here,
+// which silently re-ran the whole build script as a side effect.
+const isMainModule = process.argv[1] ? import.meta.url === pathToFileURL(process.argv[1]).href : false;
+if (isMainModule) {
+  main().catch((err) => {
+    console.error("❌ buildPortfolio failed:", err);
+    process.exit(1);
+  });
+}
